@@ -96,13 +96,6 @@ export default function Footer() {
             © {currentYear} BitcoinStart Nordics. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <a
-              href="#"
-              className="text-slate-400 dark:text-slate-600 hover:text-orange-500 transition-colors"
-            >
-              <span className="sr-only">LinkedIn</span>
-              <span className="text-xs font-bold tracking-tighter">LI</span>
-            </a>
             <button
               onClick={scrollToTop}
               className="text-slate-400 dark:text-slate-600 hover:text-orange-500 transition-colors"
