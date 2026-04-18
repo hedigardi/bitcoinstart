@@ -29,7 +29,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           <img
             src="/logo.png"
             alt="BitcoinStart Nordics Logo"
-            className="h-20 w-auto dark:brightness-110"
+            className="h-28 w-auto dark:brightness-110"
             referrerPolicy="no-referrer"
           />
         </motion.a>
