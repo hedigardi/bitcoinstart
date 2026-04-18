@@ -1,5 +1,11 @@
+import { ArrowUp } from "lucide-react";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
@@ -97,13 +103,13 @@ export default function Footer() {
               <span className="sr-only">LinkedIn</span>
               <span className="text-xs font-bold tracking-tighter">LI</span>
             </a>
-            <a
-              href="#"
+            <button
+              onClick={scrollToTop}
               className="text-slate-400 dark:text-slate-600 hover:text-orange-500 transition-colors"
+              aria-label="Scroll to top"
             >
-              <span className="sr-only">Twitter</span>
-              <span className="text-xs font-bold tracking-tighter">TW</span>
-            </a>
+              <ArrowUp size={20} />
+            </button>
           </div>
         </div>
       </div>
