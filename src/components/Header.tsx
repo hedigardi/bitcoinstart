@@ -20,16 +20,16 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <motion.a 
+        <motion.a
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          href="#hero" 
+          href="#hero"
           className="min-w-0"
         >
-          <img 
-            src="/logo.png" 
-            alt="BitcoinStart Nordics Logo" 
-            className="h-10 w-auto dark:brightness-110"
+          <img
+            src="/logo.png"
+            alt="BitcoinStart Nordics Logo"
+            className="h-14 w-auto dark:brightness-110"
             referrerPolicy="no-referrer"
           />
         </motion.a>
@@ -48,7 +48,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
               {item.name}
             </motion.a>
           ))}
-          
+
           <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 mx-2" />
 
           <button
@@ -84,7 +84,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           >
             Book
           </a>
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-1 text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors"
             aria-label="Toggle Menu"
@@ -121,5 +121,3 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
     </header>
   );
 }
-
-
