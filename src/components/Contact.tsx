@@ -46,10 +46,10 @@ export default function Contact() {
                 Email
               </div>
               <a
-                href="mailto:hello@bitcoinstartnordics.com"
+                href="mailto:contact@bitcoinstart.no"
                 className="mt-2 inline-block text-xl font-semibold text-slate-900 dark:text-white hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
               >
-                hello@bitcoinstartnordics.com
+                contact@bitcoinstart.no
               </a>
             </div>
 
