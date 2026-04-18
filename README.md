@@ -1,45 +1,20 @@
-# BitcoinStart Nordics
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-BitcoinStart Nordics is a simple landing page built with React and TypeScript.
+# Run and deploy your AI Studio app
 
-The project is designed for a Bitcoin-focused education and onboarding business that helps beginners and small businesses across the Nordics understand Bitcoin in a simple, practical, and safer way.
+This contains everything you need to run your app locally.
 
-## Purpose
+View your app in AI Studio: https://ai.studio/apps/17d6b36a-6481-44b8-bbf2-445330ca06b8
 
-This website is built to present:
+## Run Locally
 
-- Bitcoin education services
-- beginner-friendly onboarding
-- wallet and security guidance
-- workshops for small businesses
-- a clear and no-hype introduction to Bitcoin
+**Prerequisites:**  Node.js
 
-## Tech Stack
 
-- React
-- TypeScript
-- Tailwind CSS
-
-## Features
-
-- Responsive landing page
-- clean and modern layout
-- services section
-- FAQ section
-- booking section
-- contact section
-- simple call-to-actions
-
-## Project Structure
-
-The project currently includes:
-
-- a main landing page component
-- sections for hero, services, about, FAQ, booking, and contact
-
-## Getting Started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/hedigardi/bitcoinstart.git
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
