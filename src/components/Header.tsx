@@ -240,120 +240,6 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           >
             {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
           </button>
-          <Select
-            value={languageOptions.find(
-              (option) => option.value === i18n.language,
-            )}
-            onChange={(selectedOption) =>
-              selectedOption && i18n.changeLanguage(selectedOption.value)
-            }
-            options={languageOptions}
-            components={{
-              Option: customOption,
-              SingleValue: customSingleValue,
-            }}
-            menuPosition="absolute"
-            menuPortalTarget={document.body}
-            styles={{
-              control: (provided) => ({
-                ...provided,
-                backgroundColor:
-                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
-                borderColor:
-                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                borderRadius: "0.75rem",
-                minHeight: "2.5rem",
-                height: "2.5rem",
-                padding: "0",
-                boxShadow: "none",
-                display: "flex",
-                alignItems: "center",
-                "&:hover": {
-                  borderColor:
-                    theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                },
-              }),
-              valueContainer: (provided) => ({
-                ...provided,
-                padding: "0 0.75rem",
-                height: "100%",
-                minHeight: "auto",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }),
-              singleValue: (provided) => ({
-                ...provided,
-                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)",
-                margin: "0",
-                padding: "0",
-                lineHeight: "1.2",
-                display: "flex",
-                alignItems: "center",
-                height: "100%",
-              }),
-              input: (provided) => ({
-                ...provided,
-                margin: "0",
-                padding: "0",
-              }),
-              placeholder: (provided) => ({
-                ...provided,
-                margin: "0",
-                padding: "0",
-                lineHeight: "1.2",
-              }),
-              menu: (provided) => ({
-                ...provided,
-                backgroundColor:
-                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
-                borderColor:
-                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
-                marginTop: "0px !important",
-                marginBottom: "0px",
-                padding: "0px",
-                top: "100%",
-                position: "absolute",
-                transform: "translateY(0px)",
-                boxShadow: "none",
-                overflow: "hidden",
-              }),
-              menuList: (provided) => ({
-                ...provided,
-                padding: "0px",
-                margin: "0px",
-                borderRadius: "inherit",
-                overflow: "hidden",
-                minHeight: "auto",
-              }),
-              menuPortal: (provided) => ({
-                ...provided,
-                zIndex: 9999,
-              }),
-              option: (provided, state) => ({
-                ...provided,
-                backgroundColor: state.isSelected
-                  ? theme === "dark"
-                    ? "rgb(51 65 85)"
-                    : "rgb(226 232 240)"
-                  : "transparent",
-                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)",
-                padding: "0px 0.75rem",
-                margin: "0px",
-                minHeight: "2.5rem",
-                display: "flex",
-                alignItems: "center",
-                lineHeight: "1.2",
-                "&:hover": {
-                  backgroundColor:
-                    theme === "dark" ? "rgb(30 41 59)" : "rgb(241 245 249)",
-                },
-              }),
-            }}
-            className="w-32"
-            isSearchable={false}
-          />
           <a
             href="#booking"
             className="rounded-lg bg-orange-500 px-3 py-1.5 text-xs font-bold text-white shadow-sm"
@@ -390,6 +276,134 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
                   {item.name}
                 </a>
               ))}
+              <div className="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+                <Select
+                  value={languageOptions.find(
+                    (option) => option.value === i18n.language,
+                  )}
+                  onChange={(selectedOption) => {
+                    if (selectedOption) {
+                      i18n.changeLanguage(selectedOption.value);
+                      setIsOpen(false);
+                    }
+                  }}
+                  options={languageOptions}
+                  components={{
+                    Option: customOption,
+                    SingleValue: customSingleValue,
+                  }}
+                  menuPosition="absolute"
+                  menuPortalTarget={document.body}
+                  styles={{
+                    control: (provided) => ({
+                      ...provided,
+                      backgroundColor:
+                        theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
+                      borderColor:
+                        theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                      borderRadius: "0.75rem",
+                      minHeight: "2.5rem",
+                      height: "2.5rem",
+                      padding: "0",
+                      boxShadow: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      "&:hover": {
+                        borderColor:
+                          theme === "dark"
+                            ? "rgb(51 65 85)"
+                            : "rgb(226 232 240)",
+                      },
+                    }),
+                    valueContainer: (provided) => ({
+                      ...provided,
+                      padding: "0 0.75rem",
+                      height: "100%",
+                      minHeight: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                    }),
+                    singleValue: (provided) => ({
+                      ...provided,
+                      color:
+                        theme === "dark"
+                          ? "rgb(148 163 184)"
+                          : "rgb(71 85 105)",
+                      margin: "0",
+                      padding: "0",
+                      lineHeight: "1.2",
+                      display: "flex",
+                      alignItems: "center",
+                      height: "100%",
+                    }),
+                    input: (provided) => ({
+                      ...provided,
+                      margin: "0",
+                      padding: "0",
+                    }),
+                    placeholder: (provided) => ({
+                      ...provided,
+                      margin: "0",
+                      padding: "0",
+                      lineHeight: "1.2",
+                    }),
+                    menu: (provided) => ({
+                      ...provided,
+                      backgroundColor:
+                        theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
+                      borderColor:
+                        theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                      border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
+                      marginTop: "0px !important",
+                      marginBottom: "0px",
+                      padding: "0px",
+                      top: "100%",
+                      position: "absolute",
+                      transform: "translateY(0px)",
+                      boxShadow: "none",
+                      overflow: "hidden",
+                    }),
+                    menuList: (provided) => ({
+                      ...provided,
+                      padding: "0px",
+                      margin: "0px",
+                      borderRadius: "inherit",
+                      overflow: "hidden",
+                      minHeight: "auto",
+                    }),
+                    menuPortal: (provided) => ({
+                      ...provided,
+                      zIndex: 9999,
+                    }),
+                    option: (provided, state) => ({
+                      ...provided,
+                      backgroundColor: state.isSelected
+                        ? theme === "dark"
+                          ? "rgb(51 65 85)"
+                          : "rgb(226 232 240)"
+                        : "transparent",
+                      color:
+                        theme === "dark"
+                          ? "rgb(148 163 184)"
+                          : "rgb(71 85 105)",
+                      padding: "0px 0.75rem",
+                      margin: "0px",
+                      minHeight: "2.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      lineHeight: "1.2",
+                      "&:hover": {
+                        backgroundColor:
+                          theme === "dark"
+                            ? "rgb(30 41 59)"
+                            : "rgb(241 245 249)",
+                      },
+                    }),
+                  }}
+                  isSearchable={false}
+                />
+              </div>
             </nav>
           </motion.div>
         )}
