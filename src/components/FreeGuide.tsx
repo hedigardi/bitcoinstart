@@ -2,8 +2,21 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 export default function FreeGuide() {
-  const { t } = useTranslation("freeguide");
+  const { t, i18n } = useTranslation("freeguide");
   const features = t("features", { returnObjects: true }) as string[];
+
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "no")
+    .toLowerCase()
+    .split("-")[0];
+
+  const pdfByLanguage: Record<string, string> = {
+    en: "bitcoin-beginner-guide_EN.pdf",
+    no: "bitcoin-beginner-guide_NO.pdf",
+    sv: "bitcoin-beginner-guide_SE.pdf",
+    da: "bitcoin-beginner-guide_DK.pdf",
+  };
+
+  const selectedPdf = pdfByLanguage[currentLang] || pdfByLanguage.no;
 
   return (
     <section className="border-y border-slate-200 dark:border-slate-800 bg-orange-50 dark:bg-orange-950/20 relative overflow-hidden transition-colors duration-300">
@@ -51,8 +64,8 @@ export default function FreeGuide() {
             </p>
             <div className="mt-8">
               <a
-                href="/bitcoin-beginner-guide.pdf"
-                download="5-Beginner-Mistakes-to-Avoid-in-Bitcoin.pdf"
+                href={`/${selectedPdf}`}
+                download={selectedPdf}
                 className="w-full rounded-2xl bg-orange-600 px-5 py-4 text-sm font-bold text-white transition hover:bg-orange-700 shadow-lg shadow-orange-900/10 dark:shadow-none active:scale-[0.98] inline-block text-center"
               >
                 {t("download.button")}
