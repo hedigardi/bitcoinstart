@@ -61,9 +61,6 @@ export default function FreeGuide() {
                 Download Guide
               </a>
             </div>
-            <p className="mt-4 text-center text-xs text-slate-400 dark:text-slate-500">
-              By signing up, you agree to our privacy policy.
-            </p>
           </motion.div>
         </div>
       </div>
