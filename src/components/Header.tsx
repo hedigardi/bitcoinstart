@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import Select from "react-select";
 
 interface HeaderProps {
   theme: string;
@@ -9,13 +11,58 @@ interface HeaderProps {
 
 export default function Header({ theme, toggleTheme }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, i18n } = useTranslation("common");
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.services"), href: "#services" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.faq"), href: "#faq" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
+
+  const languageOptions = [
+    { value: "en", label: "English", flag: "fi fi-us" },
+    { value: "no", label: "Norsk", flag: "fi fi-no" },
+    { value: "sv", label: "Svenska", flag: "fi fi-se" },
+    { value: "da", label: "Dansk", flag: "fi fi-dk" },
+  ];
+
+  const customOption = (props: any) => {
+    const { data, innerRef, innerProps } = props;
+    return (
+      <div
+        ref={innerRef}
+        {...innerProps}
+        className={`flex items-center px-3 h-10 cursor-pointer text-sm ${
+          theme === "dark"
+            ? "hover:bg-slate-700 text-slate-300"
+            : "hover:bg-slate-100 text-slate-700"
+        }`}
+        style={{ width: "100%", lineHeight: "1.2" }}
+      >
+        <span className={`${data.flag} mr-2`}></span>
+        <span>{data.label}</span>
+      </div>
+    );
+  };
+
+  const customSingleValue = (props: any) => {
+    const { data } = props;
+    return (
+      <div
+        className={`flex items-center gap-2 h-full text-sm leading-none ${
+          theme === "dark" ? "text-slate-400" : "text-slate-600"
+        }`}
+        style={{ minHeight: "1rem" }}
+      >
+        <span
+          className={`${data.flag} inline-flex h-4 w-6 items-center justify-center`}
+          style={{ lineHeight: 1 }}
+        />
+        <span className="leading-none">{data.label}</span>
+      </div>
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors duration-300">
@@ -54,10 +101,125 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-all border border-slate-200 dark:border-slate-800"
-            aria-label="Toggle Theme"
+            aria-label={t("aria.toggleTheme")}
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
+
+          <Select
+            value={languageOptions.find(
+              (option) => option.value === i18n.language,
+            )}
+            onChange={(selectedOption) =>
+              selectedOption && i18n.changeLanguage(selectedOption.value)
+            }
+            options={languageOptions}
+            components={{
+              Option: customOption,
+              SingleValue: customSingleValue,
+            }}
+            menuPosition="absolute"
+            menuPortalTarget={document.body}
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                backgroundColor:
+                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)", // slate-900 or slate-50
+                borderColor:
+                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)", // slate-700 or slate-200
+                borderRadius: "0.75rem",
+                minHeight: "2.5rem",
+                height: "2.5rem",
+                padding: "0",
+                boxShadow: "none",
+                display: "flex",
+                alignItems: "center",
+                "&:hover": {
+                  borderColor:
+                    theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                },
+              }),
+              valueContainer: (provided) => ({
+                ...provided,
+                padding: "0 0.75rem",
+                height: "100%",
+                minHeight: "auto",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)", // slate-400 or slate-600
+                margin: "0",
+                padding: "0",
+                lineHeight: "1.2",
+                display: "flex",
+                alignItems: "center",
+                height: "100%",
+              }),
+              input: (provided) => ({
+                ...provided,
+                margin: "0",
+                padding: "0",
+              }),
+              placeholder: (provided) => ({
+                ...provided,
+                margin: "0",
+                padding: "0",
+                lineHeight: "1.2",
+              }),
+              menu: (provided) => ({
+                ...provided,
+                backgroundColor:
+                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)", // slate-900 or slate-50
+                borderColor:
+                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)", // slate-700 or slate-200
+                border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
+                marginTop: "0px !important",
+                marginBottom: "0px",
+                padding: "0px",
+                top: "100%",
+                position: "absolute",
+                transform: "translateY(0px)",
+                boxShadow: "none",
+                overflow: "hidden",
+              }),
+              menuList: (provided) => ({
+                ...provided,
+                padding: "0px",
+                margin: "0px",
+                borderRadius: "inherit",
+                overflow: "hidden",
+                minHeight: "auto",
+              }),
+              menuPortal: (provided) => ({
+                ...provided,
+                zIndex: 9999,
+              }),
+              option: (provided, state) => ({
+                ...provided,
+                backgroundColor: state.isSelected
+                  ? theme === "dark"
+                    ? "rgb(51 65 85)"
+                    : "rgb(226 232 240)"
+                  : "transparent",
+                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)", // slate-400 or slate-600
+                padding: "0px 0.75rem",
+                margin: "0px",
+                minHeight: "2.5rem",
+                display: "flex",
+                alignItems: "center",
+                lineHeight: "1.2",
+                "&:hover": {
+                  backgroundColor:
+                    theme === "dark" ? "rgb(30 41 59)" : "rgb(241 245 249)", // slate-800 or slate-100
+                },
+              }),
+            }}
+            className="w-32"
+            isSearchable={false}
+          />
 
           <motion.a
             initial={{ opacity: 0, scale: 0.9 }}
@@ -65,7 +227,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             href="#booking"
             className="rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-100 dark:shadow-none transition hover:bg-orange-600 active:scale-95"
           >
-            Book a Session
+            {t("nav.bookSession")}
           </motion.a>
         </nav>
 
@@ -74,20 +236,134 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400"
-            aria-label="Toggle Theme"
+            aria-label={t("aria.toggleTheme")}
           >
             {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
           </button>
+          <Select
+            value={languageOptions.find(
+              (option) => option.value === i18n.language,
+            )}
+            onChange={(selectedOption) =>
+              selectedOption && i18n.changeLanguage(selectedOption.value)
+            }
+            options={languageOptions}
+            components={{
+              Option: customOption,
+              SingleValue: customSingleValue,
+            }}
+            menuPosition="absolute"
+            menuPortalTarget={document.body}
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                backgroundColor:
+                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
+                borderColor:
+                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                borderRadius: "0.75rem",
+                minHeight: "2.5rem",
+                height: "2.5rem",
+                padding: "0",
+                boxShadow: "none",
+                display: "flex",
+                alignItems: "center",
+                "&:hover": {
+                  borderColor:
+                    theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                },
+              }),
+              valueContainer: (provided) => ({
+                ...provided,
+                padding: "0 0.75rem",
+                height: "100%",
+                minHeight: "auto",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)",
+                margin: "0",
+                padding: "0",
+                lineHeight: "1.2",
+                display: "flex",
+                alignItems: "center",
+                height: "100%",
+              }),
+              input: (provided) => ({
+                ...provided,
+                margin: "0",
+                padding: "0",
+              }),
+              placeholder: (provided) => ({
+                ...provided,
+                margin: "0",
+                padding: "0",
+                lineHeight: "1.2",
+              }),
+              menu: (provided) => ({
+                ...provided,
+                backgroundColor:
+                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
+                borderColor:
+                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
+                border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
+                marginTop: "0px !important",
+                marginBottom: "0px",
+                padding: "0px",
+                top: "100%",
+                position: "absolute",
+                transform: "translateY(0px)",
+                boxShadow: "none",
+                overflow: "hidden",
+              }),
+              menuList: (provided) => ({
+                ...provided,
+                padding: "0px",
+                margin: "0px",
+                borderRadius: "inherit",
+                overflow: "hidden",
+                minHeight: "auto",
+              }),
+              menuPortal: (provided) => ({
+                ...provided,
+                zIndex: 9999,
+              }),
+              option: (provided, state) => ({
+                ...provided,
+                backgroundColor: state.isSelected
+                  ? theme === "dark"
+                    ? "rgb(51 65 85)"
+                    : "rgb(226 232 240)"
+                  : "transparent",
+                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)",
+                padding: "0px 0.75rem",
+                margin: "0px",
+                minHeight: "2.5rem",
+                display: "flex",
+                alignItems: "center",
+                lineHeight: "1.2",
+                "&:hover": {
+                  backgroundColor:
+                    theme === "dark" ? "rgb(30 41 59)" : "rgb(241 245 249)",
+                },
+              }),
+            }}
+            className="w-32"
+            isSearchable={false}
+          />
           <a
             href="#booking"
             className="rounded-lg bg-orange-500 px-3 py-1.5 text-xs font-bold text-white shadow-sm"
           >
-            Book
+            {t("nav.book")}
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-1 text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors"
-            aria-label="Toggle Menu"
+            aria-label={t("aria.toggleMenu")}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

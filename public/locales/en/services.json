@@ -1,0 +1,55 @@
+{
+  "title": "Our Services",
+  "description": "We offer simple and practical sessions designed to help you understand Bitcoin more clearly and take better next steps.",
+  "whatWeCover": "What we cover",
+  "format": "Format",
+  "duration": "Duration",
+  "price": "Price",
+  "services": [
+    {
+      "title": "Bitcoin Intro Session",
+      "description": "A 60-minute session for beginners who want a clear and practical introduction to Bitcoin.",
+      "bullets": [
+        "What Bitcoin is",
+        "How it works at a high level",
+        "How it differs from crypto speculation",
+        "How to get started safely",
+        "Common mistakes to avoid"
+      ],
+      "format": "Online session",
+      "duration": "60 minutes",
+      "price": "1 490 NOK introductory price",
+      "cta": "Book Bitcoin Intro Session"
+    },
+    {
+      "title": "Wallet & Security Setup",
+      "description": "A 90-minute guided session for people who want practical help getting started with wallets and safer Bitcoin habits.",
+      "bullets": [
+        "Wallet options",
+        "Setup guidance",
+        "Backup principles",
+        "Basic security thinking",
+        "Safer next steps"
+      ],
+      "format": "Online session",
+      "duration": "90 minutes",
+      "price": "3 490 NOK introductory price",
+      "cta": "Book Wallet & Security Setup"
+    },
+    {
+      "title": "Bitcoin for Small Business",
+      "description": "A practical workshop for small businesses that want to understand whether Bitcoin is relevant for them.",
+      "bullets": [
+        "Bitcoin basics for business owners",
+        "Possible use cases",
+        "Payment-related considerations",
+        "Practical opportunities and limitations",
+        "What to think about before taking next steps"
+      ],
+      "format": "Online workshop",
+      "duration": "90–120 minutes",
+      "price": "On request",
+      "cta": "Request Business Workshop"
+    }
+  ]
+}

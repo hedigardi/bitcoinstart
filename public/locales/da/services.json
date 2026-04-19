@@ -1,0 +1,55 @@
+{
+  "title": "Vores tjenester",
+  "description": "Vi tilbyder enkle og praktiske sessioner, der er designet til at hjælpe dig med at forstå Bitcoin bedre og tage bedre næste skridt.",
+  "whatWeCover": "Dette gennemgår vi",
+  "format": "Format",
+  "duration": "Varighed",
+  "price": "Pris",
+  "services": [
+    {
+      "title": "Introduktion til Bitcoin",
+      "description": "En 60-minutters session for begyndere, der ønsker en klar og praktisk introduktion til Bitcoin.",
+      "bullets": [
+        "Hvad Bitcoin er",
+        "Hvordan det fungerer på et overordnet niveau",
+        "Hvordan det adskiller sig fra kryptospekulation",
+        "Hvordan du kommer i gang på en sikker måde",
+        "Almindelige fejl at undgå"
+      ],
+      "format": "Online session",
+      "duration": "60 minutter",
+      "price": "1 490 NOK introduktionspris",
+      "cta": "Book introduktionssession"
+    },
+    {
+      "title": "Wallet og sikkerhedsopsætning",
+      "description": "En 90-minutters guidet session for personer, der ønsker praktisk hjælp til at komme i gang med wallets og mere sikre Bitcoin-vaner.",
+      "bullets": [
+        "Valg af wallet",
+        "Guidet opsætning",
+        "Backup-principper",
+        "Grundlæggende sikkerhedstænkning",
+        "Sikrere næste skridt"
+      ],
+      "format": "Online session",
+      "duration": "90 minutter",
+      "price": "3 490 NOK introduktionspris",
+      "cta": "Book wallet og sikkerhedsopsætning"
+    },
+    {
+      "title": "Bitcoin for små virksomheder",
+      "description": "En praktisk workshop for små virksomheder, der ønsker at forstå, om Bitcoin er relevant for dem.",
+      "bullets": [
+        "Bitcoin-grundlæggende for virksomhedsejere",
+        "Mulige anvendelsestilfælde",
+        "Overvejelser omkring betaling",
+        "Praktiske muligheder og begrænsninger",
+        "Hvad man bør overveje før næste skridt"
+      ],
+      "format": "Online workshop",
+      "duration": "90–120 minutter",
+      "price": "Efter aftale",
+      "cta": "Anmod om workshop"
+    }
+  ]
+}

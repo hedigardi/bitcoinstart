@@ -1,0 +1,55 @@
+{
+  "title": "Våra tjänster",
+  "description": "Vi erbjuder enkla och praktiska sessioner som är utformade för att hjälpa dig att förstå Bitcoin tydligare och ta bättre nästa steg.",
+  "whatWeCover": "Detta går vi igenom",
+  "format": "Format",
+  "duration": "Längd",
+  "price": "Pris",
+  "services": [
+    {
+      "title": "Introduktion till Bitcoin",
+      "description": "En 60-minuters session för nybörjare som vill ha en tydlig och praktisk introduktion till Bitcoin.",
+      "bullets": [
+        "Vad Bitcoin är",
+        "Hur det fungerar på en övergripande nivå",
+        "Hur det skiljer sig från kryptospekulation",
+        "Hur du kommer igång på ett säkert sätt",
+        "Vanliga misstag att undvika"
+      ],
+      "format": "Online session",
+      "duration": "60 minuter",
+      "price": "1 490 NOK introduktionspris",
+      "cta": "Boka introduktionssession"
+    },
+    {
+      "title": "Plånbok och säkerhetssetup",
+      "description": "En 90-minuters guidad session för personer som vill ha praktisk hjälp med att komma igång med plånböcker och säkrare Bitcoin-vanor.",
+      "bullets": [
+        "Val av plånbok",
+        "Guidning i setup",
+        "Principer för backup",
+        "Grundläggande säkerhetstänk",
+        "Säkrare nästa steg"
+      ],
+      "format": "Online session",
+      "duration": "90 minuter",
+      "price": "3 490 NOK introduktionspris",
+      "cta": "Boka plånbok och säkerhetssetup"
+    },
+    {
+      "title": "Bitcoin för småföretag",
+      "description": "En praktisk workshop för småföretag som vill förstå om Bitcoin är relevant för dem.",
+      "bullets": [
+        "Grunderna i Bitcoin för företagare",
+        "Möjliga användningsområden",
+        "Betalningsrelaterade överväganden",
+        "Praktiska möjligheter och begränsningar",
+        "Vad man bör tänka på innan nästa steg"
+      ],
+      "format": "Online workshop",
+      "duration": "90–120 minuter",
+      "price": "På förfrågan",
+      "cta": "Begär workshop"
+    }
+  ]
+}

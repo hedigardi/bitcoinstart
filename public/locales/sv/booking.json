@@ -1,0 +1,50 @@
+{
+  "success": {
+    "title": "Tack!",
+    "message": "Din bokningsförfrågan har skickats. Vi återkommer inom 24 timmar."
+  },
+  "title": "Boka en session",
+  "description": [
+    "Oavsett om du är helt ny inom Bitcoin eller redan har börjat utforska det och vill ha mer tydlighet, erbjuder BitcoinStart Nordics praktiska sessioner som hjälper dig att gå vidare med större trygghet.",
+    "Vi fokuserar på enkla förklaringar, lugnare vägledning och säkrare onboarding för nybörjare och småföretag i Norden.",
+    "Berätta lite om vad du vill ha hjälp med så ser vi till att sessionen anpassas efter dina behov."
+  ],
+  "form": {
+    "placeholders": {
+      "name": "Namn",
+      "email": "E-post",
+      "message": "Vad vill du främst ha hjälp med?"
+    },
+    "selects": {
+      "session": {
+        "default": "Vilken session är du intresserad av?",
+        "options": [
+          "Introduktion till Bitcoin",
+          "Plånbok och säkerhetssetup",
+          "Bitcoin för småföretag"
+        ]
+      },
+      "experience": {
+        "default": "Din nuvarande erfarenhetsnivå?",
+        "options": [
+          "Helt nybörjare",
+          "Jag har börjat lite",
+          "Jag äger redan Bitcoin",
+          "Företagsrelaterad förfrågan"
+        ]
+      }
+    },
+    "buttons": {
+      "submit": "Skicka bokningsförfrågan",
+      "submitting": "Skickar..."
+    },
+    "footer": "Vi återkommer inom 24 timmar.",
+    "validation": {
+      "name": "Namn",
+      "email": "E-post",
+      "session": "Session",
+      "experience": "Erfarenhet",
+      "message": "Meddelande"
+    }
+  }
+}

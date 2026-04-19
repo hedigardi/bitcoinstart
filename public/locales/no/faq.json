@@ -1,0 +1,54 @@
+{
+  "title": "Ofte stilte spørsmål",
+  "description": "Alt du trenger å vite for å komme i gang.",
+  "faqs": [
+    {
+      "q": "Trenger vi noen forkunnskaper om Bitcoin?",
+      "a": "Nei. Sesjonene våre er designet for nybegynnere og for folk som ønsker en enklere og klarere forståelse av Bitcoin uten å føle seg overveldet."
+    },
+    {
+      "q": "Er dette finansiell rådgivning?",
+      "a": "Nei. BitcoinStart Nordics fokuserer på opplæring, onboarding og praktisk veiledning. Vi tilbyr ikke finansiell rådgivning, skatterådgivning eller investeringsråd."
+    },
+    {
+      "q": "Hva hjelper dere egentlig med?",
+      "a": "Vi hjelper med å forstå Bitcoin, komme i gang på en praktisk måte, lære det grunnleggende om lommebøker og sikkerhet, og unngå vanlige nybegynnerfeil."
+    },
+    {
+      "q": "Hjelper dere med oppsett av lommebok?",
+      "a": "Ja. Vår sesjon for 'Oppsett av lommebok og sikkerhet' er designet for folk som ønsker praktisk veiledning rundt ulike lommebøker, sikkerhetskopiering og tryggere Bitcoin-vaner."
+    },
+    {
+      "q": "Kan helt ferske nybegynnere bestille en sesjon?",
+      "a": "Ja. Faktisk er det nettopp dem de fleste av våre sesjoner er designet for."
+    },
+    {
+      "q": "Må vi eie Bitcoin fra før?",
+      "a": "Nei. Mange bestiller en sesjon før de tar sitt første steg, rett og slett for å forstå Bitcoin bedre og få klarhet i hva som er de rette stegene videre."
+    },
+    {
+      "q": "Jobber dere med småbedrifter?",
+      "a": "Ja. Vi tilbyr praktiske Bitcoin-workshops og veiledning for småbedrifter som ønsker å forstå om Bitcoin er relevant for dem."
+    },
+    {
+      "q": "Hvilke språk tilbyr dere sesjoner på?",
+      "a": "Vi tilbyr for øyeblikket sesjoner på engelsk og svensk."
+    },
+    {
+      "q": "Foregår sesjonene på nett eller ved personlig oppmøte?",
+      "a": "Sesjonene er for øyeblikket tilgjengelige på nett, noe som gjør det enkelt for kunder over hele Norden å bestille."
+    },
+    {
+      "q": "Hva skjer etter bestilling?",
+      "a": "Når en sesjon er bestilt, sender vi en bekreftelse med møtelenke og relevant informasjon du trenger før sesjonen starter."
+    },
+    {
+      "q": "Hva sitter vi igjen med etter en sesjon?",
+      "a": "Du vil sitte igjen med mer klarhet, en bedre forståelse av Bitcoin og praktiske steg videre basert på der du er i dag."
+    },
+    {
+      "q": "Kan vi stille spørsmål i løpet av sesjonen?",
+      "a": "Absolutt. Sesjonene er ment å være praktiske, interaktive og tilpasset ditt nivå og dine behov."
+    }
+  ]
+}

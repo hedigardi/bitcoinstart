@@ -1,0 +1,34 @@
+{
+  "whatWeHelpWith": [
+    "Simple Bitcoin education for beginners",
+    "Practical onboarding without technical overload",
+    "Wallet guidance and security basics",
+    "Common mistakes and how to avoid them",
+    "Bitcoin workshops for small businesses",
+    "Clear support in English and Swedish"
+  ],
+  "quickHelpTitle": "Understanding Bitcoin should not feel confusing",
+  "quickHelpDescription": "We bridge the gap between technical complexity and practical understanding.",
+  "whatWeHelpWith": [
+    "Simple Bitcoin education for beginners",
+    "Practical onboarding without technical overload",
+    "Wallet guidance and security basics",
+    "Common mistakes and how to avoid them",
+    "Bitcoin workshops for small businesses",
+    "Clear support in English and Swedish"
+  ],
+  "steps": [
+    {
+      "title": "1. Book a session",
+      "text": "Choose the session that fits where you are today."
+    },
+    {
+      "title": "2. Get clear guidance",
+      "text": "We go through your questions, your goals, and the most practical next steps."
+    },
+    {
+      "title": "3. Move forward with confidence",
+      "text": "You leave with more clarity, better understanding, and a safer path forward."
+    }
+  ]
+}

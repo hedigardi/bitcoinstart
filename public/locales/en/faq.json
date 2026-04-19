@@ -1,0 +1,54 @@
+{
+  "title": "Frequently Asked Questions",
+  "description": "Everything you need to know about getting started.",
+  "faqs": [
+    {
+      "q": "Do we need any prior Bitcoin knowledge?",
+      "a": "No. Our sessions are designed for beginners and for people who want a simpler, clearer understanding of Bitcoin without feeling overwhelmed."
+    },
+    {
+      "q": "Is this financial advice?",
+      "a": "No. BitcoinStart Nordics focuses on education, onboarding, and practical guidance. We do not provide financial, tax, or investment advice."
+    },
+    {
+      "q": "What do we actually help with?",
+      "a": "We help with understanding Bitcoin, getting started in a practical way, learning the basics of wallets and security, and avoiding common beginner mistakes."
+    },
+    {
+      "q": "Do we help with wallet setup?",
+      "a": "Yes. Our Wallet & Security Setup session is designed for people who want practical guidance around wallet options, backup thinking, and safer Bitcoin habits."
+    },
+    {
+      "q": "Can complete beginners book a session?",
+      "a": "Yes. In fact, that is exactly who most of our sessions are designed for."
+    },
+    {
+      "q": "Do we need to already own Bitcoin?",
+      "a": "No. Many people book a session before taking any action, simply to understand Bitcoin better and get clarity on the right next steps."
+    },
+    {
+      "q": "Do we work with small businesses?",
+      "a": "Yes. We offer practical Bitcoin workshops and guidance for small businesses that want to understand whether Bitcoin is relevant for them."
+    },
+    {
+      "q": "Which languages do we offer sessions in?",
+      "a": "We currently offer sessions in English and Swedish."
+    },
+    {
+      "q": "Are sessions online or in person?",
+      "a": "Sessions are currently available online, making it easy for clients across the Nordics to book."
+    },
+    {
+      "q": "What happens after booking?",
+      "a": "Once a session is booked, we send a confirmation with the meeting link and any relevant information needed before the session."
+    },
+    {
+      "q": "What will we leave with after a session?",
+      "a": "You will leave with more clarity, a better understanding of Bitcoin, and practical next steps based on where you are today."
+    },
+    {
+      "q": "Can we ask questions during the session?",
+      "a": "Absolutely. Sessions are meant to be practical, interactive, and tailored to your level and needs."
+    }
+  ]
+}

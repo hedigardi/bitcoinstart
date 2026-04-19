@@ -1,0 +1,26 @@
+{
+  "tag": "Basert i Norge. Betjener kunder over hele Norden.",
+  "title": "Bitcoin gjort enkelt for nybegynnere og småbedrifter i hele Norden",
+  "description": "Vi hjelper folk med å forstå Bitcoin på en enkel, praktisk og tryggere måte. Ingen hype. Ingen støy. Bare klar veiledning, bedre forståelse og praktisk onboarding.",
+  "cta": "Bestill en introsesjon",
+  "learnMore": "Les mer",
+  "subtext": "Nybegynnervennlig på engelsk og svensk",
+  "info": {
+    "focus": {
+      "label": "Fokus",
+      "value": "Klar Bitcoin-opplæring"
+    },
+    "approach": {
+      "label": "Tilnærming",
+      "value": "Praktisk og uten hype"
+    },
+    "sessions": {
+      "label": "Sesjoner",
+      "value": "Digitalt over hele Norden"
+    },
+    "languages": {
+      "label": "Språk",
+      "value": "Engelsk og svensk"
+    }
+  }
+}

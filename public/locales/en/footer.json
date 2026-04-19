@@ -1,0 +1,11 @@
+{
+  "footer": {
+    "quickLinksTitle": "Quick Links",
+    "supportTitle": "Support",
+    "links": {
+      "emailSupport": "Email support",
+      "privacy": "Privacy policy",
+      "terms": "Terms & conditions"
+    }
+  }
+}

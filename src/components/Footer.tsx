@@ -1,10 +1,28 @@
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation("common");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const [modalTitle, setModalTitle] = useState("");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openModal = (title: string, content: string) => {
+    setModalTitle(title);
+    setModalContent(content);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalContent("");
+    setModalTitle("");
   };
 
   return (
@@ -21,18 +39,14 @@ export default function Footer() {
               />
             </a>
             <div className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-500 uppercase tracking-widest">
-              Simple Bitcoin guidance. Safer first steps.
+              {t("footer.tagline")}
             </div>
             <p className="mt-6 text-sm leading-7 text-slate-500 dark:text-slate-400">
-              BitcoinStart Nordics helps beginners and small businesses
-              understand Bitcoin in a simple, practical, and safer way. Our
-              mission is to provide clarity in a technical space.
+              {t("footer.description")}
             </p>
             <div className="mt-8 space-y-4">
               <p className="text-[10px] leading-4 text-slate-400 dark:text-slate-600 font-medium border-l-2 border-slate-200 dark:border-slate-800 pl-4 uppercase tracking-tighter">
-                Disclaimer: BitcoinStart Nordics provides educational and
-                practical guidance only and does not offer financial, tax, or
-                investment advice.
+                {t("footer.disclaimer")}
               </p>
             </div>
           </div>
@@ -40,17 +54,17 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-16 gap-y-10 sm:grid-cols-2">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-300 uppercase tracking-widest">
-                Quick Links
+                {t("footer.quickLinksTitle")}
               </h3>
               <ul className="mt-6 space-y-4">
-                {["Hero", "Services", "About", "FAQ", "Booking", "Contact"].map(
-                  (item) => (
-                    <li key={item}>
+                {["hero", "services", "about", "faq", "booking", "contact"].map(
+                  (key) => (
+                    <li key={key}>
                       <a
-                        href={`#${item.toLowerCase()}`}
+                        href={`#${key}`}
                         className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
                       >
-                        {item}
+                        {t(`footer.links.${key}`)}
                       </a>
                     </li>
                   ),
@@ -59,7 +73,7 @@ export default function Footer() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-300 uppercase tracking-widest">
-                Support
+                {t("footer.supportTitle")}
               </h3>
               <ul className="mt-6 space-y-4">
                 <li>
@@ -67,24 +81,34 @@ export default function Footer() {
                     href="mailto:contact@bitcoinstart.no"
                     className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
                   >
-                    Email Support
+                    {t("footer.links.emailSupport")}
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() =>
+                      openModal(
+                        t("footer.links.privacy"),
+                        t("footer.privacyContent"),
+                      )
+                    }
                     className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
                   >
-                    Privacy Policy
-                  </a>
+                    {t("footer.links.privacy")}
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() =>
+                      openModal(
+                        t("footer.links.terms"),
+                        t("footer.termsContent"),
+                      )
+                    }
                     className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
                   >
-                    Terms of Service
-                  </a>
+                    {t("footer.links.terms")}
+                  </button>
                 </li>
               </ul>
             </div>
@@ -93,7 +117,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-slate-400 dark:text-slate-600 font-medium">
-            © {currentYear} BitcoinStart Nordics. All rights reserved.
+            {t("footer.copyright", { year: currentYear })}
           </div>
           <div className="flex items-center gap-6">
             <button
@@ -106,6 +130,37 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white dark:bg-slate-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 p-4 flex justify-between items-center">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                {modalTitle}
+              </h2>
+              <button
+                onClick={closeModal}
+                className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                aria-label="Close modal"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className="p-6 prose dark:prose-invert max-w-none">
+              <pre className="whitespace-pre-line text-sm leading-6 text-slate-700 dark:text-slate-300">
+                {modalContent}
+              </pre>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

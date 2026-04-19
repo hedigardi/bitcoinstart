@@ -1,0 +1,55 @@
+{
+  "title": "Våre tjenester",
+  "description": "Vi tilbyr enkle og praktiske sesjoner designet for å hjelpe deg med å forstå Bitcoin bedre, slik at du kan ta tryggere valg videre.",
+  "whatWeCover": "Hva vi går gjennom",
+  "format": "Format",
+  "duration": "Varighet",
+  "price": "Pris",
+  "services": [
+    {
+      "title": "Bitcoin Introsesjon",
+      "description": "En 60-minutters sesjon for nybegynnere som ønsker en tydelig og praktisk introduksjon til Bitcoin.",
+      "bullets": [
+        "Hva Bitcoin er",
+        "Hvordan det fungerer på et overordnet nivå",
+        "Hvordan det skiller seg fra kryptospekulasjon",
+        "Hvordan komme i gang på en trygg måte",
+        "Vanlige feil du bør unngå"
+      ],
+      "format": "Digital sesjon",
+      "duration": "60 minutter",
+      "price": "1 490 NOK introduksjonspris",
+      "cta": "Bestill Bitcoin Introsesjon"
+    },
+    {
+      "title": "Oppsett av lommebok og sikkerhet",
+      "description": "En 90-minutters veiledet sesjon for personer som ønsker praktisk hjelp til å komme i gang med lommebøker og tryggere Bitcoin-vaner.",
+      "bullets": [
+        "Ulike typer lommebøker",
+        "Veiledning ved oppsett",
+        "Prinsipper for sikkerhetskopiering",
+        "Grunnleggende sikkerhetstenkning",
+        "Tryggere steg videre"
+      ],
+      "format": "Digital sesjon",
+      "duration": "90 minutter",
+      "price": "3 490 NOK introduksjonspris",
+      "cta": "Bestill oppsett av lommebok og sikkerhet"
+    },
+    {
+      "title": "Bitcoin for småbedrifter",
+      "description": "En praktisk workshop for småbedrifter som ønsker å forstå om Bitcoin er relevant for dem.",
+      "bullets": [
+        "Grunnleggende Bitcoin for bedriftseiere",
+        "Mulige bruksområder",
+        "Betalingsrelaterte vurderinger",
+        "Praktiske muligheter og begrensninger",
+        "Hva man bør tenke på før man tar neste steg"
+      ],
+      "format": "Digital workshop",
+      "duration": "90–120 minutter",
+      "price": "På forespørsel",
+      "cta": "Forespør business-workshop"
+    }
+  ]
+}

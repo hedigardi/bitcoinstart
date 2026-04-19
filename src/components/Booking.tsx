@@ -1,8 +1,12 @@
 import { motion } from "motion/react";
 import { useForm, ValidationError } from "@formspree/react";
+import { useTranslation } from "react-i18next";
 
 export default function Booking() {
   const [state, handleSubmit] = useForm("xrerklov");
+  const { t } = useTranslation("booking");
+  const form = t("form", { returnObjects: true }) as any;
+  const description = t("description", { returnObjects: true }) as string[];
 
   if (state.succeeded) {
     return (
@@ -31,11 +35,10 @@ export default function Booking() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-950 dark:text-white mb-2">
-                Thank you!
+                {t("success.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Your booking request has been sent. We'll get back to you within
-                24 hours.
+                {t("success.message")}
               </p>
             </div>
           </motion.div>
@@ -57,22 +60,14 @@ export default function Booking() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
-              Book a Session
+              {t("title")}
             </h2>
             <div className="mt-6 space-y-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-              <p>
-                Whether you are completely new to Bitcoin or already exploring
-                it and want more clarity, BitcoinStart Nordics offers practical
-                sessions designed to help you move forward with more confidence.
-              </p>
-              <p>
-                We focus on simple explanations, calmer guidance, and safer
-                onboarding for beginners and small businesses across the
-                Nordics.
-              </p>
+              {description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
               <p className="font-medium text-slate-900 dark:text-orange-400 border-l-2 border-orange-500 pl-4 py-1 bg-orange-50/50 dark:bg-orange-900/10 rounded-r-xl">
-                Tell us a little about what you want help with, and we will make
-                sure the session fits your needs.
+                {t("description.2")}
               </p>
             </div>
           </motion.div>
@@ -89,12 +84,12 @@ export default function Booking() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Name"
+                    placeholder={form.placeholders.name}
                     className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                     required
                   />
                   <ValidationError
-                    prefix="Name"
+                    prefix={form.validation.name}
                     field="name"
                     errors={state.errors}
                     className="text-red-500 text-sm mt-1"
@@ -104,12 +99,12 @@ export default function Booking() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder={form.placeholders.email}
                     className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                     required
                   />
                   <ValidationError
-                    prefix="Email"
+                    prefix={form.validation.email}
                     field="email"
                     errors={state.errors}
                     className="text-red-500 text-sm mt-1"
@@ -122,19 +117,15 @@ export default function Booking() {
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
                   required
                 >
-                  <option value="">Which session are you interested in?</option>
-                  <option value="Bitcoin Intro Session">
-                    Bitcoin Intro Session
-                  </option>
-                  <option value="Wallet & Security Setup">
-                    Wallet & Security Setup
-                  </option>
-                  <option value="Bitcoin for Small Business">
-                    Bitcoin for Small Business
-                  </option>
+                  <option value="">{form.selects.session.default}</option>
+                  {form.selects.session.options.map((option: string) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
                 </select>
                 <ValidationError
-                  prefix="Session"
+                  prefix={form.validation.session}
                   field="session"
                   errors={state.errors}
                   className="text-red-500 text-sm mt-1"
@@ -146,20 +137,15 @@ export default function Booking() {
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
                   required
                 >
-                  <option value="">Your current experience level?</option>
-                  <option value="Complete beginner">Complete beginner</option>
-                  <option value="I have started a little">
-                    I have started a little
-                  </option>
-                  <option value="I already own some Bitcoin">
-                    I already own some Bitcoin
-                  </option>
-                  <option value="Business-related inquiry">
-                    Business-related inquiry
-                  </option>
+                  <option value="">{form.selects.experience.default}</option>
+                  {form.selects.experience.options.map((option: string) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
                 </select>
                 <ValidationError
-                  prefix="Experience"
+                  prefix={form.validation.experience}
                   field="experience"
                   errors={state.errors}
                   className="text-red-500 text-sm mt-1"
@@ -169,12 +155,12 @@ export default function Booking() {
                 <textarea
                   rows={4}
                   name="message"
-                  placeholder="What would you like help with most?"
+                  placeholder={form.placeholders.message}
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 resize-none"
                   required
                 />
                 <ValidationError
-                  prefix="Message"
+                  prefix={form.validation.message}
                   field="message"
                   errors={state.errors}
                   className="text-red-500 text-sm mt-1"
@@ -185,11 +171,13 @@ export default function Booking() {
                 disabled={state.submitting}
                 className="w-full rounded-2xl bg-orange-500 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-orange-200 dark:shadow-none transition-all hover:bg-orange-600 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {state.submitting ? "Sending..." : "Send Booking Request"}
+                {state.submitting
+                  ? form.buttons.submitting
+                  : form.buttons.submit}
               </button>
             </form>
             <p className="mt-6 text-center text-xs text-slate-400">
-              We'll get back to you within 24 hours.
+              {form.footer}
             </p>
           </motion.div>
         </div>

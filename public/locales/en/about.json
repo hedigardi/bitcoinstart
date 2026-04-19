@@ -1,0 +1,53 @@
+{
+  "whyTitle": "Why BitcoinStart Nordics",
+  "whyParagraphs": [
+    "There is a lot of information about Bitcoin, but not much calm, practical guidance for people who are just getting started.",
+    "BitcoinStart Nordics combines technical understanding with many years of real-world support experience.",
+    "That matters, because most people do not need more complexity. They need clarity, patience, and someone who can explain things in a way that makes sense."
+  ],
+  "valuePoints": [
+    {
+      "title": "Clear communication",
+      "text": "We explain Bitcoin in simple language without unnecessary complexity."
+    },
+    {
+      "title": "Practical guidance",
+      "text": "We focus on what you actually need to understand and do next."
+    },
+    {
+      "title": "No hype",
+      "text": "We help people approach Bitcoin with more clarity and less confusion."
+    }
+  ],
+  "audienceTitle": "Who this is for",
+  "audienceDescription": "BitcoinStart Nordics is designed for people who are interested in Bitcoin but want a calmer, clearer, and more practical starting point.",
+  "audience": [
+    {
+      "title": "Beginners",
+      "text": "For people who want to understand Bitcoin properly without getting lost in technical jargon or online noise."
+    },
+    {
+      "title": "People who want safer first steps",
+      "text": "For those who want help understanding wallets, backup basics, and practical security thinking."
+    },
+    {
+      "title": "Small business owners",
+      "text": "For businesses that want to explore whether Bitcoin is relevant for them and how to think about it in practice."
+    },
+    {
+      "title": "Professionals",
+      "text": "For people who want a structured and no-hype introduction to Bitcoin that respects their time."
+    },
+    {
+      "title": "Clients across the Nordics",
+      "text": "For people who want simple guidance in English or Swedish, with a Nordic-first approach."
+    }
+  ],
+  "foundationTitle": "The Foundation",
+  "foundationParagraphs": [
+    "BitcoinStart Nordics was created by a founder with a background in blockchain and fullstack studies, combined with 10+ years of experience in support across different industries.",
+    "That combination is the foundation of the service.",
+    "Bitcoin can feel overwhelming in the beginning. Many explanations are either too technical or too focused on excitement instead of understanding.",
+    "We make it simpler, calmer, and more practical for real people and small businesses across the Nordic region."
+  ]
+}

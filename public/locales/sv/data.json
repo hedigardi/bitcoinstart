@@ -1,0 +1,26 @@
+{
+  "quickHelpTitle": "Att förstå Bitcoin ska inte kännas förvirrande",
+  "quickHelpDescription": "Vi överbryggar gapet mellan teknisk komplexitet och praktisk förståelse.",
+  "whatWeHelpWith": [
+    "Enkel Bitcoin-utbildning för nybörjare",
+    "Praktisk onboarding utan teknisk överbelastning",
+    "Vägledning kring plånböcker och grundläggande säkerhet",
+    "Vanliga misstag och hur du undviker dem",
+    "Bitcoin-workshops för småföretag",
+    "Tydlig support på engelska och svenska"
+  ],
+  "steps": [
+    {
+      "title": "1. Boka en session",
+      "text": "Välj den session som passar där du befinner dig idag."
+    },
+    {
+      "title": "2. Få tydlig vägledning",
+      "text": "Vi går igenom dina frågor, dina mål och de mest praktiska nästa stegen."
+    },
+    {
+      "title": "3. Gå vidare med trygghet",
+      "text": "Du går därifrån med mer tydlighet, bättre förståelse och en tryggare väg framåt."
+    }
+  ]
+}

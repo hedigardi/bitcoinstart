@@ -1,0 +1,11 @@
+{
+  "footer": {
+    "quickLinksTitle": "Hurtige links",
+    "supportTitle": "Support",
+    "links": {
+      "emailSupport": "E-mail support",
+      "privacy": "Privatlivspolitik",
+      "terms": "Vilkår og betingelser"
+    }
+  }
+}

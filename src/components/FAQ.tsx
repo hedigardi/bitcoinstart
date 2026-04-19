@@ -1,12 +1,22 @@
 import { motion } from "motion/react";
-import { faqs } from "../data";
+import { useTranslation } from "react-i18next";
 
 export default function FAQ() {
+  const { t } = useTranslation("faq");
+  const faqs = t("faqs", { returnObjects: true }) as Array<{
+    q: string;
+    a: string;
+  }>;
+
   return (
     <section id="faq" className="mx-auto max-w-5xl px-6 py-20 lg:px-8">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">Frequently Asked Questions</h2>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">Everything you need to know about getting started.</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+          {t("title")}
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          {t("description")}
+        </p>
       </div>
       <div className="space-y-4">
         {faqs.map((item, i) => (
@@ -21,10 +31,14 @@ export default function FAQ() {
             <summary className="cursor-pointer list-none text-left text-lg font-semibold text-slate-950 dark:text-white marker:hidden">
               <div className="flex items-center justify-between gap-4">
                 <span>{item.q}</span>
-                <span className="text-2xl text-slate-300 dark:text-slate-700 transition-transform group-open:rotate-45">+</span>
+                <span className="text-2xl text-slate-300 dark:text-slate-700 transition-transform group-open:rotate-45">
+                  +
+                </span>
               </div>
             </summary>
-            <p className="mt-4 leading-7 text-slate-600 dark:text-slate-400 border-t border-slate-50 dark:border-slate-900 pt-4">{item.a}</p>
+            <p className="mt-4 leading-7 text-slate-600 dark:text-slate-400 border-t border-slate-50 dark:border-slate-900 pt-4">
+              {item.a}
+            </p>
           </motion.details>
         ))}
       </div>

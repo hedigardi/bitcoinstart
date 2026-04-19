@@ -1,0 +1,20 @@
+{
+  "title": "Kontakta oss",
+  "description": [
+    "Om du är osäker på vilken session som passar dig, eller om du vill ställa en fråga innan du sätter igång, är du varmt välkommen att kontakta oss.",
+    "Vi hjälper dig gärna att hitta rätt nästa steg."
+  ],
+  "tags": ["Supportfokuserat arbetssätt", "Nordiska regionen"],
+  "details": {
+    "email": {
+      "label": "E-post",
+      "value": "contact@bitcoinstart.no"
+    },
+    "location": {
+      "label": "Plats och omfattning",
+      "primary": "Baserad i Norge",
+      "secondary": "Tillgänglig online i hela Norden"
+    }
+  },
+  "button": "Maila oss direkt"
+}

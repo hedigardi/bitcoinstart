@@ -1,0 +1,50 @@
+{
+  "success": {
+    "title": "Thank you!",
+    "message": "Your booking request has been sent. We'll get back to you within 24 hours."
+  },
+  "title": "Book a Session",
+  "description": [
+    "Whether you are completely new to Bitcoin or already exploring it and want more clarity, BitcoinStart Nordics offers practical sessions designed to help you move forward with more confidence.",
+    "We focus on simple explanations, calmer guidance, and safer onboarding for beginners and small businesses across the Nordics.",
+    "Tell us a little about what you want help with, and we will make sure the session fits your needs."
+  ],
+  "form": {
+    "placeholders": {
+      "name": "Name",
+      "email": "Email",
+      "message": "What would you like help with most?"
+    },
+    "selects": {
+      "session": {
+        "default": "Which session are you interested in?",
+        "options": [
+          "Bitcoin Intro Session",
+          "Wallet & Security Setup",
+          "Bitcoin for Small Business"
+        ]
+      },
+      "experience": {
+        "default": "Your current experience level?",
+        "options": [
+          "Complete beginner",
+          "I have started a little",
+          "I already own some Bitcoin",
+          "Business-related inquiry"
+        ]
+      }
+    },
+    "buttons": {
+      "submit": "Send Booking Request",
+      "submitting": "Sending..."
+    },
+    "footer": "We'll get back to you within 24 hours.",
+    "validation": {
+      "name": "Name",
+      "email": "Email",
+      "session": "Session",
+      "experience": "Experience",
+      "message": "Message"
+    }
+  }
+}

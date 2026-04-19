@@ -1,0 +1,11 @@
+{
+  "footer": {
+    "quickLinksTitle": "Snabblänkar",
+    "supportTitle": "Support",
+    "links": {
+      "emailSupport": "E-postsupport",
+      "privacy": "Integritetspolicy",
+      "terms": "Allmänna villkor"
+    }
+  }
+}

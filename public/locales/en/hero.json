@@ -1,0 +1,26 @@
+{
+  "tag": "Based in Norway. Serving clients across the Nordics.",
+  "title": "Bitcoin made simple for beginners and small businesses across the Nordics",
+  "description": "We help people understand Bitcoin in a simple, practical, and safer way. No hype. No noise. Just clear guidance, better understanding, and practical onboarding.",
+  "cta": "Book an Intro Session",
+  "learnMore": "Learn More",
+  "subtext": "Beginner-friendly in English and Swedish",
+  "info": {
+    "focus": {
+      "label": "Focus",
+      "value": "Clear Bitcoin education"
+    },
+    "approach": {
+      "label": "Approach",
+      "value": "Practical and no-hype"
+    },
+    "sessions": {
+      "label": "Sessions",
+      "value": "Online across the Nordics"
+    },
+    "languages": {
+      "label": "Languages",
+      "value": "English and Swedish"
+    }
+  }
+}
