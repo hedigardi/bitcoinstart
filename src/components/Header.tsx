@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import usFlag from "flag-icons/flags/4x3/us.svg";
+import euFlag from "flag-icons/flags/4x3/eu.svg";
 import noFlag from "flag-icons/flags/4x3/no.svg";
 import seFlag from "flag-icons/flags/4x3/se.svg";
 import dkFlag from "flag-icons/flags/4x3/dk.svg";
@@ -25,7 +25,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
   ];
 
   const languageOptions = [
-    { value: "en", label: "English", flagSrc: usFlag },
+    { value: "en", label: "English", flagSrc: euFlag },
     { value: "no", label: "Norsk", flagSrc: noFlag },
     { value: "sv", label: "Svenska", flagSrc: seFlag },
     { value: "da", label: "Dansk", flagSrc: dkFlag },
