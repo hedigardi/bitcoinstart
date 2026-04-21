@@ -1,20 +1,54 @@
 {
   "title": "Our Services",
-  "description": "We offer simple and practical sessions designed to help you understand Bitcoin more clearly and take better next steps.",
+  "description": "We offer practical and beginner-friendly Bitcoin sessions designed to help individuals and small businesses understand Bitcoin more clearly, avoid common mistakes, and take better next steps.",
+  "bestFor": "Best for",
   "whatWeCover": "What we cover",
+  "whatYouLeaveWith": "What you leave with",
+  "includes": "Includes",
   "format": "Format",
   "duration": "Duration",
   "price": "Price",
+  "howToChoose": {
+    "title": "Not sure which session is right for you?",
+    "points": [
+      "If you are completely new to Bitcoin, start with the Bitcoin Intro Session.",
+      "If you already want practical guidance around wallets and safer setup, choose Wallet & Security Setup.",
+      "If you are a founder or business owner exploring Bitcoin from a company perspective, choose Bitcoin for Small Business."
+    ],
+    "cta": "Get in Touch"
+  },
   "services": [
     {
       "title": "Bitcoin Intro Session",
-      "description": "A 60-minute session for beginners who want a clear and practical introduction to Bitcoin.",
-      "bullets": [
-        "What Bitcoin is",
-        "How it works at a high level",
-        "How it differs from crypto speculation",
-        "How to get started safely",
-        "Common mistakes to avoid"
+      "subheadline": "A 60-minute beginner-friendly session for people who want a clear, practical, and no-hype introduction to Bitcoin.",
+      "description": [
+        "Perfect for anyone who is curious about Bitcoin but feels overwhelmed by technical explanations, conflicting opinions, or online noise.",
+        "This session is designed to give you a calmer and clearer starting point, so you can understand the fundamentals before taking any next step."
+      ],
+      "bestFor": [
+        "Complete beginners",
+        "People who want to understand Bitcoin before doing anything practical",
+        "People who feel confused by the wider crypto space",
+        "Anyone looking for a simple and structured introduction"
+      ],
+      "whatWeCover": [
+        "What Bitcoin is and why it matters",
+        "How Bitcoin works at a high level",
+        "How Bitcoin differs from the broader crypto space",
+        "What beginners should understand first",
+        "Common mistakes to avoid",
+        "Practical next steps based on your situation"
+      ],
+      "whatYouLeaveWith": [
+        "A clearer understanding of Bitcoin",
+        "Less confusion and more confidence",
+        "A better sense of what matters and what does not",
+        "A practical idea of your next step"
+      ],
+      "includes": [
+        "Pre-session questionnaire",
+        "Live 1:1 online session",
+        "Short follow-up summary by email"
       ],
       "format": "Online session",
       "duration": "60 minutes",
@@ -23,13 +57,36 @@
     },
     {
       "title": "Wallet & Security Setup",
-      "description": "A 90-minute guided session for people who want practical help getting started with wallets and safer Bitcoin habits.",
-      "bullets": [
-        "Wallet options",
-        "Setup guidance",
-        "Backup principles",
-        "Basic security thinking",
-        "Safer next steps"
+      "subheadline": "A 90-minute guided session for people who want practical help understanding wallets, backup basics, and safer Bitcoin habits.",
+      "description": [
+        "This session is designed for people who want more than theory and need calm, practical guidance before taking their next step.",
+        "We help you understand the basics of wallets and security in a simple way, so you can move forward with better habits and fewer beginner mistakes."
+      ],
+      "bestFor": [
+        "Beginners who want practical guidance",
+        "People who already own some Bitcoin and want more clarity",
+        "People who are unsure about wallets and backup basics",
+        "Anyone who wants safer first steps without unnecessary complexity"
+      ],
+      "whatWeCover": [
+        "Wallet basics in simple language",
+        "Custodial vs non-custodial thinking",
+        "Hot wallets and hardware wallet basics",
+        "Backup and recovery principles",
+        "Common security mistakes",
+        "Safer next steps based on your situation"
+      ],
+      "whatYouLeaveWith": [
+        "A clearer understanding of how wallets work",
+        "Safer habits from the beginning",
+        "More confidence in your setup decisions",
+        "A practical next-step plan"
+      ],
+      "includes": [
+        "Pre-session questionnaire",
+        "Guided live online session",
+        "Short follow-up summary",
+        "Beginner-friendly safety checklist"
       ],
       "format": "Online session",
       "duration": "90 minutes",
@@ -38,13 +95,35 @@
     },
     {
       "title": "Bitcoin for Small Business",
-      "description": "A practical workshop for small businesses that want to understand whether Bitcoin is relevant for them.",
-      "bullets": [
-        "Bitcoin basics for business owners",
-        "Possible use cases",
-        "Payment-related considerations",
+      "subheadline": "A practical workshop for small businesses that want to understand whether Bitcoin is relevant for them from a clear and business-focused perspective.",
+      "description": [
+        "Designed for founders and business owners who want a no-hype view of Bitcoin and its possible relevance to their business.",
+        "This workshop helps you understand where Bitcoin may or may not fit, what practical opportunities and limitations exist, and what a reasonable next step could look like."
+      ],
+      "bestFor": [
+        "Founders and small business owners",
+        "Consultants and service businesses",
+        "Businesses exploring Bitcoin as a topic, payment option, or strategic area",
+        "Teams that want a clearer internal understanding before making any decisions"
+      ],
+      "whatWeCover": [
+        "Bitcoin fundamentals for business owners",
+        "How Bitcoin differs from the broader crypto space",
+        "Where Bitcoin may or may not be relevant",
         "Practical opportunities and limitations",
-        "What to think about before taking next steps"
+        "Payment-related considerations",
+        "Suggested next steps for your business"
+      ],
+      "whatYouLeaveWith": [
+        "A clearer business perspective on Bitcoin",
+        "Better internal understanding",
+        "Less uncertainty and more structure",
+        "A more informed next-step decision"
+      ],
+      "includes": [
+        "Pre-workshop questionnaire",
+        "Live online workshop",
+        "Post-workshop summary with key takeaways"
       ],
       "format": "Online workshop",
       "duration": "90–120 minutes",
