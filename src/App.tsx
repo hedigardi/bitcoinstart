@@ -71,7 +71,7 @@ export default function App() {
                   key={i}
                   className="flex items-center gap-3 rounded-2xl bg-slate-50 dark:bg-slate-900 p-4 ring-1 ring-slate-100 dark:ring-slate-800 transition hover:bg-white dark:hover:bg-slate-800 hover:shadow-md dark:hover:shadow-slate-900/50 active:scale-[0.98]"
                 >
-                  <div className="h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
+                  <div className="h-2 w-2 flex-shrink-0 rounded-full bg-orange-700" />
                   <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                     {item}
                   </span>

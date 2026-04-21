@@ -66,7 +66,7 @@ export default function FreeGuide() {
               <a
                 href={`/${selectedPdf}`}
                 download={selectedPdf}
-                className="w-full rounded-2xl bg-orange-600 px-5 py-4 text-sm font-bold text-white transition hover:bg-orange-700 shadow-lg shadow-orange-900/10 dark:shadow-none active:scale-[0.98] inline-block text-center"
+                className="w-full rounded-2xl bg-orange-700 px-5 py-4 text-sm font-bold text-white transition hover:bg-orange-800 shadow-lg shadow-orange-200/60 dark:shadow-none active:scale-[0.98] inline-block text-center"
               >
                 {t("download.button")}
               </a>

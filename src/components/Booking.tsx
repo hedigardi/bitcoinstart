@@ -66,7 +66,7 @@ export default function Booking() {
               {description.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
-              <p className="font-medium text-slate-900 dark:text-orange-400 border-l-2 border-orange-500 pl-4 py-1 bg-orange-50/50 dark:bg-orange-900/10 rounded-r-xl">
+              <p className="font-medium text-slate-900 dark:text-orange-400 border-l-2 border-orange-700 pl-4 py-1 bg-orange-50/50 dark:bg-orange-900/10 rounded-r-xl">
                 {t("description.2")}
               </p>
             </div>
@@ -85,7 +85,7 @@ export default function Booking() {
                     type="text"
                     name="name"
                     placeholder={form.placeholders.name}
-                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
                     required
                   />
                   <ValidationError
@@ -100,7 +100,7 @@ export default function Booking() {
                     type="email"
                     name="email"
                     placeholder={form.placeholders.email}
-                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
                     required
                   />
                   <ValidationError
@@ -118,7 +118,7 @@ export default function Booking() {
                 <select
                   id="session-select"
                   name="session"
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
+                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 cursor-pointer"
                   required
                 >
                   <option value="">{form.selects.session.default}</option>
@@ -142,7 +142,7 @@ export default function Booking() {
                 <select
                   id="experience-select"
                   name="experience"
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
+                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 cursor-pointer"
                   required
                 >
                   <option value="">{form.selects.experience.default}</option>
@@ -164,7 +164,7 @@ export default function Booking() {
                   rows={4}
                   name="message"
                   placeholder={form.placeholders.message}
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 resize-none"
+                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 resize-none"
                   required
                 />
                 <ValidationError
@@ -177,7 +177,7 @@ export default function Booking() {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full rounded-2xl bg-orange-500 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-orange-200 dark:shadow-none transition-all hover:bg-orange-600 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full cursor-pointer rounded-2xl bg-orange-700 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition-all hover:bg-orange-800 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {state.submitting
                   ? form.buttons.submitting

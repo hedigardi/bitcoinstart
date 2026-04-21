@@ -68,7 +68,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold text-slate-600 dark:text-slate-400 transition hover:text-orange-600 dark:hover:text-orange-500"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-400 transition hover:text-orange-700 dark:hover:text-orange-400"
             >
               {item.name}
             </a>
@@ -78,7 +78,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-all border border-slate-200 dark:border-slate-800"
+            className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-all border border-slate-200 dark:border-slate-800"
             aria-label={t("aria.toggleTheme")}
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
@@ -163,7 +163,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-slate-600 dark:text-slate-300 hover:text-orange-600 transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-300 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
             aria-label={t("aria.toggleMenu")}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -179,7 +179,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-semibold text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-500 transition-colors py-2"
+                className="text-lg font-semibold text-slate-700 dark:text-slate-300 hover:text-orange-700 dark:hover:text-orange-400 transition-colors py-2"
               >
                 {item.name}
               </a>

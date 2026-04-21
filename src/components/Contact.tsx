@@ -47,19 +47,19 @@ export default function Contact() {
         >
           <div className="space-y-8">
             <div className="group cursor-default">
-              <div className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 group-hover:text-orange-500 transition-colors">
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 group-hover:text-orange-700 dark:group-hover:text-orange-400 transition-colors">
                 {details.email.label}
               </div>
               <a
                 href={`mailto:${details.email.value}`}
-                className="mt-2 inline-block text-xl font-semibold text-slate-900 dark:text-white hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+                className="mt-2 inline-block text-xl font-semibold text-slate-900 dark:text-white hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
               >
                 {details.email.value}
               </a>
             </div>
 
             <div className="group cursor-default">
-              <div className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 group-hover:text-orange-500 transition-colors">
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 group-hover:text-orange-700 dark:group-hover:text-orange-400 transition-colors">
                 {details.location.label}
               </div>
               <div className="mt-2 space-y-1">
@@ -76,7 +76,7 @@ export default function Contact() {
           <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-4">
             <a
               href={`mailto:${details.email.value}`}
-              className="inline-flex items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-6 py-3.5 text-sm font-bold text-white dark:text-slate-950 transition hover:bg-orange-600 dark:hover:bg-orange-500 dark:hover:text-white shadow-lg shadow-slate-950/10 active:scale-95"
+              className="inline-flex items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-6 py-3.5 text-sm font-bold text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white shadow-lg shadow-slate-950/10 active:scale-95"
             >
               {t("button")}
             </a>

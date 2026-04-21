@@ -51,7 +51,7 @@ export default function Services() {
               <ul className="mt-4 flex-1 space-y-3 text-slate-700 dark:text-slate-300">
                 {service.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
+                    <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-700" />
                     <span className="text-sm">{bullet}</span>
                   </li>
                 ))}
@@ -86,7 +86,7 @@ export default function Services() {
 
               <a
                 href="#booking"
-                className="mt-8 inline-flex items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-600 dark:hover:bg-orange-500 dark:hover:text-white"
+                className="mt-8 inline-flex items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
               >
                 {service.cta}
               </a>

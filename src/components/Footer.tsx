@@ -69,7 +69,7 @@ export default function Footer() {
                     <li key={key}>
                       <a
                         href={`#${key}`}
-                        className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+                        className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                       >
                         {t(`footer.links.${key}`)}
                       </a>
@@ -86,7 +86,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:contact@bitcoinstart.no"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                   >
                     {t("footer.links.emailSupport")}
                   </a>
@@ -99,7 +99,7 @@ export default function Footer() {
                         t("footer.privacyContent"),
                       )
                     }
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+                    className="cursor-pointer text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                   >
                     {t("footer.links.privacy")}
                   </button>
@@ -112,7 +112,7 @@ export default function Footer() {
                         t("footer.termsContent"),
                       )
                     }
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+                    className="cursor-pointer text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                   >
                     {t("footer.links.terms")}
                   </button>
@@ -129,7 +129,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <button
               onClick={scrollToTop}
-              className="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors"
+              className="cursor-pointer text-slate-500 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
               aria-label="Scroll to top"
             >
               <ArrowUp size={20} />
