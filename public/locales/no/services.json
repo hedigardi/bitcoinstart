@@ -1,20 +1,54 @@
 {
   "title": "Våre tjenester",
-  "description": "Vi tilbyr enkle og praktiske sesjoner designet for å hjelpe deg med å forstå Bitcoin bedre, slik at du kan ta tryggere valg videre.",
+  "description": "Vi tilbyr praktiske og nybegynnervennlige Bitcoin-sesjoner som hjelper enkeltpersoner og småbedrifter med å forstå Bitcoin tydeligere, unngå vanlige feil og ta bedre neste steg.",
+  "bestFor": "Passer best for",
   "whatWeCover": "Hva vi går gjennom",
+  "whatYouLeaveWith": "Dette sitter du igjen med",
+  "includes": "Inkluderer",
   "format": "Format",
   "duration": "Varighet",
   "price": "Pris",
+  "howToChoose": {
+    "title": "Usikker på hvilken sesjon som passer deg?",
+    "points": [
+      "Hvis du er helt ny i Bitcoin, start med Bitcoin Introsesjon.",
+      "Hvis du ønsker praktisk veiledning om lommebøker og tryggere oppsett, velg Oppsett av lommebok og sikkerhet.",
+      "Hvis du er gründer eller bedriftseier som utforsker Bitcoin fra et bedriftsståsted, velg Bitcoin for småbedrifter."
+    ],
+    "cta": "Ta kontakt"
+  },
   "services": [
     {
       "title": "Bitcoin Introsesjon",
-      "description": "En 60-minutters sesjon for nybegynnere som ønsker en tydelig og praktisk introduksjon til Bitcoin.",
-      "bullets": [
-        "Hva Bitcoin er",
-        "Hvordan det fungerer på et overordnet nivå",
-        "Hvordan det skiller seg fra kryptospekulasjon",
-        "Hvordan komme i gang på en trygg måte",
-        "Vanlige feil du bør unngå"
+      "subheadline": "En nybegynnervennlig 60-minutters sesjon for deg som ønsker en tydelig, praktisk og nøktern introduksjon til Bitcoin.",
+      "description": [
+        "Perfekt for deg som er nysgjerrig på Bitcoin, men føler deg overveldet av tekniske forklaringer, motstridende meninger eller støy på nettet.",
+        "Denne sesjonen gir deg et roligere og tydeligere utgangspunkt, slik at du forstår grunnleggende prinsipper før du tar neste steg."
+      ],
+      "bestFor": [
+        "Helt nye nybegynnere",
+        "Personer som vil forstå Bitcoin før de gjør noe praktisk",
+        "Personer som er forvirret av det bredere kryptolandskapet",
+        "Alle som ønsker en enkel og strukturert introduksjon"
+      ],
+      "whatWeCover": [
+        "Hva Bitcoin er og hvorfor det er relevant",
+        "Hvordan Bitcoin fungerer på et overordnet nivå",
+        "Hvordan Bitcoin skiller seg fra det bredere kryptomarkedet",
+        "Hva nybegynnere bør forstå først",
+        "Vanlige feil å unngå",
+        "Praktiske neste steg basert på din situasjon"
+      ],
+      "whatYouLeaveWith": [
+        "En tydeligere forståelse av Bitcoin",
+        "Mindre forvirring og mer trygghet",
+        "En bedre forståelse av hva som er viktig og hva som ikke er det",
+        "En praktisk idé om ditt neste steg"
+      ],
+      "includes": [
+        "Spørreskjema før sesjonen",
+        "Live 1:1 digital sesjon",
+        "Kort oppsummering på e-post i etterkant"
       ],
       "format": "Digital sesjon",
       "duration": "60 minutter",
@@ -23,13 +57,36 @@
     },
     {
       "title": "Oppsett av lommebok og sikkerhet",
-      "description": "En 90-minutters veiledet sesjon for personer som ønsker praktisk hjelp til å komme i gang med lommebøker og tryggere Bitcoin-vaner.",
-      "bullets": [
-        "Ulike typer lommebøker",
-        "Veiledning ved oppsett",
-        "Prinsipper for sikkerhetskopiering",
-        "Grunnleggende sikkerhetstenkning",
-        "Tryggere steg videre"
+      "subheadline": "En veiledet 90-minutters sesjon for deg som ønsker praktisk hjelp med å forstå lommebøker, grunnleggende backup og tryggere Bitcoin-vaner.",
+      "description": [
+        "Denne sesjonen er laget for deg som vil ha mer enn teori og trenger rolig, praktisk veiledning før du tar neste steg.",
+        "Vi hjelper deg å forstå det viktigste om lommebøker og sikkerhet på en enkel måte, slik at du kan gå videre med bedre vaner og færre nybegynnerfeil."
+      ],
+      "bestFor": [
+        "Nybegynnere som ønsker praktisk veiledning",
+        "Personer som allerede eier noe Bitcoin og ønsker mer klarhet",
+        "Personer som er usikre på lommebøker og backup",
+        "Alle som ønsker tryggere første steg uten unødig kompleksitet"
+      ],
+      "whatWeCover": [
+        "Grunnleggende om lommebøker i enkelt språk",
+        "Custodial vs non-custodial tankegang",
+        "Hot wallets og grunnleggende om hardware wallets",
+        "Prinsipper for backup og gjenoppretting",
+        "Vanlige sikkerhetsfeil",
+        "Tryggere neste steg basert på din situasjon"
+      ],
+      "whatYouLeaveWith": [
+        "En tydeligere forståelse av hvordan lommebøker fungerer",
+        "Tryggere vaner fra starten",
+        "Mer selvtillit i oppsettsvalgene dine",
+        "En praktisk plan for neste steg"
+      ],
+      "includes": [
+        "Spørreskjema før sesjonen",
+        "Veiledet digital live-sesjon",
+        "Kort oppsummering i etterkant",
+        "Nybegynnervennlig sjekkliste for sikkerhet"
       ],
       "format": "Digital sesjon",
       "duration": "90 minutter",
@@ -38,18 +95,40 @@
     },
     {
       "title": "Bitcoin for småbedrifter",
-      "description": "En praktisk workshop for småbedrifter som ønsker å forstå om Bitcoin er relevant for dem.",
-      "bullets": [
-        "Grunnleggende Bitcoin for bedriftseiere",
-        "Mulige bruksområder",
-        "Betalingsrelaterte vurderinger",
+      "subheadline": "En praktisk workshop for småbedrifter som vil forstå om Bitcoin er relevant for dem, sett fra et tydelig og forretningsrettet perspektiv.",
+      "description": [
+        "Laget for gründere og bedriftseiere som ønsker et nøkternt bilde av Bitcoin og mulig relevans for virksomheten.",
+        "Workshopen hjelper dere med å forstå hvor Bitcoin kan passe eller ikke passe, hvilke praktiske muligheter og begrensninger som finnes, og hva et fornuftig neste steg kan være."
+      ],
+      "bestFor": [
+        "Gründere og småbedriftseiere",
+        "Konsulenter og tjenestebedrifter",
+        "Bedrifter som utforsker Bitcoin som tema, betalingsalternativ eller strategisk område",
+        "Team som ønsker bedre intern forståelse før de tar beslutninger"
+      ],
+      "whatWeCover": [
+        "Bitcoin-grunnleggende for bedriftseiere",
+        "Hvordan Bitcoin skiller seg fra det bredere kryptomarkedet",
+        "Hvor Bitcoin kan eller ikke kan være relevant",
         "Praktiske muligheter og begrensninger",
-        "Hva man bør tenke på før man tar neste steg"
+        "Betalingsrelaterte vurderinger",
+        "Anbefalte neste steg for virksomheten"
+      ],
+      "whatYouLeaveWith": [
+        "Et tydeligere forretningsperspektiv på Bitcoin",
+        "Bedre intern forståelse",
+        "Mindre usikkerhet og mer struktur",
+        "Et bedre informert valg om neste steg"
+      ],
+      "includes": [
+        "Spørreskjema før workshop",
+        "Live digital workshop",
+        "Oppsummering i etterkant med nøkkelpunkter"
       ],
       "format": "Digital workshop",
       "duration": "90–120 minutter",
       "price": "På forespørsel",
-      "cta": "Forespør business-workshop"
+      "cta": "Forespør workshop"
     }
   ]
 }
