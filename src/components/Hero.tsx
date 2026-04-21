@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 export default function Hero() {
@@ -17,12 +16,7 @@ export default function Hero() {
       className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 overflow-hidden transition-colors duration-300"
     >
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-orange-700 dark:text-orange-400">
             {t("tag")}
           </div>
@@ -49,15 +43,9 @@ export default function Hero() {
           <p className="mt-4 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {t("subtext")}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-8 shadow-sm">
             <div className="grid gap-5 sm:grid-cols-2">
               {info.map((item, i) => (
@@ -76,7 +64,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="absolute -bottom-6 -right-6 -z-10 h-64 w-64 rounded-full bg-orange-100 dark:bg-orange-900/20 blur-3xl opacity-50" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

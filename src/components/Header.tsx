@@ -1,8 +1,6 @@
-import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import Select from "react-select";
 import usFlag from "flag-icons/flags/4x3/us.svg";
 import noFlag from "flag-icons/flags/4x3/no.svg";
 import seFlag from "flag-icons/flags/4x3/se.svg";
@@ -15,6 +13,7 @@ interface HeaderProps {
 
 export default function Header({ theme, toggleTheme }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const { t, i18n } = useTranslation("common");
   const normalizedLanguage = i18n.language?.split("-")[0] ?? "no";
 
@@ -31,93 +30,48 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
     { value: "sv", label: "Svenska", flagSrc: seFlag },
     { value: "da", label: "Dansk", flagSrc: dkFlag },
   ];
+  const selectedLanguage =
+    languageOptions.find((option) => option.value === normalizedLanguage) ??
+    languageOptions[1];
 
-  const customOption = (props: any) => {
-    const { data, innerRef, innerProps } = props;
-    return (
-      <div
-        ref={innerRef}
-        {...innerProps}
-        className={`flex items-center px-3 h-10 cursor-pointer text-sm ${
-          theme === "dark"
-            ? "hover:bg-slate-700 text-slate-300"
-            : "hover:bg-slate-100 text-slate-700"
-        }`}
-        style={{ width: "100%", lineHeight: "1.2" }}
-      >
-        <img
-          src={data.flagSrc}
-          alt=""
-          className="mr-2 h-4 w-6 rounded-sm object-cover"
-          loading="lazy"
-          decoding="async"
-          aria-hidden="true"
-        />
-        <span>{data.label}</span>
-      </div>
-    );
-  };
-
-  const customSingleValue = (props: any) => {
-    const { data } = props;
-    return (
-      <div
-        className={`flex items-center gap-2 h-full text-sm leading-none ${
-          theme === "dark" ? "text-slate-400" : "text-slate-600"
-        }`}
-        style={{ minHeight: "1rem" }}
-      >
-        <img
-          src={data.flagSrc}
-          alt=""
-          className="inline-flex h-4 w-6 rounded-sm object-cover"
-          loading="lazy"
-          decoding="async"
-          aria-hidden="true"
-          style={{ lineHeight: 1 }}
-        />
-        <span className="leading-none">{data.label}</span>
-      </div>
-    );
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+    setIsLangOpen(false);
   };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <motion.a
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          href="#hero"
-          className="min-w-0"
-        >
+        <a href="#hero" className="min-w-0">
           <picture>
-            <source srcSet="/logo-optimized.webp" type="image/webp" />
+            <source
+              srcSet="/logo-optimized-160.webp 160w, /logo-optimized-240.webp 240w, /logo-optimized.webp 420w"
+              sizes="(max-width: 768px) 122px, 160px"
+              type="image/webp"
+            />
             <img
               src="/logo.png"
               alt="BitcoinStart Nordics Logo"
-              width={707}
-              height={464}
+              width={160}
+              height={105}
               className="h-20 w-auto dark:brightness-110"
               referrerPolicy="no-referrer"
               decoding="async"
               fetchPriority="high"
             />
           </picture>
-        </motion.a>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((item, i) => (
-            <motion.a
+          {navLinks.map((item) => (
+            <a
               key={item.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
               href={item.href}
               className="text-sm font-semibold text-slate-600 dark:text-slate-400 transition hover:text-orange-600 dark:hover:text-orange-500"
             >
               {item.name}
-            </motion.a>
+            </a>
           ))}
 
           <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 mx-2" />
@@ -130,134 +84,66 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
 
-          <Select
-            value={
-              languageOptions.find(
-                (option) => option.value === normalizedLanguage,
-              ) ?? languageOptions[1]
-            }
-            onChange={(selectedOption) =>
-              selectedOption && i18n.changeLanguage(selectedOption.value)
-            }
-            options={languageOptions}
-            inputId="language-select-desktop"
-            instanceId="language-select-desktop"
-            aria-label="Select language"
-            components={{
-              Option: customOption,
-              SingleValue: customSingleValue,
-            }}
-            menuPosition="absolute"
-            menuPortalTarget={document.body}
-            styles={{
-              control: (provided) => ({
-                ...provided,
-                backgroundColor:
-                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)", // slate-900 or slate-50
-                borderColor:
-                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)", // slate-700 or slate-200
-                borderRadius: "0.75rem",
-                minHeight: "2.5rem",
-                height: "2.5rem",
-                padding: "0",
-                boxShadow: "none",
-                display: "flex",
-                alignItems: "center",
-                "&:hover": {
-                  borderColor:
-                    theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                },
-              }),
-              valueContainer: (provided) => ({
-                ...provided,
-                padding: "0 0.75rem",
-                height: "100%",
-                minHeight: "auto",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }),
-              singleValue: (provided) => ({
-                ...provided,
-                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)", // slate-400 or slate-600
-                margin: "0",
-                padding: "0",
-                lineHeight: "1.2",
-                display: "flex",
-                alignItems: "center",
-                height: "100%",
-              }),
-              input: (provided) => ({
-                ...provided,
-                margin: "0",
-                padding: "0",
-              }),
-              placeholder: (provided) => ({
-                ...provided,
-                margin: "0",
-                padding: "0",
-                lineHeight: "1.2",
-              }),
-              menu: (provided) => ({
-                ...provided,
-                backgroundColor:
-                  theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)", // slate-900 or slate-50
-                borderColor:
-                  theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)", // slate-700 or slate-200
-                border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
-                marginTop: "0px !important",
-                marginBottom: "0px",
-                padding: "0px",
-                top: "100%",
-                position: "absolute",
-                transform: "translateY(0px)",
-                boxShadow: "none",
-                overflow: "hidden",
-              }),
-              menuList: (provided) => ({
-                ...provided,
-                padding: "0px",
-                margin: "0px",
-                borderRadius: "inherit",
-                overflow: "hidden",
-                minHeight: "auto",
-              }),
-              menuPortal: (provided) => ({
-                ...provided,
-                zIndex: 9999,
-              }),
-              option: (provided, state) => ({
-                ...provided,
-                backgroundColor: state.isSelected
-                  ? theme === "dark"
-                    ? "rgb(51 65 85)"
-                    : "rgb(226 232 240)"
-                  : "transparent",
-                color: theme === "dark" ? "rgb(148 163 184)" : "rgb(71 85 105)", // slate-400 or slate-600
-                padding: "0px 0.75rem",
-                margin: "0px",
-                minHeight: "2.5rem",
-                display: "flex",
-                alignItems: "center",
-                lineHeight: "1.2",
-                "&:hover": {
-                  backgroundColor:
-                    theme === "dark" ? "rgb(30 41 59)" : "rgb(241 245 249)", // slate-800 or slate-100
-                },
-              }),
-            }}
-            className="w-32"
-            isSearchable={false}
-          />
+          <div className="relative">
+            <button
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={isLangOpen}
+              aria-label="Select language"
+              onClick={() => setIsLangOpen((open) => !open)}
+              className="flex h-10 w-36 items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 text-sm text-slate-700 transition hover:border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+            >
+              <span className="flex items-center gap-2">
+                <img
+                  src={selectedLanguage.flagSrc}
+                  alt=""
+                  className="h-4 w-6 rounded-sm object-cover"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                {selectedLanguage.label}
+              </span>
+              <ChevronDown size={16} className="text-slate-500" />
+            </button>
+            {isLangOpen && (
+              <ul
+                role="listbox"
+                className="absolute right-0 z-50 mt-2 w-36 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-lg dark:border-slate-700 dark:bg-slate-900"
+              >
+                {languageOptions.map((option) => (
+                  <li key={option.value}>
+                    <button
+                      type="button"
+                      onClick={() => changeLanguage(option.value)}
+                      className={`flex h-10 w-full items-center gap-2 px-3 text-left text-sm transition ${
+                        normalizedLanguage === option.value
+                          ? "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-200"
+                          : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                      }`}
+                    >
+                      <img
+                        src={option.flagSrc}
+                        alt=""
+                        className="h-4 w-6 rounded-sm object-cover"
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {option.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-          <motion.a
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+          <a
             href="#booking"
             className="rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
           >
             {t("nav.bookSession")}
-          </motion.a>
+          </a>
         </nav>
 
         {/* Mobile Toggle */}
@@ -285,163 +171,55 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950"
-          >
-            <nav className="flex flex-col p-6 gap-4">
-              {navLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-semibold text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-500 transition-colors py-2"
-                >
-                  {item.name}
-                </a>
-              ))}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
-                <Select
-                  value={
-                    languageOptions.find(
-                      (option) => option.value === normalizedLanguage,
-                    ) ?? languageOptions[1]
-                  }
-                  onChange={(selectedOption) => {
-                    if (selectedOption) {
-                      i18n.changeLanguage(selectedOption.value);
+      {isOpen && (
+        <div className="md:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+          <nav className="flex flex-col p-6 gap-4">
+            {navLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-semibold text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-500 transition-colors py-2"
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+              <p className="mb-3 text-sm font-semibold text-slate-600 dark:text-slate-400">
+                Language
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {languageOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => {
+                      changeLanguage(option.value);
                       setIsOpen(false);
-                    }
-                  }}
-                  options={languageOptions}
-                  inputId="language-select-mobile"
-                  instanceId="language-select-mobile"
-                  aria-label="Select language"
-                  components={{
-                    Option: customOption,
-                    SingleValue: customSingleValue,
-                  }}
-                  menuPosition="absolute"
-                  menuPortalTarget={document.body}
-                  styles={{
-                    control: (provided) => ({
-                      ...provided,
-                      backgroundColor:
-                        theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
-                      borderColor:
-                        theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                      borderRadius: "0.75rem",
-                      minHeight: "2.5rem",
-                      height: "2.5rem",
-                      padding: "0",
-                      boxShadow: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      "&:hover": {
-                        borderColor:
-                          theme === "dark"
-                            ? "rgb(51 65 85)"
-                            : "rgb(226 232 240)",
-                      },
-                    }),
-                    valueContainer: (provided) => ({
-                      ...provided,
-                      padding: "0 0.75rem",
-                      height: "100%",
-                      minHeight: "auto",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "flex-start",
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color:
-                        theme === "dark"
-                          ? "rgb(148 163 184)"
-                          : "rgb(71 85 105)",
-                      margin: "0",
-                      padding: "0",
-                      lineHeight: "1.2",
-                      display: "flex",
-                      alignItems: "center",
-                      height: "100%",
-                    }),
-                    input: (provided) => ({
-                      ...provided,
-                      margin: "0",
-                      padding: "0",
-                    }),
-                    placeholder: (provided) => ({
-                      ...provided,
-                      margin: "0",
-                      padding: "0",
-                      lineHeight: "1.2",
-                    }),
-                    menu: (provided) => ({
-                      ...provided,
-                      backgroundColor:
-                        theme === "dark" ? "rgb(15 23 42)" : "rgb(248 250 252)",
-                      borderColor:
-                        theme === "dark" ? "rgb(51 65 85)" : "rgb(226 232 240)",
-                      border: `1px solid ${theme === "dark" ? "rgb(51,65,85)" : "rgb(226,232,240)"}`,
-                      marginTop: "0px !important",
-                      marginBottom: "0px",
-                      padding: "0px",
-                      top: "100%",
-                      position: "absolute",
-                      transform: "translateY(0px)",
-                      boxShadow: "none",
-                      overflow: "hidden",
-                    }),
-                    menuList: (provided) => ({
-                      ...provided,
-                      padding: "0px",
-                      margin: "0px",
-                      borderRadius: "inherit",
-                      overflow: "hidden",
-                      minHeight: "auto",
-                    }),
-                    menuPortal: (provided) => ({
-                      ...provided,
-                      zIndex: 9999,
-                    }),
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected
-                        ? theme === "dark"
-                          ? "rgb(51 65 85)"
-                          : "rgb(226 232 240)"
-                        : "transparent",
-                      color:
-                        theme === "dark"
-                          ? "rgb(148 163 184)"
-                          : "rgb(71 85 105)",
-                      padding: "0px 0.75rem",
-                      margin: "0px",
-                      minHeight: "2.5rem",
-                      display: "flex",
-                      alignItems: "center",
-                      lineHeight: "1.2",
-                      "&:hover": {
-                        backgroundColor:
-                          theme === "dark"
-                            ? "rgb(30 41 59)"
-                            : "rgb(241 245 249)",
-                      },
-                    }),
-                  }}
-                  isSearchable={false}
-                />
+                    }}
+                    className={`flex h-10 items-center gap-2 rounded-lg border px-3 text-sm ${
+                      normalizedLanguage === option.value
+                        ? "border-slate-300 bg-slate-100 text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
+                        : "border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                    }`}
+                    aria-label={`Switch language to ${option.label}`}
+                  >
+                    <img
+                      src={option.flagSrc}
+                      alt=""
+                      className="h-4 w-6 rounded-sm object-cover"
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {option.label}
+                  </button>
+                ))}
               </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
