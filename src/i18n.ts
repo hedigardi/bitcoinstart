@@ -3,6 +3,11 @@ import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
+const savedLanguage =
+  typeof window !== "undefined"
+    ? window.localStorage.getItem("i18nextLng")
+    : null;
+
 i18n
   .use(HttpApi)
   .use(LanguageDetector)
@@ -21,7 +26,9 @@ i18n
     ],
     defaultNS: "common",
     fallbackNS: "common",
-    lng: "no",
+    lng: savedLanguage || "no",
+    supportedLngs: ["no", "en", "sv", "da"],
+    nonExplicitSupportedLngs: true,
     fallbackLng: "no",
     debug: false,
     interpolation: {
@@ -33,6 +40,7 @@ i18n
     detection: {
       order: ["localStorage"],
       lookupLocalStorage: "i18nextLng",
+      caches: ["localStorage"],
     },
   });
 
