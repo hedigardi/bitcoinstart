@@ -10,7 +10,7 @@ i18n
   .init({
     lng: "no",
     fallbackLng: "no",
-    debug: true,
+    debug: false,
     interpolation: {
       escapeValue: false,
     },

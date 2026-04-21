@@ -31,21 +31,28 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-24">
           <div className="max-w-xl">
             <a href="#hero" className="inline-block">
-              <img
-                src="/logo.png"
-                alt="BitcoinStart Nordics Logo"
-                className="h-12 w-auto mb-4 dark:brightness-110"
-                referrerPolicy="no-referrer"
-              />
+              <picture>
+                <source srcSet="/logo-optimized.webp" type="image/webp" />
+                <img
+                  src="/logo.png"
+                  alt="BitcoinStart Nordics Logo"
+                  width={707}
+                  height={464}
+                  className="h-12 w-auto mb-4 dark:brightness-110"
+                  referrerPolicy="no-referrer"
+                  decoding="async"
+                  loading="lazy"
+                />
+              </picture>
             </a>
-            <div className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-500 uppercase tracking-widest">
+            <div className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-widest">
               {t("footer.tagline")}
             </div>
-            <p className="mt-6 text-sm leading-7 text-slate-500 dark:text-slate-400">
+            <p className="mt-6 text-sm leading-7 text-slate-600 dark:text-slate-300">
               {t("footer.description")}
             </p>
             <div className="mt-8 space-y-4">
-              <p className="text-[10px] leading-4 text-slate-400 dark:text-slate-600 font-medium border-l-2 border-slate-200 dark:border-slate-800 pl-4 uppercase tracking-tighter">
+              <p className="text-xs leading-4 text-slate-500 dark:text-slate-400 font-medium border-l-2 border-slate-200 dark:border-slate-800 pl-4 uppercase tracking-tighter">
                 {t("footer.disclaimer")}
               </p>
             </div>
@@ -116,13 +123,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-slate-400 dark:text-slate-600 font-medium">
+          <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
             {t("footer.copyright", { year: currentYear })}
           </div>
           <div className="flex items-center gap-6">
             <button
               onClick={scrollToTop}
-              className="text-slate-400 dark:text-slate-600 hover:text-orange-500 transition-colors"
+              className="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors"
               aria-label="Scroll to top"
             >
               <ArrowUp size={20} />

@@ -3,6 +3,10 @@ import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
+import usFlag from "flag-icons/flags/4x3/us.svg";
+import noFlag from "flag-icons/flags/4x3/no.svg";
+import seFlag from "flag-icons/flags/4x3/se.svg";
+import dkFlag from "flag-icons/flags/4x3/dk.svg";
 
 interface HeaderProps {
   theme: string;
@@ -21,10 +25,10 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
   ];
 
   const languageOptions = [
-    { value: "en", label: "English", flag: "fi fi-us" },
-    { value: "no", label: "Norsk", flag: "fi fi-no" },
-    { value: "sv", label: "Svenska", flag: "fi fi-se" },
-    { value: "da", label: "Dansk", flag: "fi fi-dk" },
+    { value: "en", label: "English", flagSrc: usFlag },
+    { value: "no", label: "Norsk", flagSrc: noFlag },
+    { value: "sv", label: "Svenska", flagSrc: seFlag },
+    { value: "da", label: "Dansk", flagSrc: dkFlag },
   ];
 
   const customOption = (props: any) => {
@@ -40,7 +44,14 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
         }`}
         style={{ width: "100%", lineHeight: "1.2" }}
       >
-        <span className={`${data.flag} mr-2`}></span>
+        <img
+          src={data.flagSrc}
+          alt=""
+          className="mr-2 h-4 w-6 rounded-sm object-cover"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        />
         <span>{data.label}</span>
       </div>
     );
@@ -55,8 +66,13 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
         }`}
         style={{ minHeight: "1rem" }}
       >
-        <span
-          className={`${data.flag} inline-flex h-4 w-6 items-center justify-center`}
+        <img
+          src={data.flagSrc}
+          alt=""
+          className="inline-flex h-4 w-6 rounded-sm object-cover"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
           style={{ lineHeight: 1 }}
         />
         <span className="leading-none">{data.label}</span>
@@ -73,12 +89,19 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           href="#hero"
           className="min-w-0"
         >
-          <img
-            src="/logo.png"
-            alt="BitcoinStart Nordics Logo"
-            className="h-20 w-auto dark:brightness-110"
-            referrerPolicy="no-referrer"
-          />
+          <picture>
+            <source srcSet="/logo-optimized.webp" type="image/webp" />
+            <img
+              src="/logo.png"
+              alt="BitcoinStart Nordics Logo"
+              width={707}
+              height={464}
+              className="h-20 w-auto dark:brightness-110"
+              referrerPolicy="no-referrer"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </motion.a>
 
         {/* Desktop Nav */}
@@ -242,13 +265,13 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           </button>
           <a
             href="#booking"
-            className="rounded-lg bg-orange-500 px-3 py-1.5 text-xs font-bold text-white shadow-sm"
+            className="rounded-lg bg-orange-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-colors"
           >
             {t("nav.book")}
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-1 text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-300 hover:text-orange-600 transition-colors"
             aria-label={t("aria.toggleMenu")}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}

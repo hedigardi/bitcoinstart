@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#booking"
-              className="rounded-2xl bg-orange-500 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-orange-200 dark:shadow-none transition hover:bg-orange-600 active:scale-95"
+              className="rounded-2xl bg-orange-600 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-orange-200 dark:shadow-none transition hover:bg-orange-700 active:scale-95"
             >
               {t("cta")}
             </a>
@@ -46,7 +46,7 @@ export default function Hero() {
               {t("learnMore")}
             </a>
           </div>
-          <p className="mt-4 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
+          <p className="mt-4 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {t("subtext")}
           </p>
         </motion.div>
@@ -65,7 +65,7 @@ export default function Hero() {
                   key={i}
                   className="rounded-2xl bg-white dark:bg-slate-950 p-5 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800 transition hover:shadow-md"
                 >
-                  <div className="text-sm font-medium text-slate-500 dark:text-slate-500">
+                  <div className="text-sm font-medium text-slate-600 dark:text-slate-400">
                     {item.label}
                   </div>
                   <div className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">

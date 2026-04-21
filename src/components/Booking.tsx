@@ -112,7 +112,11 @@ export default function Booking() {
                 </div>
               </div>
               <div>
+                <label htmlFor="session-select" className="sr-only">
+                  {form.selects.session.default}
+                </label>
                 <select
+                  id="session-select"
                   name="session"
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
                   required
@@ -132,7 +136,11 @@ export default function Booking() {
                 />
               </div>
               <div>
+                <label htmlFor="experience-select" className="sr-only">
+                  {form.selects.experience.default}
+                </label>
                 <select
+                  id="experience-select"
                   name="experience"
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer"
                   required
