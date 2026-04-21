@@ -3,18 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import FAQ from "./components/FAQ";
-import Booking from "./components/Booking";
-import FreeGuide from "./components/FreeGuide";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+
+const Services = lazy(() => import("./components/Services"));
+const About = lazy(() => import("./components/About"));
+const FAQ = lazy(() => import("./components/FAQ"));
+const Booking = lazy(() => import("./components/Booking"));
+const FreeGuide = lazy(() => import("./components/FreeGuide"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   const { t } = useTranslation("data");
@@ -90,15 +91,19 @@ export default function App() {
           </div>
         </section>
 
-        <Services />
-        <About />
-        <FreeGuide />
-        <FAQ />
-        <Booking />
-        <Contact />
+        <Suspense fallback={<div className="h-20 w-full" aria-hidden="true" />}>
+          <Services />
+          <About />
+          <FreeGuide />
+          <FAQ />
+          <Booking />
+          <Contact />
+        </Suspense>
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="h-16 w-full" aria-hidden="true" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

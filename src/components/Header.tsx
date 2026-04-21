@@ -16,6 +16,7 @@ interface HeaderProps {
 export default function Header({ theme, toggleTheme }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation("common");
+  const normalizedLanguage = i18n.language?.split("-")[0] ?? "no";
 
   const navLinks = [
     { name: t("nav.services"), href: "#services" },
@@ -130,13 +131,18 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           </button>
 
           <Select
-            value={languageOptions.find(
-              (option) => option.value === i18n.language,
-            )}
+            value={
+              languageOptions.find(
+                (option) => option.value === normalizedLanguage,
+              ) ?? languageOptions[1]
+            }
             onChange={(selectedOption) =>
               selectedOption && i18n.changeLanguage(selectedOption.value)
             }
             options={languageOptions}
+            inputId="language-select-desktop"
+            instanceId="language-select-desktop"
+            aria-label="Select language"
             components={{
               Option: customOption,
               SingleValue: customSingleValue,
@@ -248,7 +254,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             href="#booking"
-            className="rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-100 dark:shadow-none transition hover:bg-orange-600 active:scale-95"
+            className="rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
           >
             {t("nav.bookSession")}
           </motion.a>
@@ -265,7 +271,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           </button>
           <a
             href="#booking"
-            className="rounded-lg bg-orange-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-colors"
+            className="rounded-lg bg-orange-700 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-orange-800 transition-colors"
           >
             {t("nav.book")}
           </a>
@@ -301,9 +307,11 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
               ))}
               <div className="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
                 <Select
-                  value={languageOptions.find(
-                    (option) => option.value === i18n.language,
-                  )}
+                  value={
+                    languageOptions.find(
+                      (option) => option.value === normalizedLanguage,
+                    ) ?? languageOptions[1]
+                  }
                   onChange={(selectedOption) => {
                     if (selectedOption) {
                       i18n.changeLanguage(selectedOption.value);
@@ -311,6 +319,9 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
                     }
                   }}
                   options={languageOptions}
+                  inputId="language-select-mobile"
+                  instanceId="language-select-mobile"
+                  aria-label="Select language"
                   components={{
                     Option: customOption,
                     SingleValue: customSingleValue,

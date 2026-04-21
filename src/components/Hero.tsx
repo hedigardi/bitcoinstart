@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#booking"
-              className="rounded-2xl bg-orange-600 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-orange-200 dark:shadow-none transition hover:bg-orange-700 active:scale-95"
+              className="rounded-2xl bg-orange-700 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
             >
               {t("cta")}
             </a>

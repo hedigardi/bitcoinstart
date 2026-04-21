@@ -8,6 +8,19 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    ns: [
+      "common",
+      "hero",
+      "services",
+      "about",
+      "faq",
+      "booking",
+      "freeguide",
+      "contact",
+      "data",
+    ],
+    defaultNS: "common",
+    fallbackNS: "common",
     lng: "no",
     fallbackLng: "no",
     debug: false,
