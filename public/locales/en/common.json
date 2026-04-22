@@ -18,11 +18,11 @@
     "quickLinksTitle": "Quick Links",
     "supportTitle": "Support",
     "links": {
-      "hero": "Hero",
+      "hero": "Home",
       "services": "Services",
       "about": "About",
       "faq": "FAQ",
-      "booking": "Booking",
+      "booking": "Book a Session",
       "contact": "Contact",
       "emailSupport": "Email Support",
       "privacy": "Privacy Policy",

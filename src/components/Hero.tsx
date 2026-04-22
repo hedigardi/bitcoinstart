@@ -34,7 +34,7 @@ export default function Hero() {
               {t("cta")}
             </a>
             <a
-              href="#about"
+              href="#services"
               className="rounded-2xl border border-slate-300 dark:border-slate-700 px-6 py-3.5 text-sm font-medium text-slate-900 dark:text-white transition hover:bg-slate-50 dark:hover:bg-slate-900 active:scale-95"
             >
               {t("learnMore")}

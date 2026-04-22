@@ -1,20 +1,20 @@
 {
-  "title": "Get in touch",
+  "title": "Contact us",
   "description": [
-    "If you are unsure which session is right for you, or if you want to ask a question before getting started, feel free to get in touch.",
+    "If you are not sure which session is right for you, or if you want to ask a question before booking, feel free to reach out.",
     "We are happy to help you find the right next step."
   ],
-  "tags": ["Support-first mindset", "Nordic region"],
+  "tags": ["Beginner-friendly", "Nordics-wide"],
   "details": {
     "email": {
       "label": "Email",
       "value": "contact@bitcoinstart.no"
     },
     "location": {
-      "label": "Location & Scope",
+      "label": "Location",
       "primary": "Based in Norway",
-      "secondary": "Available online across the Nordics"
+      "secondary": "Serving clients across the Nordics"
     }
   },
-  "button": "Email Us Directly"
+  "button": "Contact us"
 }

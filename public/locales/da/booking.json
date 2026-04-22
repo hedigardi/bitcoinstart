@@ -3,11 +3,11 @@
     "title": "Tak!",
     "message": "Din bookingforespørgsel er sendt. Vi vender tilbage inden for 24 timer."
   },
-  "title": "Book en session",
+  "title": "Tag dit første sikrere skridt ind i Bitcoin",
   "description": [
-    "Uanset om du er helt ny til Bitcoin eller allerede er begyndt at udforske det og ønsker mere klarhed, tilbyder BitcoinStart Nordics praktiske sessioner, der hjælper dig videre med større tryghed.",
-    "Vi fokuserer på enkle forklaringer, roligere vejledning og en mere sikker onboarding for begyndere og små virksomheder i Norden.",
-    "Fortæl os lidt om, hvad du gerne vil have hjælp til, så sørger vi for, at sessionen passer til dine behov."
+    "Uanset om du lige er begyndt eller ønsker praktisk støtte til wallets og sikkerhed, er vi her for at hjælpe dig videre med mere klarhed og tryghed.",
+    "Vælg den session, der passer dig bedst, fortæl os hvor du er i dag, og så følger vi op med de rigtige næste skridt via e-mail.",
+    "Begrænset tilgængelighed mens vi lancerer."
   ],
   "form": {
     "placeholders": {
@@ -35,7 +35,7 @@
       }
     },
     "buttons": {
-      "submit": "Send bookingforespørgsel",
+      "submit": "Book din første session",
       "submitting": "Sender..."
     },
     "footer": "Vi vender tilbage inden for 24 timer.",

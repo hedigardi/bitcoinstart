@@ -16,6 +16,7 @@ export default function Services() {
     title: string;
     subheadline: string;
     description: string[];
+    outcome: string;
     bestFor: string[];
     whatWeCover: string[];
     whatYouLeaveWith: string[];
@@ -140,6 +141,15 @@ export default function Services() {
                       ))}
                     </ul>
                   </div>
+                </div>
+
+                <div className="mt-8 rounded-2xl bg-orange-50 px-5 py-4 ring-1 ring-orange-100 dark:bg-orange-950/20 dark:ring-orange-900/40">
+                  <div className="text-xs font-bold uppercase tracking-widest text-orange-700 dark:text-orange-300">
+                    {t("outcome")}
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                    {service.outcome}
+                  </p>
                 </div>
 
                 <div className="mt-8 border-t border-slate-100 dark:border-slate-800 pt-6 space-y-3 text-sm text-slate-600 dark:text-slate-400">

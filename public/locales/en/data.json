@@ -1,34 +1,32 @@
 {
-  "whatWeHelpWith": [
-    "Simple Bitcoin education for beginners",
-    "Practical onboarding without technical overload",
-    "Wallet guidance and security basics",
-    "Common mistakes and how to avoid them",
-    "Bitcoin workshops for small businesses",
-    "Clear support in English and Swedish"
+  "quickHelpTitle": "Bitcoin can feel overwhelming at first",
+  "quickHelpDescription": "Most people are interested in Bitcoin, but do not know where to begin safely.",
+  "painPoints": [
+    "You hear conflicting advice everywhere",
+    "You are unsure which wallet to choose",
+    "You do not want to make an expensive mistake",
+    "You want practical help, not technical jargon",
+    "You want to understand Bitcoin before making any decisions"
   ],
-  "quickHelpTitle": "Understanding Bitcoin should not feel confusing",
-  "quickHelpDescription": "We bridge the gap between technical complexity and practical understanding.",
-  "whatWeHelpWith": [
-    "Simple Bitcoin education for beginners",
-    "Practical onboarding without technical overload",
-    "Wallet guidance and security basics",
-    "Common mistakes and how to avoid them",
-    "Bitcoin workshops for small businesses",
-    "Clear support in English and Swedish"
-  ],
-  "steps": [
+  "problemClosing": "That is exactly why BitcoinStart Nordics exists.",
+  "solutionTitle": "Clear guidance. Safer first steps.",
+  "solutionDescription": "We offer simple, practical Bitcoin sessions designed for beginners and small businesses. Our focus is to help you understand the basics, improve your confidence, and move forward in a safer and more structured way.",
+  "benefits": [
     {
-      "title": "1. Book a session",
-      "text": "Choose the session that fits where you are today."
+      "title": "Clear explanations in plain language",
+      "text": "We explain what matters without technical jargon or unnecessary complexity."
     },
     {
-      "title": "2. Get clear guidance",
-      "text": "We go through your questions, your goals, and the most practical next steps."
+      "title": "Practical step-by-step guidance",
+      "text": "Each session is designed to help you move from confusion to a clearer next step."
     },
     {
-      "title": "3. Move forward with confidence",
-      "text": "You leave with more clarity, better understanding, and a safer path forward."
+      "title": "Security-focused approach",
+      "text": "We prioritize safer habits, clearer thinking, and fewer beginner mistakes."
+    },
+    {
+      "title": "Educational support without hype",
+      "text": "We do not push decisions. We help you understand Bitcoin more clearly first."
     }
   ]
 }

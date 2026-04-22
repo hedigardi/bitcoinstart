@@ -1,53 +1,55 @@
 {
-  "whyTitle": "Why BitcoinStart Nordics",
+  "whyTitle": "About BitcoinStart Nordics",
   "whyParagraphs": [
-    "There is a lot of information about Bitcoin, but not much calm, practical guidance for people who are just getting started.",
-    "BitcoinStart Nordics combines technical understanding with many years of real-world support experience.",
-    "That matters, because most people do not need more complexity. They need clarity, patience, and someone who can explain things in a way that makes sense."
+    "BitcoinStart Nordics was created to make Bitcoin easier to understand for everyday people and small businesses.",
+    "The space is often filled with noise, jargon, and unnecessary complexity. We believe people deserve simple, honest, and practical guidance so they can understand Bitcoin more clearly and take better next steps.",
+    "We are based in Norway and serve clients across the Nordics through beginner-friendly online sessions."
   ],
   "valuePoints": [
     {
-      "title": "Clear communication",
-      "text": "We explain Bitcoin in simple language without unnecessary complexity."
+      "title": "Beginner-friendly",
+      "text": "We explain Bitcoin in plain language without assuming prior knowledge."
     },
     {
       "title": "Practical guidance",
-      "text": "We focus on what you actually need to understand and do next."
+      "text": "We focus on what actually matters when taking your next step."
+    },
+    {
+      "title": "Security-focused",
+      "text": "We prioritize safer habits and clear thinking over shortcuts."
     },
     {
       "title": "No hype",
-      "text": "We help people approach Bitcoin with more clarity and less confusion."
+      "text": "We do not sell speculation. We help people understand Bitcoin more clearly."
+    },
+    {
+      "title": "Nordic-based",
+      "text": "Based in Norway and built for clients across the Nordics."
     }
   ],
-  "audienceTitle": "Who this is for",
-  "audienceDescription": "BitcoinStart Nordics is designed for people who are interested in Bitcoin but want a calmer, clearer, and more practical starting point.",
+  "audienceTitle": "Built for trust from day one",
+  "audienceDescription": "We are a new startup, which means we are focused on doing the fundamentals right from the start.",
   "audience": [
     {
-      "title": "Beginners",
-      "text": "For people who want to understand Bitcoin properly without getting lost in technical jargon or online noise."
+      "title": "Clear communication",
+      "text": "We explain things simply, honestly, and without unnecessary complexity."
     },
     {
-      "title": "People who want safer first steps",
-      "text": "For those who want help understanding wallets, backup basics, and practical security thinking."
+      "title": "Practical guidance",
+      "text": "Every session is designed to help you take a safer and more informed next step."
     },
     {
-      "title": "Small business owners",
-      "text": "For businesses that want to explore whether Bitcoin is relevant for them and how to think about it in practice."
+      "title": "Honest expectations",
+      "text": "We do not push decisions. We help you understand what is relevant for you first."
     },
     {
-      "title": "Professionals",
-      "text": "For people who want a structured and no-hype introduction to Bitcoin that respects their time."
-    },
-    {
-      "title": "Clients across the Nordics",
-      "text": "For people who want simple guidance in English or Swedish, with a Nordic-first approach."
+      "title": "Security-first mindset",
+      "text": "We focus on safer habits, fewer mistakes, and clearer thinking from day one."
     }
   ],
-  "foundationTitle": "The Foundation",
+  "foundationTitle": "Built with a practical, education-first approach",
   "foundationParagraphs": [
-    "BitcoinStart Nordics was created by a founder with a background in blockchain and fullstack studies, combined with 10+ years of experience in support across different industries.",
-    "That combination is the foundation of the service.",
-    "Bitcoin can feel overwhelming in the beginning. Many explanations are either too technical or too focused on excitement instead of understanding.",
-    "We make it simpler, calmer, and more practical for real people and small businesses across the Nordic region."
+    "Our goal is not to push decisions. Our goal is to help people understand what Bitcoin is, what it is not, and how to approach it more safely.",
+    "If you are looking for a calm and beginner-friendly place to start, you are in the right place."
   ]
 }

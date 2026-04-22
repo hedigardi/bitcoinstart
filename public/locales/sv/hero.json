@@ -1,25 +1,25 @@
 {
-  "tag": "Baserad i Norge. För kunder i hela Norden.",
-  "title": "Bitcoin gjort enkelt för nybörjare och småföretag i Norden",
-  "description": "Vi hjälper människor att förstå Bitcoin på ett enkelt, praktiskt och säkrare sätt. Ingen hype. Inget brus. Bara tydlig vägledning, bättre förståelse och praktisk onboarding.",
-  "cta": "Boka en introduktionssession",
-  "learnMore": "Läs mer",
-  "subtext": "Nybörjarvänligt på engelska och svenska",
+  "tag": "Enkel Bitcoin-vägledning för nybörjare i Norden",
+  "title": "Gå från förvirrad till trygg med Bitcoin — i en praktisk session",
+  "description": "Vi hjälper nybörjare och småföretag att förstå Bitcoin tydligare, undvika kostsamma misstag och ta tryggare första steg. Ingen hype. Ingen press. Bara praktisk vägledning.",
+  "cta": "Boka din första session",
+  "learnMore": "Utforska tjänster",
+  "subtext": "Baserad i Norge. För kunder i hela Norden. Sessionerna erbjuds på engelska och svenska.",
   "info": {
     "focus": {
       "label": "Fokus",
-      "value": "Tydlig Bitcoin-utbildning"
+      "value": "Praktisk Bitcoin-vägledning"
     },
     "approach": {
       "label": "Tillvägagångssätt",
-      "value": "Praktiskt och utan hype"
+      "value": "Tydligt, lugnt och utan hype"
     },
     "sessions": {
       "label": "Sessioner",
       "value": "Online i hela Norden"
     },
     "languages": {
-      "label": "Språk",
+      "label": "Språk för sessioner",
       "value": "Engelska och svenska"
     }
   }

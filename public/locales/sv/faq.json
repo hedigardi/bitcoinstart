@@ -1,54 +1,30 @@
 {
   "title": "Vanliga frågor",
-  "description": "Allt du behöver veta för att komma igång.",
+  "description": "Allt du behöver veta innan du bokar din första session.",
   "faqs": [
     {
-      "q": "Behöver vi förkunskaper om Bitcoin?",
-      "a": "Nej. Våra sessioner är utformade för nybörjare och för personer som vill få en enklare och tydligare förståelse av Bitcoin utan att känna sig överväldigade."
+      "q": "Ger ni finansiell rådgivning eller investeringsråd?",
+      "a": "Nej. BitcoinStart Nordics erbjuder endast utbildande sessioner. Vi ger inte finansiell rådgivning, skatterådgivning eller investeringsråd."
     },
     {
-      "q": "Är detta finansiell rådgivning?",
-      "a": "Nej. BitcoinStart Nordics fokuserar på utbildning, onboarding och praktisk vägledning. Vi erbjuder inte finansiell, skattemässig eller investeringsrådgivning."
-    },
-    {
-      "q": "Vad hjälper vi faktiskt med?",
-      "a": "Vi hjälper till med att förstå Bitcoin, komma igång på ett praktiskt sätt, lära sig grunderna om plånböcker och säkerhet samt undvika vanliga nybörjarmisstag."
-    },
-    {
-      "q": "Hjälper vi till med att sätta upp plånbok?",
-      "a": "Ja. Vår session för plånbok och säkerhet är utformad för personer som vill ha praktisk vägledning kring val av plånbok, backup-tänk och säkrare Bitcoin-vanor."
-    },
-    {
-      "q": "Kan helt nybörjare boka en session?",
-      "a": "Ja. Faktum är att det är exakt det som de flesta av våra sessioner är utformade för."
-    },
-    {
-      "q": "Måste vi redan äga Bitcoin?",
-      "a": "Nej. Många bokar en session innan de gör något alls, för att förstå Bitcoin bättre och få tydlighet kring rätt nästa steg."
-    },
-    {
-      "q": "Arbetar vi med småföretag?",
-      "a": "Ja. Vi erbjuder praktiska Bitcoin-workshops och vägledning för småföretag som vill förstå om Bitcoin är relevant för dem."
-    },
-    {
-      "q": "Vilka språk erbjuder vi sessioner på?",
-      "a": "Vi erbjuder för närvarande sessioner på engelska och svenska."
+      "q": "Vem passar sessionerna för?",
+      "a": "Våra sessioner är utformade för nybörjare, nyfikna privatpersoner och småföretag som vill ha en enklare och mer praktisk förståelse av Bitcoin."
     },
     {
       "q": "Är sessionerna online eller fysiska?",
-      "a": "Sessionerna är för närvarande tillgängliga online, vilket gör det enkelt för kunder i hela Norden att boka."
+      "a": "Vid lansering erbjuds sessionerna online."
     },
     {
-      "q": "Vad händer efter bokning?",
-      "a": "När en session är bokad skickar vi en bekräftelse med möteslänk och relevant information inför sessionen."
+      "q": "Behöver jag några förkunskaper?",
+      "a": "Nej. Våra sessioner är nybörjarvänliga och utformade för att möta dig där du är."
     },
     {
-      "q": "Vad tar vi med oss efter en session?",
-      "a": "Du lämnar med mer tydlighet, bättre förståelse av Bitcoin och praktiska nästa steg baserat på din nuvarande situation."
+      "q": "Vad händer efter att jag bokar?",
+      "a": "Du får en bekräftelse, information om sessionen och nästa steg via e-post."
     },
     {
-      "q": "Kan vi ställa frågor under sessionen?",
-      "a": "Absolut. Sessionerna är tänkta att vara praktiska, interaktiva och anpassade efter din nivå och dina behov."
+      "q": "Vilka språk erbjuder ni?",
+      "a": "Våra sessioner erbjuds för närvarande på engelska och svenska."
     }
   ]
 }
