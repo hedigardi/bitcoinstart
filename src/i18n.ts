@@ -21,6 +21,7 @@ i18n
   .init({
     ns: [
       "common",
+      "seo",
       "hero",
       "services",
       "about",
