@@ -6,6 +6,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import SeoHead from "./components/SeoHead";
 import { useTranslation } from "react-i18next";
 
 const Services = lazy(() => import("./components/Services"));
@@ -44,6 +45,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 scroll-smooth selection:bg-orange-100 dark:selection:bg-orange-950 selection:text-orange-900 dark:selection:text-orange-100">
+      <SeoHead />
       <Header theme={theme} toggleTheme={toggleTheme} />
 
       <main>
