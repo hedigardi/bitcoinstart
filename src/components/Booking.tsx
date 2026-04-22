@@ -63,7 +63,7 @@ export default function Booking() {
               {t("title")}
             </h2>
             <div className="mt-6 space-y-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-              {description.map((paragraph, index) => (
+              {description.slice(0, 2).map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
               <p className="font-medium text-slate-900 dark:text-orange-400 border-l-2 border-orange-700 pl-4 py-1 bg-orange-50/50 dark:bg-orange-900/10 rounded-r-xl">

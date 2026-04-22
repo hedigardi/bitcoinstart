@@ -1,13 +1,13 @@
 {
   "success": {
-    "title": "Takk skal du ha!",
+    "title": "Takk!",
     "message": "Din bestillingsforespørsel er sendt. Vi kommer tilbake til deg innen 24 timer."
   },
-  "title": "Bestill en sesjon",
+  "title": "Ta ditt første tryggere steg inn i Bitcoin",
   "description": [
-    "Enten du er helt ny til Bitcoin eller allerede har begynt å utforske det og ønsker mer klarhet, tilbyr BitcoinStart Nordics praktiske sesjoner designet for å hjelpe deg videre med større trygghet.",
-    "Vi fokuserer på enkle forklaringer, rolig veiledning og tryggere onboarding for nybegynnere og småbedrifter over hele Norden.",
-    "Fortell oss litt om hva du ønsker hjelp med, så sørger vi for at sesjonen tilpasses dine behov."
+    "Enten du akkurat har startet eller ønsker praktisk støtte med lommebøker og sikkerhet, er vi her for å hjelpe deg videre med mer klarhet og trygghet.",
+    "Velg sesjonen som passer deg best, fortell oss hvor du er i dag, så følger vi opp med riktige neste steg på e-post.",
+    "Begrenset kapasitet mens vi lanserer."
   ],
   "form": {
     "placeholders": {
@@ -35,7 +35,7 @@
       }
     },
     "buttons": {
-      "submit": "Send bestillingsforespørsel",
+      "submit": "Bestill din første sesjon",
       "submitting": "Sender..."
     },
     "footer": "Vi kommer tilbake til deg innen 24 timer.",

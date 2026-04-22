@@ -1,26 +1,32 @@
 {
-  "quickHelpTitle": "Att förstå Bitcoin ska inte kännas förvirrande",
-  "quickHelpDescription": "Vi överbryggar gapet mellan teknisk komplexitet och praktisk förståelse.",
-  "whatWeHelpWith": [
-    "Enkel Bitcoin-utbildning för nybörjare",
-    "Praktisk onboarding utan teknisk överbelastning",
-    "Vägledning kring plånböcker och grundläggande säkerhet",
-    "Vanliga misstag och hur du undviker dem",
-    "Bitcoin-workshops för småföretag",
-    "Tydlig support på engelska och svenska"
+  "quickHelpTitle": "Bitcoin kan kännas överväldigande i början",
+  "quickHelpDescription": "De flesta är intresserade av Bitcoin men vet inte hur de ska börja på ett tryggt sätt.",
+  "painPoints": [
+    "Du hör motstridiga råd överallt",
+    "Du är osäker på vilken plånbok du ska välja",
+    "Du vill inte göra ett dyrt misstag",
+    "Du vill ha praktisk hjälp, inte teknisk jargong",
+    "Du vill förstå Bitcoin innan du fattar några beslut"
   ],
-  "steps": [
+  "problemClosing": "Det är exakt därför BitcoinStart Nordics finns.",
+  "solutionTitle": "Tydlig vägledning. Tryggare första steg.",
+  "solutionDescription": "Vi erbjuder enkla och praktiska Bitcoin-sessioner för nybörjare och småföretag. Vårt fokus är att hjälpa dig förstå grunderna, bygga trygghet och gå vidare på ett säkrare och mer strukturerat sätt.",
+  "benefits": [
     {
-      "title": "1. Boka en session",
-      "text": "Välj den session som passar där du befinner dig idag."
+      "title": "Tydliga förklaringar på enkel svenska",
+      "text": "Vi förklarar det som faktiskt spelar roll utan teknisk jargong eller onödig komplexitet."
     },
     {
-      "title": "2. Få tydlig vägledning",
-      "text": "Vi går igenom dina frågor, dina mål och de mest praktiska nästa stegen."
+      "title": "Praktisk vägledning steg för steg",
+      "text": "Varje session är utformad för att hjälpa dig från förvirring till ett tydligare nästa steg."
     },
     {
-      "title": "3. Gå vidare med trygghet",
-      "text": "Du går därifrån med mer tydlighet, bättre förståelse och en tryggare väg framåt."
+      "title": "Säkerhetsfokuserad metod",
+      "text": "Vi prioriterar tryggare vanor, tydligare tänkande och färre nybörjarmisstag."
+    },
+    {
+      "title": "Utbildning utan hype",
+      "text": "Vi pressar inte fram beslut. Vi hjälper dig först att förstå Bitcoin tydligare."
     }
   ]
 }

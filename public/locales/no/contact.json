@@ -1,20 +1,20 @@
 {
   "title": "Ta kontakt",
   "description": [
-    "Hvis du er usikker på hvilken sesjon som passer for deg, eller om du vil stille et spørsmål før du kommer i gang, er det bare å ta kontakt.",
-    "Vi hjelper deg gjerne med å finne det rette steget videre."
+    "Hvis du er usikker på hvilken sesjon som passer deg, eller hvis du vil stille et spørsmål før du bestiller, er det bare å ta kontakt.",
+    "Vi hjelper deg gjerne med å finne riktig neste steg."
   ],
-  "tags": ["Fokus på support", "Norden"],
+  "tags": ["Nybegynnervennlig", "Hele Norden"],
   "details": {
     "email": {
       "label": "E-post",
       "value": "contact@bitcoinstart.no"
     },
     "location": {
-      "label": "Lokasjon og omfang",
+      "label": "Lokasjon",
       "primary": "Basert i Norge",
-      "secondary": "Tilgjengelig digitalt over hele Norden"
+      "secondary": "Betjener kunder over hele Norden"
     }
   },
-  "button": "Send oss en e-post"
+  "button": "Ta kontakt"
 }

@@ -1,10 +1,11 @@
 {
-  "title": "Vores tjenester",
-  "description": "Vi tilbyder praktiske og begyndervenlige Bitcoin-sessioner, der hjælper privatpersoner og små virksomheder med at forstå Bitcoin tydeligere, undgå almindelige fejl og tage bedre næste skridt.",
+  "title": "Vælg den session, der passer til, hvor du er lige nu",
+  "description": "Start med det grundlæggende, få hjælp til sikrere opsætning, eller udforsk hvordan Bitcoin kan passe til din virksomhed.",
   "bestFor": "Bedst for",
   "whatWeCover": "Dette gennemgår vi",
   "whatYouLeaveWith": "Det får du med dig",
   "includes": "Inkluderer",
+  "outcome": "Udbytte",
   "format": "Format",
   "duration": "Varighed",
   "price": "Pris",
@@ -20,30 +21,27 @@
   "services": [
     {
       "title": "Introduktion til Bitcoin",
-      "subheadline": "En begyndervenlig 60-minutters session for dig, der ønsker en klar, praktisk og no-hype introduktion til Bitcoin.",
+      "subheadline": "Fra nul til din første klare Bitcoin-plan",
       "description": [
-        "Perfekt til dig, der er nysgerrig på Bitcoin, men føler dig overvældet af tekniske forklaringer, modstridende holdninger eller støj online.",
-        "Sessionen giver dig et roligere og tydeligere udgangspunkt, så du forstår fundamentet, før du tager næste skridt."
+        "En 60-minutters session for begyndere, der ønsker en praktisk og letforståelig introduktion til Bitcoin."
       ],
+      "outcome": "Du går derfra med en tydeligere forståelse af Bitcoin og en praktisk plan for næste skridt.",
       "bestFor": [
         "Helt nye begyndere",
         "Personer, der vil forstå Bitcoin, før de gør noget praktisk",
-        "Personer, der føler sig forvirrede af det bredere kryptolandskab",
-        "Alle, der ønsker en enkel og struktureret introduktion"
+        "Alle, der ønsker en roligere og mere struktureret start"
       ],
       "whatWeCover": [
         "Hvad Bitcoin er, og hvorfor det betyder noget",
         "Hvordan Bitcoin fungerer på et overordnet niveau",
-        "Hvordan Bitcoin adskiller sig fra det bredere kryptoområde",
-        "Hvad begyndere bør forstå først",
-        "Almindelige fejl at undgå",
-        "Praktiske næste skridt baseret på din situation"
+        "Hvordan Bitcoin adskiller sig fra spekulation og støj online",
+        "Hvordan du kommer i gang på en sikrere måde",
+        "Almindelige begynderfejl at undgå"
       ],
       "whatYouLeaveWith": [
         "En klarere forståelse af Bitcoin",
-        "Mindre forvirring og mere selvtillid",
-        "En bedre forståelse af, hvad der betyder noget, og hvad der ikke gør",
-        "En praktisk idé om dit næste skridt"
+        "Mindre forvirring og mere tryghed",
+        "En praktisk plan for næste skridt"
       ],
       "includes": [
         "Spørgeskema før sessionen",
@@ -52,35 +50,32 @@
       ],
       "format": "Online session",
       "duration": "60 minutter",
-      "price": "1 090 DKK",
+      "price": "1 490 NOK introduktionspris",
       "cta": "Book introduktionssession"
     },
     {
       "title": "Wallet og sikkerhedsopsætning",
-      "subheadline": "En guidet 90-minutters session for dig, der ønsker praktisk hjælp til at forstå wallets, backup-grundprincipper og mere sikre Bitcoin-vaner.",
+      "subheadline": "Sæt din wallet rigtigt op med guidet støtte",
       "description": [
-        "Sessionen er designet til personer, der vil have mere end teori og har brug for rolig, praktisk vejledning før næste skridt.",
-        "Vi hjælper dig med at forstå det vigtigste om wallets og sikkerhed på en enkel måde, så du kan gå videre med bedre vaner og færre begyndermisforståelser."
+        "En guidet 90-minutters session for personer, der ønsker praktisk hjælp til at komme i gang med wallets og sikrere Bitcoin-vaner."
       ],
+      "outcome": "Du går derfra med en plan for wallet-opsætning, stærkere sikkerhedsvaner og mere tryghed fremadrettet.",
       "bestFor": [
         "Begyndere, der ønsker praktisk vejledning",
         "Personer, der allerede ejer noget Bitcoin og ønsker mere klarhed",
-        "Personer, der er usikre på wallets og backup-grundprincipper",
         "Alle, der ønsker sikrere første skridt uden unødig kompleksitet"
       ],
       "whatWeCover": [
-        "Wallet-grundprincipper i enkelt sprog",
-        "Custodial vs non-custodial tankegang",
-        "Hot wallets og grundlæggende om hardware wallets",
-        "Backup- og gendannelsesprincipper",
-        "Almindelige sikkerhedsfejl",
-        "Sikrere næste skridt baseret på din situation"
+        "Wallet-muligheder og hvordan du vælger mellem dem",
+        "Guidet støtte til opsætning",
+        "Grundlæggende om seed phrase og sikker opbevaring",
+        "Almindelige sikkerhedsfejl og hvordan du undgår dem",
+        "Sikrere vaner til langsigtet brug af Bitcoin"
       ],
       "whatYouLeaveWith": [
-        "En klarere forståelse af, hvordan wallets fungerer",
-        "Sikrere vaner fra starten",
-        "Mere selvtillid i dine opsætningsvalg",
-        "En praktisk plan for næste skridt"
+        "En plan for wallet-opsætning",
+        "Stærkere sikkerhedsvaner",
+        "Mere tryghed fremadrettet"
       ],
       "includes": [
         "Spørgeskema før sessionen",
@@ -90,35 +85,32 @@
       ],
       "format": "Online session",
       "duration": "90 minutter",
-      "price": "3 290 DKK",
+      "price": "2 490 NOK introduktionspris",
       "cta": "Book wallet og sikkerhedsopsætning"
     },
     {
       "title": "Bitcoin for små virksomheder",
-      "subheadline": "En praktisk workshop for små virksomheder, der vil forstå, om Bitcoin er relevant for dem ud fra et klart og forretningsfokuseret perspektiv.",
+      "subheadline": "En praktisk workshop for virksomhedsejere, der udforsker Bitcoin",
       "description": [
-        "Designet til founders og virksomhedsejere, der ønsker et no-hype syn på Bitcoin og dets mulige relevans for deres forretning.",
-        "Workshoppen hjælper jer med at forstå, hvor Bitcoin måske passer eller ikke passer, hvilke praktiske muligheder og begrænsninger der findes, og hvordan et fornuftigt næste skridt kan se ud."
+        "En fokuseret session for små virksomheder, der ønsker en tydeligere forståelse af, hvordan Bitcoin kan være relevant i praksis."
       ],
+      "outcome": "Du går derfra med en bedre forståelse af Bitcoin i en forretningskontekst og tydeligere næste skridt til videre vurdering.",
       "bestFor": [
         "Founders og små virksomhedsejere",
         "Konsulenter og servicevirksomheder",
-        "Virksomheder, der udforsker Bitcoin som emne, betalingsmulighed eller strategisk område",
-        "Teams, der ønsker bedre intern forståelse før beslutninger"
+        "Virksomheder, der udforsker Bitcoin som emne, betalingsmulighed eller strategisk område"
       ],
       "whatWeCover": [
         "Bitcoin-fundament for virksomhedsejere",
-        "Hvordan Bitcoin adskiller sig fra det bredere kryptoområde",
-        "Hvor Bitcoin kan eller ikke kan være relevant",
-        "Praktiske muligheder og begrænsninger",
-        "Betalingsrelaterede overvejelser",
-        "Foreslåede næste skridt for din virksomhed"
+        "Almindelige anvendelser og overvejelser",
+        "At modtage Bitcoin og hvad det kan indebære",
+        "Operationelle og sikkerhedsmæssige grundprincipper",
+        "Spørgsmål knyttet til netop din virksomhedssituation"
       ],
       "whatYouLeaveWith": [
         "Et klarere forretningsperspektiv på Bitcoin",
         "Bedre intern forståelse",
-        "Mindre usikkerhed og mere struktur",
-        "En mere oplyst beslutning om næste skridt"
+        "Tydeligere næste skridt til videre vurdering"
       ],
       "includes": [
         "Spørgeskema før workshop",
@@ -126,8 +118,8 @@
         "Opsummering efter workshop med vigtigste pointer"
       ],
       "format": "Online workshop",
-      "duration": "90–120 minutter",
-      "price": "Efter aftale",
+      "duration": "90 minutter",
+      "price": "Kontakt for pris",
       "cta": "Anmod om workshop"
     }
   ]

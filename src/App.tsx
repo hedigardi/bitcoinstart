@@ -12,12 +12,15 @@ const Services = lazy(() => import("./components/Services"));
 const About = lazy(() => import("./components/About"));
 const FAQ = lazy(() => import("./components/FAQ"));
 const Booking = lazy(() => import("./components/Booking"));
-const FreeGuide = lazy(() => import("./components/FreeGuide"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   const { t } = useTranslation("data");
+  const painPoints = t("painPoints", { returnObjects: true }) as string[];
+  const benefits = t("benefits", {
+    returnObjects: true,
+  }) as Array<{ title: string; text: string }>;
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("theme") || "dark";
@@ -46,37 +49,58 @@ export default function App() {
       <main>
         <Hero />
 
-        {/* Quick Help Summary Section */}
+        {/* Problem + Solution Section */}
         <section className="bg-white dark:bg-slate-950 py-16 border-b border-slate-100 dark:border-slate-800">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
-                {t("quickHelpTitle")}
-              </h2>
-              <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                {t("quickHelpDescription")}
-              </p>
-            </div>
-
-            <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                t("whatWeHelpWith.0"),
-                t("whatWeHelpWith.1"),
-                t("whatWeHelpWith.2"),
-                t("whatWeHelpWith.3"),
-                t("whatWeHelpWith.4"),
-                t("whatWeHelpWith.5"),
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 rounded-2xl bg-slate-50 dark:bg-slate-900 p-4 ring-1 ring-slate-100 dark:ring-slate-800 transition hover:bg-white dark:hover:bg-slate-800 hover:shadow-md dark:hover:shadow-slate-900/50 active:scale-[0.98]"
-                >
-                  <div className="h-2 w-2 flex-shrink-0 rounded-full bg-orange-700" />
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                    {item}
-                  </span>
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+                  {t("quickHelpTitle")}
+                </h2>
+                <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+                  {t("quickHelpDescription")}
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {painPoints.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 rounded-2xl bg-slate-50 dark:bg-slate-900 p-4 ring-1 ring-slate-100 dark:ring-slate-800"
+                    >
+                      <div className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-orange-700" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <p className="mt-8 text-base font-medium text-slate-900 dark:text-white">
+                  {t("problemClosing")}
+                </p>
+              </div>
+
+              <div className="rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-8 shadow-sm">
+                <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                  {t("solutionTitle")}
+                </h3>
+                <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-400">
+                  {t("solutionDescription")}
+                </p>
+                <div className="mt-8 space-y-4">
+                  {benefits.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl bg-white dark:bg-slate-950 p-5 ring-1 ring-slate-100 dark:ring-slate-800"
+                    >
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                        {item.title}
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -84,7 +108,6 @@ export default function App() {
         <Suspense fallback={<div className="h-20 w-full" aria-hidden="true" />}>
           <Services />
           <About />
-          <FreeGuide />
           <FAQ />
           <Booking />
           <Contact />
