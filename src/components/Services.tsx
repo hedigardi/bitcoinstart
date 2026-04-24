@@ -2,30 +2,104 @@ import { motion } from "motion/react";
 import {
   BadgeCheck,
   BookOpenText,
-  Briefcase,
   CheckSquare,
   ShieldCheck,
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+type ServiceContent = {
+  title: string;
+  subheadline: string;
+  description: string[];
+  outcome: string;
+  bestFor: string[];
+  whatWeCover: string[];
+  whatYouLeaveWith: string[];
+  includes: string[];
+  format: string;
+  duration: string;
+  price: string;
+  cta: string;
+};
+
+type LanguagePricing = {
+  code: "NOK" | "SEK" | "DKK" | "EUR";
+  locale: string;
+  rate: number;
+  roundingStep: number;
+};
+
+const PRICE_CONFIG: Record<string, LanguagePricing> = {
+  no: {
+    code: "NOK",
+    locale: "nb-NO",
+    rate: 1,
+    roundingStep: 10,
+  },
+  sv: {
+    code: "SEK",
+    locale: "sv-SE",
+    rate: 0.95,
+    roundingStep: 10,
+  },
+  da: {
+    code: "DKK",
+    locale: "da-DK",
+    rate: 0.64,
+    roundingStep: 10,
+  },
+  en: {
+    code: "EUR",
+    locale: "en-IE",
+    rate: 0.086,
+    roundingStep: 1,
+  },
+};
+
+function normalizeLanguage(language: string): keyof typeof PRICE_CONFIG {
+  const baseLanguage = language.split("-")[0].toLowerCase();
+  return baseLanguage in PRICE_CONFIG
+    ? (baseLanguage as keyof typeof PRICE_CONFIG)
+    : "en";
+}
+
+function parseNorwegianPrice(priceLabel: string): number | null {
+  const match = priceLabel.match(/\d[\d\s]*/);
+
+  if (!match) {
+    return null;
+  }
+
+  const amount = Number(match[0].replace(/\s+/g, ""));
+  return Number.isFinite(amount) ? amount : null;
+}
+
+function roundToStep(amount: number, step: number): number {
+  return Math.round(amount / step) * step;
+}
+
+function formatLocalizedPrice(amountInNok: number, language: string): string {
+  const pricing = PRICE_CONFIG[normalizeLanguage(language)];
+  const convertedAmount = roundToStep(
+    amountInNok * pricing.rate,
+    pricing.roundingStep,
+  );
+  const formattedAmount = new Intl.NumberFormat(pricing.locale).format(
+    convertedAmount,
+  );
+
+  return `${formattedAmount} ${pricing.code}`;
+}
+
 export default function Services() {
-  const { t } = useTranslation("services");
-  const serviceCornerIcons = [BookOpenText, ShieldCheck, Briefcase];
-  const services = t("services", { returnObjects: true }) as Array<{
-    title: string;
-    subheadline: string;
-    description: string[];
-    outcome: string;
-    bestFor: string[];
-    whatWeCover: string[];
-    whatYouLeaveWith: string[];
-    includes: string[];
-    format: string;
-    duration: string;
-    price: string;
-    cta: string;
-  }>;
+  const { t, i18n } = useTranslation("services");
+  const serviceCornerIcons = [BookOpenText, ShieldCheck];
+  const services = t("services", { returnObjects: true }) as ServiceContent[];
+  const norwegianServices = t("services", {
+    lng: "no",
+    returnObjects: true,
+  }) as ServiceContent[];
   const howToChoosePoints = t("howToChoose.points", {
     returnObjects: true,
   }) as string[];
@@ -48,6 +122,15 @@ export default function Services() {
         <div className="mt-12 space-y-8">
           {services.map((service, index) => {
             const CornerIcon = serviceCornerIcons[index] ?? BookOpenText;
+            const norwegianBasePrice = parseNorwegianPrice(
+              norwegianServices[index]?.price ?? service.price,
+            );
+            const localizedPrice = norwegianBasePrice
+              ? formatLocalizedPrice(
+                  norwegianBasePrice,
+                  i18n.resolvedLanguage || i18n.language,
+                )
+              : service.price;
 
             return (
               <motion.div
@@ -174,7 +257,7 @@ export default function Services() {
                       {t("price")}
                     </span>
                     <span className="font-semibold text-slate-900 dark:text-white">
-                      {service.price}
+                      {localizedPrice}
                     </span>
                   </div>
                 </div>

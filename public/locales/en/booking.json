@@ -18,19 +18,14 @@
     "selects": {
       "session": {
         "default": "Which session are you interested in?",
-        "options": [
-          "Bitcoin Intro Session",
-          "Wallet & Security Setup",
-          "Bitcoin for Small Business"
-        ]
+        "options": ["Bitcoin Intro Session", "Wallet & Security Setup"]
       },
       "experience": {
         "default": "Your current experience level?",
         "options": [
           "Complete beginner",
           "I have started a little",
-          "I already own some Bitcoin",
-          "Business-related inquiry"
+          "I already own some Bitcoin"
         ]
       }
     },

@@ -18,19 +18,14 @@
     "selects": {
       "session": {
         "default": "Hvilken session er du interesseret i?",
-        "options": [
-          "Introduktion til Bitcoin",
-          "Wallet og sikkerhedsopsætning",
-          "Bitcoin for små virksomheder"
-        ]
+        "options": ["Introduktion til Bitcoin", "Wallet og sikkerhedsopsætning"]
       },
       "experience": {
         "default": "Dit nuværende erfaringsniveau?",
         "options": [
           "Helt nybegynder",
           "Jeg er begyndt lidt",
-          "Jeg ejer allerede Bitcoin",
-          "Virksomhedsrelateret forespørgsel"
+          "Jeg ejer allerede Bitcoin"
         ]
       }
     },

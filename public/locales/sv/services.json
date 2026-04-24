@@ -1,6 +1,6 @@
 {
   "title": "Välj den session som passar där du är just nu",
-  "description": "Börja med grunderna, få hjälp att sätta upp säkrare, eller utforska hur Bitcoin kan passa din verksamhet.",
+  "description": "Börja med grunderna eller få guidad hjälp med att sätta upp din plånbök och säkerhet.",
   "bestFor": "Passar bäst för",
   "whatWeCover": "Detta går vi igenom",
   "whatYouLeaveWith": "Detta tar du med dig",
@@ -13,8 +13,7 @@
     "title": "Osäker på vilken session som passar dig?",
     "points": [
       "Om du är helt ny inom Bitcoin, börja med Introduktion till Bitcoin.",
-      "Om du vill ha praktisk vägledning kring plånböcker och säkrare setup, välj Plånbok och säkerhetssetup.",
-      "Om du är grundare eller företagare som utforskar Bitcoin ur ett företagsperspektiv, välj Bitcoin för småföretag."
+      "Om du vill ha praktisk vägledning kring plånböcker och säkrare setup, välj Plånbök och säkerhetssetup."
     ],
     "cta": "Kontakta oss"
   },
@@ -50,7 +49,7 @@
       ],
       "format": "Online session",
       "duration": "60 minuter",
-      "price": "1 490 NOK introduktionspris",
+      "price": "1 490 NOK",
       "cta": "Boka introduktionssession"
     },
     {
@@ -85,42 +84,8 @@
       ],
       "format": "Online session",
       "duration": "90 minuter",
-      "price": "2 490 NOK introduktionspris",
+      "price": "2 490 NOK",
       "cta": "Boka plånbok och säkerhetssetup"
-    },
-    {
-      "title": "Bitcoin för småföretag",
-      "subheadline": "En praktisk workshop för företagare som utforskar Bitcoin",
-      "description": [
-        "En fokuserad session för småföretag som vill få en tydligare förståelse för hur Bitcoin kan vara relevant i praktiken."
-      ],
-      "outcome": "Du lämnar med en bättre förståelse för Bitcoin i ett företagssammanhang och tydligare nästa steg för vidare utvärdering.",
-      "bestFor": [
-        "Grundare och småföretagare",
-        "Konsulter och tjänsteföretag",
-        "Företag som utforskar Bitcoin som ämne, betalningsalternativ eller strategiskt område"
-      ],
-      "whatWeCover": [
-        "Bitcoin-grunder för företagare",
-        "Vanliga användningsområden och överväganden",
-        "Att ta emot Bitcoin och vad det kan innebära",
-        "Operativa och säkerhetsmässiga grunder",
-        "Frågor kopplade till just er verksamhet"
-      ],
-      "whatYouLeaveWith": [
-        "Ett tydligare affärsperspektiv på Bitcoin",
-        "Bättre intern förståelse",
-        "Tydligare nästa steg för vidare utvärdering"
-      ],
-      "includes": [
-        "Frågeformulär före workshop",
-        "Live online-workshop",
-        "Sammanfattning efter workshop med viktiga insikter"
-      ],
-      "format": "Online workshop",
-      "duration": "90 minuter",
-      "price": "Kontakta oss för pris",
-      "cta": "Begär workshop"
     }
   ]
 }

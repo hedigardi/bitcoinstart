@@ -18,19 +18,14 @@
     "selects": {
       "session": {
         "default": "Hvilken sesjon er du interessert i?",
-        "options": [
-          "Bitcoin Introsesjon",
-          "Oppsett av lommebok og sikkerhet",
-          "Bitcoin for småbedrifter"
-        ]
+        "options": ["Bitcoin Introsesjon", "Oppsett av lommebok og sikkerhet"]
       },
       "experience": {
         "default": "Ditt nåværende erfaringsnivå?",
         "options": [
           "Helt nybegynner",
           "Jeg har startet litt",
-          "Jeg eier allerede litt Bitcoin",
-          "Bedriftsrelatert forespørsel"
+          "Jeg eier allerede litt Bitcoin"
         ]
       }
     },
