@@ -1,6 +1,6 @@
 {
   "title": "Vælg den session, der passer til, hvor du er lige nu",
-  "description": "Start med det grundlæggende, få hjælp til sikrere opsætning, eller udforsk hvordan Bitcoin kan passe til din virksomhed.",
+  "description": "Start med det grundlæggende, eller få guidet hjælp til at opsætte din wallet og sikkerhed.",
   "bestFor": "Bedst for",
   "whatWeCover": "Dette gennemgår vi",
   "whatYouLeaveWith": "Det får du med dig",
@@ -13,8 +13,7 @@
     "title": "Er du i tvivl om, hvilken session der passer bedst?",
     "points": [
       "Hvis du er helt ny i Bitcoin, så start med Introduktion til Bitcoin.",
-      "Hvis du ønsker praktisk vejledning om wallets og mere sikker opsætning, så vælg Wallet og sikkerhedsopsætning.",
-      "Hvis du er founder eller virksomhedsejer, der udforsker Bitcoin fra et virksomhedsperspektiv, så vælg Bitcoin for små virksomheder."
+      "Hvis du ønsker praktisk vejledning om wallets og mere sikker opsætning, så vælg Wallet og sikkerhedsopsætning."
     ],
     "cta": "Kontakt os"
   },
@@ -50,7 +49,7 @@
       ],
       "format": "Online session",
       "duration": "60 minutter",
-      "price": "1 490 NOK introduktionspris",
+      "price": "1 490 NOK",
       "cta": "Book introduktionssession"
     },
     {
@@ -85,42 +84,8 @@
       ],
       "format": "Online session",
       "duration": "90 minutter",
-      "price": "2 490 NOK introduktionspris",
+      "price": "2 490 NOK",
       "cta": "Book wallet og sikkerhedsopsætning"
-    },
-    {
-      "title": "Bitcoin for små virksomheder",
-      "subheadline": "En praktisk workshop for virksomhedsejere, der udforsker Bitcoin",
-      "description": [
-        "En fokuseret session for små virksomheder, der ønsker en tydeligere forståelse af, hvordan Bitcoin kan være relevant i praksis."
-      ],
-      "outcome": "Du går derfra med en bedre forståelse af Bitcoin i en forretningskontekst og tydeligere næste skridt til videre vurdering.",
-      "bestFor": [
-        "Founders og små virksomhedsejere",
-        "Konsulenter og servicevirksomheder",
-        "Virksomheder, der udforsker Bitcoin som emne, betalingsmulighed eller strategisk område"
-      ],
-      "whatWeCover": [
-        "Bitcoin-fundament for virksomhedsejere",
-        "Almindelige anvendelser og overvejelser",
-        "At modtage Bitcoin og hvad det kan indebære",
-        "Operationelle og sikkerhedsmæssige grundprincipper",
-        "Spørgsmål knyttet til netop din virksomhedssituation"
-      ],
-      "whatYouLeaveWith": [
-        "Et klarere forretningsperspektiv på Bitcoin",
-        "Bedre intern forståelse",
-        "Tydeligere næste skridt til videre vurdering"
-      ],
-      "includes": [
-        "Spørgeskema før workshop",
-        "Live online-workshop",
-        "Opsummering efter workshop med vigtigste pointer"
-      ],
-      "format": "Online workshop",
-      "duration": "90 minutter",
-      "price": "Kontakt for pris",
-      "cta": "Anmod om workshop"
     }
   ]
 }

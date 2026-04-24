@@ -1,6 +1,6 @@
 {
   "title": "Velg sesjonen som passer der du er akkurat nå",
-  "description": "Start med det grunnleggende, få hjelp til tryggere oppsett, eller utforsk hvordan Bitcoin kan passe for virksomheten din.",
+  "description": "Start med det grunnleggende, eller få veiledet hjelp til å sette opp lommeboken og sikkerheten din.",
   "bestFor": "Passer best for",
   "whatWeCover": "Hva vi går gjennom",
   "whatYouLeaveWith": "Dette sitter du igjen med",
@@ -13,8 +13,7 @@
     "title": "Usikker på hvilken sesjon som passer deg?",
     "points": [
       "Hvis du er helt ny i Bitcoin, start med Bitcoin Introsesjon.",
-      "Hvis du ønsker praktisk veiledning om lommebøker og tryggere oppsett, velg Oppsett av lommebok og sikkerhet.",
-      "Hvis du er gründer eller bedriftseier som utforsker Bitcoin fra et bedriftsståsted, velg Bitcoin for småbedrifter."
+      "Hvis du ønsker praktisk veiledning om lommebøker og tryggere oppsett, velg Oppsett av lommebok og sikkerhet."
     ],
     "cta": "Ta kontakt"
   },
@@ -50,7 +49,7 @@
       ],
       "format": "Digital sesjon",
       "duration": "60 minutter",
-      "price": "1 490 NOK introduksjonspris",
+      "price": "1 490 NOK",
       "cta": "Bestill Bitcoin Introsesjon"
     },
     {
@@ -85,42 +84,8 @@
       ],
       "format": "Digital sesjon",
       "duration": "90 minutter",
-      "price": "2 490 NOK introduksjonspris",
+      "price": "2 490 NOK",
       "cta": "Bestill oppsett av lommebok og sikkerhet"
-    },
-    {
-      "title": "Bitcoin for småbedrifter",
-      "subheadline": "En praktisk workshop for bedriftseiere som utforsker Bitcoin",
-      "description": [
-        "En fokusert sesjon for småbedrifter som ønsker en tydeligere forståelse av hvordan Bitcoin kan være relevant i praksis."
-      ],
-      "outcome": "Du sitter igjen med en bedre forståelse av Bitcoin i en forretningskontekst og tydeligere neste steg for videre vurdering.",
-      "bestFor": [
-        "Gründere og småbedriftseiere",
-        "Konsulenter og tjenestebedrifter",
-        "Bedrifter som utforsker Bitcoin som tema, betalingsalternativ eller strategisk område"
-      ],
-      "whatWeCover": [
-        "Bitcoin-grunnleggende for bedriftseiere",
-        "Vanlige bruksområder og vurderinger",
-        "Å ta imot Bitcoin og hva det kan innebære",
-        "Operasjonelle og sikkerhetsmessige grunnprinsipper",
-        "Spørsmål knyttet til deres konkrete bedriftssituasjon"
-      ],
-      "whatYouLeaveWith": [
-        "Et tydeligere forretningsperspektiv på Bitcoin",
-        "Bedre intern forståelse",
-        "Tydeligere neste steg for videre vurdering"
-      ],
-      "includes": [
-        "Spørreskjema før workshop",
-        "Live digital workshop",
-        "Oppsummering i etterkant med nøkkelpunkter"
-      ],
-      "format": "Digital workshop",
-      "duration": "90 minutter",
-      "price": "Kontakt for pris",
-      "cta": "Forespør business-workshop"
     }
   ]
 }
