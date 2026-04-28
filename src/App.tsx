@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import SeoHead from "./components/SeoHead";
 import LegalPage from "./components/LegalPage";
+import CookieConsent from "./components/CookieConsent";
 import { useTranslation } from "react-i18next";
 
 const Services = lazy(() => import("./components/Services"));
@@ -128,6 +129,8 @@ export default function App() {
       <Suspense fallback={<div className="h-16 w-full" aria-hidden="true" />}>
         <Footer />
       </Suspense>
+
+      <CookieConsent />
     </div>
   );
 }

@@ -11,6 +11,21 @@
     "toggleTheme": "Toggle Theme",
     "toggleMenu": "Toggle Menu"
   },
+  "cookie": {
+    "title": "We use cookies",
+    "description": "We use essential cookies to make this website work. With your consent, we also use analytics cookies to understand usage and improve the experience.",
+    "privacyLink": "Read our Privacy Policy",
+    "showSettings": "Cookie settings",
+    "hideSettings": "Hide settings",
+    "essentialOnly": "Only essential",
+    "acceptAll": "Accept all",
+    "saveSettings": "Save settings",
+    "essentialTitle": "Essential cookies",
+    "essentialDescription": "Required for core site functionality and security.",
+    "analyticsTitle": "Analytics cookies",
+    "analyticsDescription": "Help us understand traffic and improve the website.",
+    "alwaysOn": "Always on"
+  },
   "footer": {
     "tagline": "Simple Bitcoin guidance. Safer first steps.",
     "description": "BitcoinStart Nordics helps beginners understand Bitcoin in a simple, practical, and safer way.",
