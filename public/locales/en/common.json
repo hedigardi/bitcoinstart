@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "services": "Services",
     "about": "About",
@@ -13,7 +13,7 @@
   },
   "footer": {
     "tagline": "Simple Bitcoin guidance. Safer first steps.",
-    "description": "BitcoinStart Nordics helps people understand Bitcoin in a simple, practical, and safer way. We bridge the gap between technical complexity and practical understanding, offering clear guidance for beginners across the Nordics.",
+    "description": "BitcoinStart Nordics helps beginners understand Bitcoin in a simple, practical, and safer way.",
     "disclaimer": "Disclaimer: BitcoinStart Nordics provides educational and practical guidance only and does not offer financial, tax, or investment advice.",
     "quickLinksTitle": "Quick Links",
     "supportTitle": "Support",

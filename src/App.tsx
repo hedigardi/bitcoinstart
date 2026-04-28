@@ -7,6 +7,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import SeoHead from "./components/SeoHead";
+import LegalPage from "./components/LegalPage";
 import { useTranslation } from "react-i18next";
 
 const Services = lazy(() => import("./components/Services"));
@@ -17,6 +18,9 @@ const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
+  const pathname =
+    typeof window !== "undefined" ? window.location.pathname : "/";
+
   const { t } = useTranslation("data");
   const painPoints = t("painPoints", { returnObjects: true }) as string[];
   const benefits = t("benefits", {
@@ -42,6 +46,13 @@ export default function App() {
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
+  if (pathname === "/privacy-policy") {
+    return <LegalPage type="privacy" />;
+  }
+  if (pathname === "/terms-of-service") {
+    return <LegalPage type="terms" />;
+  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 scroll-smooth selection:bg-orange-100 dark:selection:bg-orange-950 selection:text-orange-900 dark:selection:text-orange-100">
