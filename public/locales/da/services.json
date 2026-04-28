@@ -1,6 +1,12 @@
 {
   "title": "Vælg den session, der passer til, hvor du er lige nu",
   "description": "Start med det grundlæggende, eller få guidet hjælp til at opsætte din wallet og sikkerhed.",
+  "bookingIntro": {
+    "title": "Tag dit første tryggere skridt ind i Bitcoin",
+    "body": "Uanset om du lige er startet, eller ønsker praktisk hjælp med tegnebøger og sikkerhed, er vi her for at hjælpe dig fremad med mere klarhed og tillid.",
+    "choose": "Vælg den session, der passer dig bedst, og book direkte — ingen frem og tilbage nødvendig.",
+    "tagline": "Begrænset tilgængelighed i lanceringsperioden."
+  },
   "bestFor": "Bedst for",
   "whatWeCover": "Dette gennemgår vi",
   "whatYouLeaveWith": "Det får du med dig",

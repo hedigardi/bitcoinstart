@@ -13,7 +13,6 @@ import { useTranslation } from "react-i18next";
 const Services = lazy(() => import("./components/Services"));
 const About = lazy(() => import("./components/About"));
 const FAQ = lazy(() => import("./components/FAQ"));
-const Booking = lazy(() => import("./components/Booking"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
@@ -122,7 +121,6 @@ export default function App() {
           <Services />
           <About />
           <FAQ />
-          <Booking />
           <Contact />
         </Suspense>
       </main>

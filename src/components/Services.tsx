@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useEffect } from "react";
 import {
   BadgeCheck,
   BookOpenText,
@@ -7,6 +8,14 @@ import {
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { getCalApi } from "@calcom/embed-react";
+
+const CAL_ORIGIN = "https://www.cal.eu";
+
+const SESSIONS = [
+  { calLink: "bitcoinstart/60min", namespace: "svc-intro" },
+  { calLink: "bitcoinstart/90min", namespace: "svc-wallet" },
+] as const;
 
 type ServiceContent = {
   title: string;
@@ -104,6 +113,18 @@ export default function Services() {
     returnObjects: true,
   }) as string[];
 
+  useEffect(() => {
+    (async () => {
+      for (const session of SESSIONS) {
+        const cal = await getCalApi({
+          namespace: session.namespace,
+          embedJsUrl: `${CAL_ORIGIN}/embed/embed.js`,
+        });
+        cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      }
+    })();
+  }, []);
+
   return (
     <section
       id="services"
@@ -118,6 +139,25 @@ export default function Services() {
             {t("description")}
           </p>
         </div>
+
+        {/* Booking intro callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-10 rounded-3xl bg-orange-700 px-8 py-8 text-white"
+        >
+          <h3 className="text-xl font-bold">{t("bookingIntro.title")}</h3>
+          <p className="mt-3 text-sm leading-7 text-orange-100">
+            {t("bookingIntro.body")}
+          </p>
+          <p className="mt-3 text-sm leading-7 text-orange-100">
+            {t("bookingIntro.choose")}
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-orange-800/60 px-4 py-1.5 text-xs font-semibold tracking-wide text-orange-100 ring-1 ring-orange-500/40">
+            {t("bookingIntro.tagline")}
+          </p>
+        </motion.div>
 
         <div className="mt-12 space-y-8">
           {services.map((service, index) => {
@@ -262,12 +302,15 @@ export default function Services() {
                   </div>
                 </div>
 
-                <a
-                  href="#booking"
-                  className="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
+                <button
+                  data-cal-namespace={SESSIONS[index].namespace}
+                  data-cal-link={SESSIONS[index].calLink}
+                  data-cal-origin={CAL_ORIGIN}
+                  data-cal-config='{"layout":"month_view"}'
+                  className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
                 >
                   {service.cta}
-                </a>
+                </button>
               </motion.div>
             );
           })}

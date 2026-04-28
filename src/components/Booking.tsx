@@ -1,96 +1,67 @@
 import { motion } from "motion/react";
-import { FormEvent, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { getCalApi } from "@calcom/embed-react";
+import { Clock } from "lucide-react";
+
+const CAL_ORIGIN = "https://www.cal.eu";
+
+const SESSIONS = [
+  { calLink: "bitcoinstart/60min", namespace: "intro-session" },
+  { calLink: "bitcoinstart/90min", namespace: "wallet-session" },
+] as const;
 
 export default function Booking() {
-  const [submitting, setSubmitting] = useState(false);
-  const [succeeded, setSucceeded] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-  const { t } = useTranslation("booking");
-  const form = t("form", { returnObjects: true }) as any;
-  const description = t("description", { returnObjects: true }) as string[];
+  const { t: ts, i18n } = useTranslation("services");
+  const services = ts("services", { returnObjects: true }) as Array<{
+    title: string;
+    description: string[];
+    duration: string;
+    price: string;
+    cta: string;
+  }>;
+  const norwegianServices = ts("services", {
+    lng: "no",
+    returnObjects: true,
+  }) as typeof services;
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitError("");
-    setSubmitting(true);
-
-    try {
-      const formData = new FormData(event.currentTarget);
-      const encodedData = new URLSearchParams();
-
-      for (const [key, value] of formData.entries()) {
-        encodedData.append(key, String(value));
+  useEffect(() => {
+    (async () => {
+      for (const session of SESSIONS) {
+        const cal = await getCalApi({
+          namespace: session.namespace,
+          embedJsUrl: `${CAL_ORIGIN}/embed/embed.js`,
+        });
+        cal("ui", {
+          hideEventTypeDetails: false,
+          layout: "month_view",
+        });
       }
+    })();
+  }, []);
 
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: encodedData.toString(),
-      });
-
-      if (response.ok) {
-        setSucceeded(true);
-        event.currentTarget.reset();
-      } else {
-        setSubmitError("Submission failed. Please try again.");
-      }
-    } catch {
-      setSubmitError("Network error. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  if (succeeded) {
-    return (
-      <section
-        id="booking"
-        className="border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 transition-colors duration-300"
-      >
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-md mx-auto text-center"
-          >
-            <div className="rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800">
-              <div className="text-green-600 dark:text-green-400 mb-4">
-                <svg
-                  className="w-16 h-16 mx-auto"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-950 dark:text-white mb-2">
-                {t("success.title")}
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                {t("success.message")}
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSucceeded(false);
-                  setSubmitError("");
-                }}
-                className="mt-6 inline-flex items-center justify-center rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-orange-700 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
-              >
-                {t("success.backButton", "Back to form")}
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    );
+  function formatLocalizedPrice(priceLabel: string): string {
+    const PRICE_CONFIG: Record<
+      string,
+      { code: string; locale: string; rate: number; roundingStep: number }
+    > = {
+      no: { code: "NOK", locale: "nb-NO", rate: 1, roundingStep: 10 },
+      sv: { code: "SEK", locale: "sv-SE", rate: 0.95, roundingStep: 10 },
+      da: { code: "DKK", locale: "da-DK", rate: 0.64, roundingStep: 10 },
+      en: { code: "EUR", locale: "en-IE", rate: 0.086, roundingStep: 1 },
+    };
+    const lang = (i18n.resolvedLanguage || i18n.language)
+      .split("-")[0]
+      .toLowerCase();
+    const pricing = PRICE_CONFIG[lang] ?? PRICE_CONFIG["en"];
+    const match = priceLabel.match(/\d[\d\s]*/);
+    if (!match) return priceLabel;
+    const nok = Number(match[0].replace(/\s+/g, ""));
+    if (!Number.isFinite(nok)) return priceLabel;
+    const converted =
+      Math.round((nok * pricing.rate) / pricing.roundingStep) *
+      pricing.roundingStep;
+    return `${new Intl.NumberFormat(pricing.locale).format(converted)} ${pricing.code}`;
   }
 
   return (
@@ -98,127 +69,49 @@ export default function Booking() {
       id="booking"
       className="border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 transition-colors duration-300"
     >
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
-              {t("title")}
-            </h2>
-            <div className="mt-6 space-y-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-              {description.slice(0, 2).map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-              <p className="font-medium text-slate-900 dark:text-orange-400 border-l-2 border-orange-700 pl-4 py-1 bg-orange-50/50 dark:bg-orange-900/10 rounded-r-xl">
-                {t("description.2")}
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800"
-          >
-            <form
-              name="booking"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="space-y-4"
-            >
-              <input type="hidden" name="form-name" value="booking" />
-              <p className="hidden" aria-hidden="true">
-                <label>
-                  Do not fill this out if you are human:
-                  <input name="bot-field" />
-                </label>
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder={form.placeholders.name}
-                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={form.placeholders.email}
-                    className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="session-select" className="sr-only">
-                  {form.selects.session.default}
-                </label>
-                <select
-                  id="session-select"
-                  name="session"
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 cursor-pointer"
-                  required
-                >
-                  <option value="">{form.selects.session.default}</option>
-                  {form.selects.session.options.map((option: string) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="experience-select" className="sr-only">
-                  {form.selects.experience.default}
-                </label>
-                <select
-                  id="experience-select"
-                  name="experience"
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-600 dark:text-slate-300 outline-none transition-all focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 cursor-pointer"
-                  required
-                >
-                  <option value="">{form.selects.experience.default}</option>
-                  {form.selects.experience.options.map((option: string) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <textarea
-                  rows={4}
-                  name="message"
-                  placeholder={form.placeholders.message}
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 resize-none"
-                  required
-                />
-              </div>
-              {submitError && (
-                <p className="text-red-500 text-sm">{submitError}</p>
-              )}
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full cursor-pointer rounded-2xl bg-orange-700 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition-all hover:bg-orange-800 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+      <div className="mx-auto max-w-3xl px-6 py-20 lg:px-8">
+        <div className="flex flex-col gap-5">
+          {services.map((service, i) => {
+            const nokPrice = norwegianServices[i]?.price ?? service.price;
+            const localizedPrice = formatLocalizedPrice(nokPrice);
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="rounded-3xl bg-white dark:bg-slate-950 p-7 shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800 flex flex-col gap-4"
               >
-                {submitting ? form.buttons.submitting : form.buttons.submit}
-              </button>
-            </form>
-            <p className="mt-6 text-center text-xs text-slate-400">
-              {form.footer}
-            </p>
-          </motion.div>
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-lg font-bold text-slate-950 dark:text-white leading-snug">
+                    {service.title}
+                  </h3>
+                  <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-400 ring-1 ring-orange-200 dark:ring-orange-800">
+                    <Clock size={11} />
+                    {service.duration}
+                  </span>
+                </div>
+                <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+                  {service.description[0]}
+                </p>
+                <div className="flex items-center justify-between gap-4 pt-1">
+                  <span className="text-base font-bold text-slate-900 dark:text-white">
+                    {localizedPrice}
+                  </span>
+                  <button
+                    data-cal-namespace={SESSIONS[i].namespace}
+                    data-cal-link={SESSIONS[i].calLink}
+                    data-cal-origin={CAL_ORIGIN}
+                    data-cal-config='{"layout":"month_view"}'
+                    className="cursor-pointer rounded-2xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition-all hover:bg-orange-800 active:scale-[0.98]"
+                  >
+                    {service.cta}
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

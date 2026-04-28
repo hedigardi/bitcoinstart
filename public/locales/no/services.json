@@ -1,6 +1,12 @@
 {
   "title": "Velg sesjonen som passer der du er akkurat nå",
   "description": "Start med det grunnleggende, eller få veiledet hjelp til å sette opp lommeboken og sikkerheten din.",
+  "bookingIntro": {
+    "title": "Ta ditt første tryggere steg inn i Bitcoin",
+    "body": "Enten du akkurat har begynt eller ønsker praktisk hjelp med lommebøker og sikkerhet, er vi her for å hjelpe deg videre med mer klarhet og trygghet.",
+    "choose": "Velg den sesjonen som passer deg best og bestill direkte — ingen frem og tilbake nødvendig.",
+    "tagline": "Begrenset tilgjengelighet i oppstartsfasen."
+  },
   "bestFor": "Passer best for",
   "whatWeCover": "Hva vi går gjennom",
   "whatYouLeaveWith": "Dette sitter du igjen med",

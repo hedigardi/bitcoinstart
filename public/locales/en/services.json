@@ -1,6 +1,12 @@
 {
   "title": "Choose the session that fits where you are right now",
   "description": "Start with the basics or get guided help setting up your wallet and security.",
+  "bookingIntro": {
+    "title": "Take your first safer step into Bitcoin",
+    "body": "Whether you are just getting started or want practical support with wallets and security, we are here to help you move forward with more clarity and confidence.",
+    "choose": "Choose the session that fits you best and book directly — no back-and-forth needed.",
+    "tagline": "Limited availability as we launch."
+  },
   "bestFor": "Best for",
   "whatWeCover": "What we cover",
   "whatYouLeaveWith": "What you leave with",
