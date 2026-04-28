@@ -139,7 +139,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
           </div>
 
           <a
-            href="#booking"
+            href="#services"
             className="rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
           >
             {t("nav.bookSession")}
@@ -156,7 +156,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
           </button>
           <a
-            href="#booking"
+            href="#services"
             className="rounded-lg bg-orange-700 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-orange-800 transition-colors"
           >
             {t("nav.book")}

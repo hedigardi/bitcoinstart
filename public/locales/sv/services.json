@@ -1,6 +1,12 @@
 {
   "title": "Välj den session som passar där du är just nu",
   "description": "Börja med grunderna eller få guidad hjälp med att sätta upp din plånbök och säkerhet.",
+  "bookingIntro": {
+    "title": "Ta ditt första tryggare steg in i Bitcoin",
+    "body": "Oavsett om du precis har börjat eller vill ha praktisk hjälp med plånböcker och säkerhet, finns vi här för att hjälpa dig framåt med mer klarhet och trygghet.",
+    "choose": "Välj den session som passar dig bäst och boka direkt — inget fram och tillbaka behövs.",
+    "tagline": "Begränsat antal platser i lanseringsfasen."
+  },
   "bestFor": "Passar bäst för",
   "whatWeCover": "Detta går vi igenom",
   "whatYouLeaveWith": "Detta tar du med dig",
