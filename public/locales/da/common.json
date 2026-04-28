@@ -11,6 +11,21 @@
     "toggleTheme": "Skift tema",
     "toggleMenu": "Åbn/luk menu"
   },
+  "cookie": {
+    "title": "Vi bruger cookies",
+    "description": "Vi bruger nødvendige cookies for at få hjemmesiden til at fungere. Med dit samtykke bruger vi også analysecookies til at forstå brug og forbedre oplevelsen.",
+    "privacyLink": "Læs vores privatlivspolitik",
+    "showSettings": "Cookie-indstillinger",
+    "hideSettings": "Skjul indstillinger",
+    "essentialOnly": "Kun nødvendige",
+    "acceptAll": "Accepter alle",
+    "saveSettings": "Gem indstillinger",
+    "essentialTitle": "Nødvendige cookies",
+    "essentialDescription": "Kræves for grundlæggende funktionalitet og sikkerhed.",
+    "analyticsTitle": "Analysecookies",
+    "analyticsDescription": "Hjælper os med at forstå trafik og forbedre hjemmesiden.",
+    "alwaysOn": "Altid aktiv"
+  },
   "footer": {
     "tagline": "Enkel Bitcoin-vejledning. Sikrere første skridt.",
     "description": "BitcoinStart Nordics hjælper begyndere med at forstå Bitcoin på en enkel, praktisk og sikrere måde.",
