@@ -17,20 +17,25 @@ export default function Booking() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      formData.append("access_key", "dba3651f-6e2b-4722-b58c-a87b028b7491");
+      const encodedData = new URLSearchParams();
 
-      const response = await fetch("https://api.web3forms.com/submit", {
+      for (const [key, value] of formData.entries()) {
+        encodedData.append(key, String(value));
+      }
+
+      const response = await fetch("/", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encodedData.toString(),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (response.ok) {
         setSucceeded(true);
         event.currentTarget.reset();
       } else {
-        setSubmitError(data.message || "Submission failed. Please try again.");
+        setSubmitError("Submission failed. Please try again.");
       }
     } catch {
       setSubmitError("Network error. Please try again.");
@@ -119,7 +124,21 @@ export default function Booking() {
             viewport={{ once: true }}
             className="rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800"
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              name="booking"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="booking" />
+              <p className="hidden" aria-hidden="true">
+                <label>
+                  Do not fill this out if you are human:
+                  <input name="bot-field" />
+                </label>
+              </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <input
