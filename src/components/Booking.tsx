@@ -1,14 +1,50 @@
 import { motion } from "motion/react";
-import { useForm, ValidationError } from "@formspree/react";
+import { FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function Booking() {
-  const [state, handleSubmit] = useForm("xrerklov");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const { t } = useTranslation("booking");
   const form = t("form", { returnObjects: true }) as any;
   const description = t("description", { returnObjects: true }) as string[];
 
-  if (state.succeeded) {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitError("");
+    setSubmitting(true);
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const encodedData = new URLSearchParams();
+
+      for (const [key, value] of formData.entries()) {
+        encodedData.append(key, String(value));
+      }
+
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encodedData.toString(),
+      });
+
+      if (response.ok) {
+        setSucceeded(true);
+        event.currentTarget.reset();
+      } else {
+        setSubmitError("Submission failed. Please try again.");
+      }
+    } catch {
+      setSubmitError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (succeeded) {
     return (
       <section
         id="booking"
@@ -40,6 +76,16 @@ export default function Booking() {
               <p className="text-slate-600 dark:text-slate-400">
                 {t("success.message")}
               </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSucceeded(false);
+                  setSubmitError("");
+                }}
+                className="mt-6 inline-flex items-center justify-center rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-orange-700 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+              >
+                {t("success.backButton", "Back to form")}
+              </button>
             </div>
           </motion.div>
         </div>
@@ -78,7 +124,21 @@ export default function Booking() {
             viewport={{ once: true }}
             className="rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800"
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              name="booking"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="booking" />
+              <p className="hidden" aria-hidden="true">
+                <label>
+                  Do not fill this out if you are human:
+                  <input name="bot-field" />
+                </label>
+              </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <input
@@ -88,12 +148,6 @@ export default function Booking() {
                     className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
                     required
                   />
-                  <ValidationError
-                    prefix={form.validation.name}
-                    field="name"
-                    errors={state.errors}
-                    className="text-red-500 text-sm mt-1"
-                  />
                 </div>
                 <div>
                   <input
@@ -102,12 +156,6 @@ export default function Booking() {
                     placeholder={form.placeholders.email}
                     className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700"
                     required
-                  />
-                  <ValidationError
-                    prefix={form.validation.email}
-                    field="email"
-                    errors={state.errors}
-                    className="text-red-500 text-sm mt-1"
                   />
                 </div>
               </div>
@@ -128,12 +176,6 @@ export default function Booking() {
                     </option>
                   ))}
                 </select>
-                <ValidationError
-                  prefix={form.validation.session}
-                  field="session"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1"
-                />
               </div>
               <div>
                 <label htmlFor="experience-select" className="sr-only">
@@ -152,12 +194,6 @@ export default function Booking() {
                     </option>
                   ))}
                 </select>
-                <ValidationError
-                  prefix={form.validation.experience}
-                  field="experience"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1"
-                />
               </div>
               <div>
                 <textarea
@@ -167,21 +203,16 @@ export default function Booking() {
                   className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-slate-900 dark:text-white outline-none transition-all placeholder:text-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-orange-700/20 focus:border-orange-700 resize-none"
                   required
                 />
-                <ValidationError
-                  prefix={form.validation.message}
-                  field="message"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1"
-                />
               </div>
+              {submitError && (
+                <p className="text-red-500 text-sm">{submitError}</p>
+              )}
               <button
                 type="submit"
-                disabled={state.submitting}
+                disabled={submitting}
                 className="w-full cursor-pointer rounded-2xl bg-orange-700 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition-all hover:bg-orange-800 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {state.submitting
-                  ? form.buttons.submitting
-                  : form.buttons.submit}
+                {submitting ? form.buttons.submitting : form.buttons.submit}
               </button>
             </form>
             <p className="mt-6 text-center text-xs text-slate-400">

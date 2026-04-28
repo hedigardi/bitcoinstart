@@ -1,7 +1,8 @@
 {
   "success": {
     "title": "Tack!",
-    "message": "Din bokningsförfrågan har skickats. Vi återkommer inom 24 timmar."
+    "message": "Din bokningsförfrågan har skickats. Vi återkommer inom 24 timmar.",
+    "backButton": "Tillbaka till formuläret"
   },
   "title": "Ta ditt första tryggare steg in i Bitcoin",
   "description": [
