@@ -1,7 +1,8 @@
 {
   "success": {
     "title": "Takk!",
-    "message": "Din bestillingsforespørsel er sendt. Vi kommer tilbake til deg innen 24 timer."
+    "message": "Din bestillingsforespørsel er sendt. Vi kommer tilbake til deg innen 24 timer.",
+    "backButton": "Tilbake til skjema"
   },
   "title": "Ta ditt første tryggere steg inn i Bitcoin",
   "description": [

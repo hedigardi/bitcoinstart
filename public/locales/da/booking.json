@@ -1,7 +1,8 @@
 {
   "success": {
     "title": "Tak!",
-    "message": "Din bookingforespørgsel er sendt. Vi vender tilbage inden for 24 timer."
+    "message": "Din bookingforespørgsel er sendt. Vi vender tilbage inden for 24 timer.",
+    "backButton": "Tilbage til formularen"
   },
   "title": "Tag dit første sikrere skridt ind i Bitcoin",
   "description": [

@@ -1,7 +1,8 @@
 {
   "success": {
     "title": "Thank you!",
-    "message": "Your booking request has been sent. We'll get back to you within 24 hours."
+    "message": "Your booking request has been sent. We'll get back to you within 24 hours.",
+    "backButton": "Back to form"
   },
   "title": "Take your first safer step into Bitcoin",
   "description": [
