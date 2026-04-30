@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#booking"
+              href="#services"
               className="rounded-2xl bg-orange-700 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
             >
               {t("cta")}
