@@ -4,8 +4,14 @@
   "bookingIntro": {
     "title": "Tag dit første tryggere skridt ind i Bitcoin",
     "body": "Uanset om du lige er startet, eller ønsker praktisk hjælp med tegnebøger og sikkerhed, er vi her for at hjælpe dig fremad med mere klarhed og tillid.",
-    "choose": "Vælg den session, der passer dig bedst, og book direkte — ingen frem og tilbage nødvendig.",
+    "choose": "Vælg den session, der passer dig bedst, gennemfør sikker betaling, og book derefter din tid direkte i vores kalender.",
     "tagline": "Begrænset tilgængelighed i lanceringsperioden."
+  },
+  "checkoutModal": {
+    "title": "Fortsæt til sikker betaling",
+    "body": "Du er ved at betale for {{session}} via Stripe Checkout. Efter betalingen bliver du sendt videre for at vælge det ønskede tidspunkt i kalenderen.",
+    "cancel": "Annuller",
+    "continue": "Fortsæt til Stripe"
   },
   "bestFor": "Bedst for",
   "whatWeCover": "Dette gennemgår vi",
