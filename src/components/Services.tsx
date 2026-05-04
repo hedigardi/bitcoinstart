@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import {
   BadgeCheck,
   BookOpenText,
@@ -58,27 +59,12 @@ const PRICE_CONFIG: Record<string, LanguagePricing> = {
   },
 };
 
-const PAYMENT_LINKS: Record<
-  keyof typeof PRICE_CONFIG,
-  readonly [string, string]
-> = {
-  en: [
-    "https://buy.stripe.com/eVqbJ10prahu2CU17wdAk08?locale=en-GB",
-    "https://buy.stripe.com/7sY3cv7RT4Xaa5m9E2dAk09?locale=en-GB",
-  ],
-  no: [
-    "https://buy.stripe.com/8x25kD2xzexK7Xe3fEdAk02?locale=nb",
-    "https://buy.stripe.com/eVqaEX1tv3T66Tag2qdAk03?locale=nb",
-  ],
-  sv: [
-    "https://buy.stripe.com/8x2eVd2xzcpCdhy6rQdAk04?locale=sv",
-    "https://buy.stripe.com/aFa3cv6NPexK91i03sdAk05?locale=sv",
-  ],
-  da: [
-    "https://buy.stripe.com/7sY9AT0prblya5m9E2dAk06?locale=da",
-    "https://buy.stripe.com/00w4gz3BDblya5m4jIdAk07?locale=da",
-  ],
-};
+const CAL_ORIGIN = "https://www.cal.eu";
+
+const SESSIONS = [
+  { calLink: "bitcoinstart/60min", namespace: "svc-intro" },
+  { calLink: "bitcoinstart/90min", namespace: "svc-wallet" },
+] as const;
 
 function normalizeLanguage(language: string): keyof typeof PRICE_CONFIG {
   const baseLanguage = language.split("-")[0].toLowerCase();
@@ -117,11 +103,23 @@ function formatLocalizedPrice(amountInNok: number, language: string): string {
 
 export default function Services() {
   const { t, i18n } = useTranslation("services");
-  const [activeCheckout, setActiveCheckout] = useState<{
-    url: string;
-    title: string;
-  } | null>(null);
   const serviceCornerIcons = [BookOpenText, ShieldCheck];
+
+  useEffect(() => {
+    (async () => {
+      const calIntro = await getCalApi({
+        namespace: "svc-intro",
+        embedJsUrl: `${CAL_ORIGIN}/embed/embed.js`,
+      });
+      calIntro("ui", { hideEventTypeDetails: false, layout: "month_view" });
+
+      const calWallet = await getCalApi({
+        namespace: "svc-wallet",
+        embedJsUrl: `${CAL_ORIGIN}/embed/embed.js`,
+      });
+      calWallet("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
   const services = t("services", { returnObjects: true }) as ServiceContent[];
   const norwegianServices = t("services", {
     lng: "no",
@@ -130,8 +128,6 @@ export default function Services() {
   const howToChoosePoints = t("howToChoose.points", {
     returnObjects: true,
   }) as string[];
-
-  const languageKey = normalizeLanguage(i18n.resolvedLanguage || i18n.language);
 
   return (
     <section
@@ -170,8 +166,6 @@ export default function Services() {
         <div className="mt-12 space-y-8">
           {services.map((service, index) => {
             const CornerIcon = serviceCornerIcons[index] ?? BookOpenText;
-            const paymentLink =
-              PAYMENT_LINKS[languageKey][index] ?? PAYMENT_LINKS.en[index];
             const norwegianBasePrice = parseNorwegianPrice(
               norwegianServices[index]?.price ?? service.price,
             );
@@ -312,20 +306,16 @@ export default function Services() {
                   </div>
                 </div>
 
-                <a
-                  href={paymentLink}
+                <button
+                  type="button"
+                  data-cal-namespace={SESSIONS[index].namespace}
+                  data-cal-link={SESSIONS[index].calLink}
+                  data-cal-origin={CAL_ORIGIN}
+                  data-cal-config='{"layout":"month_view"}'
                   className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
-                  rel="noopener noreferrer"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    setActiveCheckout({
-                      url: paymentLink,
-                      title: service.title,
-                    });
-                  }}
                 >
                   {service.cta}
-                </a>
+                </button>
               </motion.div>
             );
           })}
@@ -351,44 +341,6 @@ export default function Services() {
           </a>
         </div>
       </div>
-
-      {activeCheckout && (
-        <div className="fixed inset-0 z-[80] flex items-end justify-center bg-slate-900/55 p-4 backdrop-blur-sm sm:items-center">
-          <div className="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:p-7">
-            <h4 className="text-xl font-semibold text-slate-950 dark:text-white">
-              {t("checkoutModal.title", {
-                defaultValue: "Continue to secure payment",
-              })}
-            </h4>
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              {t("checkoutModal.body", {
-                defaultValue:
-                  "You are about to pay for {{session}} via Stripe Checkout. After payment, you will be redirected to choose your preferred time in the calendar.",
-                session: activeCheckout.title,
-              })}
-            </p>
-
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-end">
-              <button
-                type="button"
-                onClick={() => setActiveCheckout(null)}
-                className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                {t("checkoutModal.cancel", { defaultValue: "Cancel" })}
-              </button>
-              <a
-                href={activeCheckout.url}
-                className="rounded-xl bg-orange-700 px-4 py-2 text-center text-sm font-bold text-white transition hover:bg-orange-800"
-                rel="noopener noreferrer"
-              >
-                {t("checkoutModal.continue", {
-                  defaultValue: "Continue to Stripe",
-                })}
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
