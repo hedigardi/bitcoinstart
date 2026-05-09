@@ -174,7 +174,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="mt-12 space-y-8">
+        <div className="mt-12 grid gap-8 xl:grid-cols-2 xl:items-stretch">
           {services.map((service, index) => {
             const CornerIcon = serviceCornerIcons[index] ?? BookOpenText;
             const norwegianBasePrice = parseNorwegianPrice(
@@ -194,9 +194,9 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="relative rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800 transition-all hover:shadow-xl dark:hover:shadow-orange-900/20 hover:ring-orange-200 dark:hover:ring-orange-900/50"
+                className="relative flex h-full flex-col rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-xl hover:ring-orange-200 dark:bg-slate-950 dark:ring-slate-800 dark:hover:shadow-orange-900/20 dark:hover:ring-orange-900/50"
               >
-                <div className="pointer-events-none absolute right-8 top-8 hidden sm:block">
+                <div className="pointer-events-none absolute right-8 top-8 hidden 2xl:block">
                   <div className="relative flex h-20 w-36 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 text-orange-700 ring-1 ring-orange-200 dark:from-orange-950/40 dark:to-slate-900 dark:text-orange-300 dark:ring-orange-900/50">
                     <CornerIcon size={34} aria-hidden="true" />
                   </div>
@@ -205,7 +205,7 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className="sm:pr-44">
+                <div className="2xl:pr-44">
                   <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
                     {service.title}
                   </h3>
@@ -300,43 +300,45 @@ export default function Services() {
                   </p>
                 </div>
 
-                <div className="mt-8 border-t border-slate-100 dark:border-slate-800 pt-6 space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                  <div className="flex justify-between">
-                    <span className="font-medium text-slate-500">
-                      {t("format")}
-                    </span>
-                    <span className="text-slate-900 dark:text-slate-200">
-                      {service.format}
-                    </span>
+                <div className="mt-auto pt-6">
+                  <div className="border-t border-slate-100 pt-6 space-y-3 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400">
+                    <div className="flex justify-between">
+                      <span className="font-medium text-slate-500">
+                        {t("format")}
+                      </span>
+                      <span className="text-slate-900 dark:text-slate-200">
+                        {service.format}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium text-slate-500">
+                        {t("duration")}
+                      </span>
+                      <span className="text-slate-900 dark:text-slate-200">
+                        {service.duration}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium text-slate-500">
+                        {t("price")}
+                      </span>
+                      <span className="font-semibold text-slate-900 dark:text-white">
+                        {localizedPrice}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="font-medium text-slate-500">
-                      {t("duration")}
-                    </span>
-                    <span className="text-slate-900 dark:text-slate-200">
-                      {service.duration}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-medium text-slate-500">
-                      {t("price")}
-                    </span>
-                    <span className="font-semibold text-slate-900 dark:text-white">
-                      {localizedPrice}
-                    </span>
-                  </div>
-                </div>
 
-                <button
-                  type="button"
-                  data-cal-namespace={SESSIONS[index].namespace}
-                  data-cal-link={SESSIONS[index].calLink}
-                  data-cal-origin={CAL_ORIGIN}
-                  data-cal-config='{"layout":"month_view"}'
-                  className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
-                >
-                  {service.cta}
-                </button>
+                  <button
+                    type="button"
+                    data-cal-namespace={SESSIONS[index].namespace}
+                    data-cal-link={SESSIONS[index].calLink}
+                    data-cal-origin={CAL_ORIGIN}
+                    data-cal-config='{"layout":"month_view"}'
+                    className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
+                  >
+                    {service.cta}
+                  </button>
+                </div>
               </motion.div>
             );
           })}
