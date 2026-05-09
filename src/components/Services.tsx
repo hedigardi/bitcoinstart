@@ -160,16 +160,16 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 rounded-3xl bg-orange-700 px-8 py-8 text-white"
+          className="mt-10 rounded-3xl border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-8 py-8 text-orange-700 dark:text-orange-300"
         >
           <h3 className="text-xl font-bold">{t("bookingIntro.title")}</h3>
-          <p className="mt-3 text-sm leading-7 text-orange-100">
+          <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
             {t("bookingIntro.body")}
           </p>
-          <p className="mt-3 text-sm leading-7 text-orange-100">
+          <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
             {t("bookingIntro.choose")}
           </p>
-          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-orange-800/60 px-4 py-1.5 text-xs font-semibold tracking-wide text-orange-100 ring-1 ring-orange-500/40">
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-900/50 bg-white/70 dark:bg-orange-950/20 px-4 py-1.5 text-xs font-semibold tracking-wide text-orange-700 dark:text-orange-300">
             {t("bookingIntro.tagline")}
           </p>
         </motion.div>
