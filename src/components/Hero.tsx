@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function Hero() {
   const { t } = useTranslation("hero");
@@ -15,15 +16,15 @@ export default function Hero() {
       id="hero"
       className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 overflow-hidden transition-colors duration-300"
     >
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
         <div>
           <div className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-orange-700 dark:text-orange-400">
             {t("tag")}
           </div>
-          <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-7xl">
+          <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
             {t("title")}
           </h1>
-          <p className="mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-slate-600 dark:text-slate-400">
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg sm:leading-8">
             {t("description")}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -45,8 +46,15 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative">
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-8 shadow-sm">
+        <div className="relative space-y-5">
+          <ImagePlaceholder
+            className="aspect-[4/3]"
+            title="Nordic beginner guidance scene"
+            hint="Use a calm, bright photo of a person getting 1:1 guidance at a desk with a laptop and phone wallet app visible."
+            src="/nordic-beginner-guidance-scene.png"
+            alt="1:1 Bitcoin guidance session for Nordic beginners"
+          />
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-6 shadow-sm">
             <div className="grid gap-5 sm:grid-cols-2">
               {info.map((item, i) => (
                 <div
@@ -56,7 +64,7 @@ export default function Hero() {
                   <div className="text-sm font-medium text-slate-600 dark:text-slate-400">
                     {item.label}
                   </div>
-                  <div className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">
+                  <div className="mt-2 text-base font-semibold text-slate-900 dark:text-white sm:text-lg">
                     {item.value}
                   </div>
                 </div>

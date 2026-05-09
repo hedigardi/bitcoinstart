@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import SeoHead from "./components/SeoHead";
 import LegalPage from "./components/LegalPage";
 import CookieConsent from "./components/CookieConsent";
+import ImagePlaceholder from "./components/ImagePlaceholder";
 import { useTranslation } from "react-i18next";
 
 const Services = lazy(() => import("./components/Services"));
@@ -70,9 +71,16 @@ export default function App() {
                 <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
                   {t("quickHelpTitle")}
                 </h2>
-                <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
                   {t("quickHelpDescription")}
                 </p>
+                <ImagePlaceholder
+                  className="mt-7 aspect-[16/9]"
+                  title="Common beginner Bitcoin pain points"
+                  hint="Use an editorial style image with sticky notes, notebook, and phone screen to represent confusion turning into structure."
+                  src="/common-beginner-bitcoin-pain-points.png"
+                  alt="Common beginner Bitcoin pain points"
+                />
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   {painPoints.map((item) => (
                     <div
@@ -92,6 +100,13 @@ export default function App() {
               </div>
 
               <div className="rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-8 shadow-sm">
+                <ImagePlaceholder
+                  className="mb-6 aspect-[3/2]"
+                  title="Clear learning path visual"
+                  hint="Use a simple roadmap style image or desk setup showing step-by-step progress from basics to secure setup."
+                  src="/clear-learning-path-visual.png"
+                  alt="Clear learning path for Bitcoin beginners"
+                />
                 <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
                   {t("solutionTitle")}
                 </h3>
