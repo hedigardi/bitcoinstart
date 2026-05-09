@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function About() {
   const { t } = useTranslation("about");
@@ -29,7 +30,14 @@ export default function About() {
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
               {t("whyTitle")}
             </h2>
-            <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600 dark:text-slate-400">
+            <ImagePlaceholder
+              className="mt-6 aspect-[4/3]"
+              title="Trust and guidance portrait"
+              hint="Use a professional but warm portrait-style image that communicates safety, clarity, and personal coaching."
+              src="/trust-and-guidance-portrait.png"
+              alt="Trust and guidance portrait"
+            />
+            <div className="mt-6 max-w-xl space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg sm:leading-8">
               {whyParagraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -103,7 +111,14 @@ export default function About() {
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
             {t("foundationTitle")}
           </h2>
-          <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <ImagePlaceholder
+            className="mt-6 aspect-[16/9]"
+            title="Founder journey visual"
+            hint="Use a symbolic image showing long-term commitment, such as a map, notebook timeline, or focused work setup."
+            src="/founder-journey-visual.png"
+            alt="Founder journey visual"
+          />
+          <div className="mt-6 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg sm:leading-8">
             {foundationParagraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}

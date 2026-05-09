@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 type ServiceContent = {
   title: string;
@@ -64,6 +65,16 @@ const CAL_ORIGIN = "https://www.cal.eu";
 const SESSIONS = [
   { calLink: "bitcoinstart/60min", namespace: "svc-intro" },
   { calLink: "bitcoinstart/90min", namespace: "svc-wallet" },
+] as const;
+
+const SERVICE_IMAGE_HINTS = [
+  "Use a bright, minimal desk photo with laptop and notebook to represent intro coaching.",
+  "Use a close-up of hardware wallet + backup sheet setup to represent practical security work.",
+] as const;
+
+const SERVICE_IMAGE_SRCS = [
+  "/bitcoin-intro-session-image.png",
+  "/wallet-and-security-setup-image.png",
 ] as const;
 
 function normalizeLanguage(language: string): keyof typeof PRICE_CONFIG {
@@ -139,7 +150,7 @@ export default function Services() {
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
             {t("title")}
           </h2>
-          <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg sm:leading-8">
             {t("description")}
           </p>
         </div>
@@ -201,7 +212,17 @@ export default function Services() {
                   <p className="mt-3 text-base font-semibold leading-7 text-orange-700 dark:text-orange-400">
                     {service.subheadline}
                   </p>
-                  <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
+                  <ImagePlaceholder
+                    className="mt-5 aspect-[16/9]"
+                    title={`${service.title} image`}
+                    hint={
+                      SERVICE_IMAGE_HINTS[index] ??
+                      "Use a relevant, clean educational image for this service."
+                    }
+                    src={SERVICE_IMAGE_SRCS[index]}
+                    alt={service.title}
+                  />
+                  <div className="mt-5 max-w-3xl space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {service.description.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
