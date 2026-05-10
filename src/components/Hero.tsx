@@ -18,7 +18,7 @@ export default function Hero() {
     >
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-24">
         <div>
-          <div className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-orange-700 dark:text-orange-400">
+          <div className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-slate-900 dark:text-orange-300">
             {t("tag")}
           </div>
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
@@ -41,7 +41,7 @@ export default function Hero() {
               {t("learnMore")}
             </a>
           </div>
-          <p className="mt-4 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <p className="mt-4 text-xs font-medium uppercase tracking-wider text-slate-600 dark:text-slate-400">
             {t("subtext")}
           </p>
         </div>

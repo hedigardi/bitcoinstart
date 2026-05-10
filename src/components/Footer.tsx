@@ -14,7 +14,11 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-24">
           <div className="max-w-xl">
-            <a href="#hero" className="inline-block">
+            <a
+              href="#hero"
+              className="inline-block"
+              aria-label="BitcoinStart Nordics - Back to home"
+            >
               <picture>
                 <source srcSet="/logo-optimized.webp" type="image/webp" />
                 <img

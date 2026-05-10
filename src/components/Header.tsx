@@ -42,7 +42,11 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#hero" className="min-w-0">
+        <a
+          href="#hero"
+          className="min-w-0"
+          aria-label="BitcoinStart Nordics - Back to home"
+        >
           <picture>
             <source
               srcSet="/logo-optimized-160.webp 160w, /logo-optimized-240.webp 240w, /logo-optimized.webp 420w"
@@ -78,6 +82,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
 
           <button
             onClick={toggleTheme}
+            aria-expanded="false"
             className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-all border border-slate-200 dark:border-slate-800"
             aria-label={t("aria.toggleTheme")}
           >

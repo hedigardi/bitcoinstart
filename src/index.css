@@ -4,8 +4,8 @@
   --color-orange-50: #fdf3e6;
   --color-orange-100: #f9e1c2;
   --color-orange-200: #f3c98f;
-  --color-orange-300: #edb05c;
-  --color-orange-400: #e79634;
+  --color-orange-300: #7a5f08;
+  --color-orange-400: #a75d0c;
   --color-orange-500: #e18110;
   --color-orange-600: #c56f0e;
   --color-orange-700: #a75d0c;
@@ -17,6 +17,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 html {
+  font-size: 18px;
   scroll-padding-top: 7.5rem;
 }
 
