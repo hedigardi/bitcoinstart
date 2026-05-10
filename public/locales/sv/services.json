@@ -1,10 +1,10 @@
 {
   "title": "Välj den session som passar där du är just nu",
-  "description": "Börja med grunderna eller få guidad hjälp med att sätta upp din plånbök och säkerhet.",
+  "description": "Börja med grunderna eller få guidad hjälp med att sätta upp din plånbok och säkerhet.",
   "bookingIntro": {
     "title": "Ta ditt första tryggare steg in i Bitcoin",
     "body": "Oavsett om du precis har börjat eller vill ha praktisk hjälp med plånböcker och säkerhet, finns vi här för att hjälpa dig framåt med mer klarhet och trygghet.",
-    "choose": "Välj den session som passar dig bäst, genomför säker betalning och boka sedan din tid direkt i vår kalender.",
+    "choose": "Välj den session som passar dig bäst, och boka sedan din tid direkt i vår kalender.",
     "tagline": "Begränsat antal platser i lanseringsfasen."
   },
   "checkoutModal": {
@@ -34,9 +34,9 @@
       "title": "Introduktion till Bitcoin",
       "subheadline": "Från noll till din första tydliga Bitcoin-plan",
       "description": [
-        "En 60-minuters session för nybörjare som vill ha en praktisk och lättförståelig introduktion till Bitcoin."
+        "En 60-minuters Bitcoin-session för nybörjare som är helt nya och vill ha en praktisk och lättförståelig Bitcoin-guide för nybegynnare."
       ],
-      "outcome": "Du lämnar med en tydligare förståelse av Bitcoin och en praktisk plan för nästa steg.",
+      "outcome": "Du lämnar med en tydligare förståelse av Bitcoin, en praktisk plan för nästa steg, och tilliten att lära dig Bitcoin säkert.",
       "bestFor": [
         "Helt nya nybörjare",
         "Personer som vill förstå Bitcoin innan de gör något praktiskt",
@@ -68,9 +68,9 @@
       "title": "Plånbok och säkerhetssetup",
       "subheadline": "Sätt upp din plånbok på rätt sätt med guidad support",
       "description": [
-        "En guidad 90-minuters session för personer som vill ha praktisk hjälp att komma igång med plånböcker och säkrare Bitcoin-vanor."
+        "En 90-minuters Bitcoin-coaching-session med praktisk hjälp att komma igång med plånbok och säkrare Bitcoin-vanor för nybörjare."
       ],
-      "outcome": "Du lämnar med en plan för plånbokssetup, starkare säkerhetsvanor och större trygghet framåt.",
+      "outcome": "Du lämnar med en plånboksinställningsplan, starkare säkerhetsvanor och mer tilliten att gå vidare med din Bitcoin-hjälp.",
       "bestFor": [
         "Nybörjare som vill ha praktisk vägledning",
         "Personer som redan äger viss Bitcoin och vill få mer klarhet",
@@ -98,6 +98,30 @@
       "duration": "90 minuter",
       "price": "2 490 NOK",
       "cta": "Boka plånbok och säkerhetssetup"
+    }
+  ],
+  "bookingProcessTitle": "Vad händer efter att du bokar?",
+  "bookingProcessDescription": "Många är osäkra eftersom processen känns oklar. Här är exakt hur det fungerar:",
+  "bookingSteps": [
+    {
+      "number": 1,
+      "title": "Boka din session",
+      "description": "Välj Bitcoin-sessionen som passar dina behov — oavsett om du är helt ny eller redo för praktisk plånboksinställning."
+    },
+    {
+      "number": 2,
+      "title": "Välj en tid som passar dig",
+      "description": "Välj från tillgängliga tidsrum i vår kalender som passar bäst din schema."
+    },
+    {
+      "number": 3,
+      "title": "Få bekräftelse via e-post",
+      "description": "Vi skickar dig en bekräftelse med sessionsdetaljer, inloggningslänk och eventuella förberedelsematerial du behöver."
+    },
+    {
+      "number": 4,
+      "title": "Delta i din online-session",
+      "description": "Vid den schemalagda tiden deltar du i en en-till-en Bitcoin-utbildningssession med tydlig vägledning och praktisk support."
     }
   ]
 }

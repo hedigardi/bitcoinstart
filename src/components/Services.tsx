@@ -344,6 +344,47 @@ export default function Services() {
           })}
         </div>
 
+        {/* What happens after booking */}
+        <div className="mt-16 rounded-3xl bg-gradient-to-br from-orange-50 to-white dark:from-orange-950/30 dark:to-slate-900/50 border border-orange-100 dark:border-orange-900/50 p-8 lg:p-12 shadow-sm">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
+              {t("bookingProcessTitle")}
+            </h3>
+            <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              {t("bookingProcessDescription")}
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-4">
+            {(
+              t("bookingSteps", { returnObjects: true }) as Array<{
+                number: number;
+                title: string;
+                description: string;
+              }>
+            ).map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative rounded-2xl border border-orange-200 dark:border-orange-900/50 bg-white dark:bg-slate-950 p-6 shadow-sm hover:shadow-md transition"
+              >
+                <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm">
+                  {step.number}
+                </div>
+                <h4 className="mt-3 text-lg font-semibold text-slate-950 dark:text-white">
+                  {step.title}
+                </h4>
+                <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-14 rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800">
           <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
             {t("howToChoose.title")}

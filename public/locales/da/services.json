@@ -4,7 +4,7 @@
   "bookingIntro": {
     "title": "Tag dit første tryggere skridt ind i Bitcoin",
     "body": "Uanset om du lige er startet, eller ønsker praktisk hjælp med tegnebøger og sikkerhed, er vi her for at hjælpe dig fremad med mere klarhed og tillid.",
-    "choose": "Vælg den session, der passer dig bedst, gennemfør sikker betaling, og book derefter din tid direkte i vores kalender.",
+    "choose": "Vælg den session, der passer dig bedst, og book derefter din tid direkte i vores kalender.",
     "tagline": "Begrænset tilgængelighed i lanceringsperioden."
   },
   "checkoutModal": {
@@ -34,7 +34,7 @@
       "title": "Introduktion til Bitcoin",
       "subheadline": "Fra nul til din første klare Bitcoin-plan",
       "description": [
-        "En 60-minutters session for begyndere, der ønsker en praktisk og letforståelig introduktion til Bitcoin."
+        "En 60-minutters Bitcoin-session for begyndere, der er helt nye og gerne vil have en praktisk og lettfattelig Bitcoin-guide for begyndere."
       ],
       "outcome": "Du går derfra med en tydeligere forståelse af Bitcoin og en praktisk plan for næste skridt.",
       "bestFor": [
@@ -98,6 +98,30 @@
       "duration": "90 minutter",
       "price": "2 490 NOK",
       "cta": "Book wallet og sikkerhedsopsætning"
+    }
+  ],
+  "bookingProcessTitle": "Hvad sker der efter du booker?",
+  "bookingProcessDescription": "Mange tøver, fordi processen føles uigennemskuelig. Her er præcis hvordan det fungerer:",
+  "bookingSteps": [
+    {
+      "number": 1,
+      "title": "Book din session",
+      "description": "Vælg Bitcoin-sessionen, der passer dine behov — uanset om du er helt ny eller klar til praktisk wallet-opsætning."
+    },
+    {
+      "number": 2,
+      "title": "Vælg et tidspunkt, der passer dig",
+      "description": "Vælg fra tilgængelige tidsslots i vores kalender, der passer bedst til dit skema."
+    },
+    {
+      "number": 3,
+      "title": "Modtag bekræftelse via e-mail",
+      "description": "Vi sender dig en bekræftelse med sessiondetaljer, loginlink og eventuelle forberedelsesmaterialer, du måske har behov for."
+    },
+    {
+      "number": 4,
+      "title": "Delta i din online-session",
+      "description": "Til det planlagte tidspunkt deltager du i en en-til-en Bitcoin-uddannelsessession med klar vejledning og praktisk support."
     }
   ]
 }
