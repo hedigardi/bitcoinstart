@@ -28,5 +28,29 @@
       "title": "Educational support without hype",
       "text": "We do not push decisions. We help you understand Bitcoin more clearly first."
     }
+  ],
+  "bookingProcessTitle": "What happens after you book?",
+  "bookingProcessDescription": "Many people hesitate because the process feels unclear. Here's exactly how it works:",
+  "bookingSteps": [
+    {
+      "number": 1,
+      "title": "Book your session",
+      "description": "Choose the Bitcoin session that fits your needs — whether you're completely new or ready for practical wallet setup."
+    },
+    {
+      "number": 2,
+      "title": "Choose a time that suits you",
+      "description": "Select from available time slots in our calendar that work best for your schedule."
+    },
+    {
+      "number": 3,
+      "title": "Receive confirmation by email",
+      "description": "We'll send you a confirmation with session details, login link, and any preparation materials you might need."
+    },
+    {
+      "number": 4,
+      "title": "Join your online session",
+      "description": "At the scheduled time, join us for your one-on-one Bitcoin education session with clear guidance and practical support."
+    }
   ]
 }

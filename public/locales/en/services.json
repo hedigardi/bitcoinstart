@@ -4,7 +4,7 @@
   "bookingIntro": {
     "title": "Take your first safer step into Bitcoin",
     "body": "Whether you are just getting started or want practical support with wallets and security, we are here to help you move forward with more clarity and confidence.",
-    "choose": "Choose the session that fits you best, complete secure payment, and then book your time directly in our calendar.",
+    "choose": "Choose the session that fits you best, and then book your time directly in our calendar.",
     "tagline": "Limited availability as we launch."
   },
   "checkoutModal": {
@@ -34,9 +34,9 @@
       "title": "Bitcoin Intro Session",
       "subheadline": "From zero to your first clear Bitcoin plan",
       "description": [
-        "A 60-minute session for beginners who want a practical and easy-to-understand introduction to Bitcoin."
+        "A 60-minute beginner-friendly Bitcoin session for complete beginners who want a practical and easy-to-understand Bitcoin beginner guide."
       ],
-      "outcome": "You leave with a clearer understanding of Bitcoin and a practical next-step plan.",
+      "outcome": "You leave with a clearer understanding of Bitcoin, a practical next-step plan, and the confidence to learn Bitcoin safely.",
       "bestFor": [
         "Complete beginners",
         "People who want to understand Bitcoin before doing anything practical",
@@ -68,9 +68,9 @@
       "title": "Wallet & Security Setup",
       "subheadline": "Set up your wallet the right way with guided support",
       "description": [
-        "A 90-minute guided session for people who want practical help getting started with wallets and safer Bitcoin habits."
+        "A 90-minute guided Bitcoin coaching session with practical help getting started with wallets and safer Bitcoin habits for beginners."
       ],
-      "outcome": "You leave with a wallet setup plan, stronger security habits, and more confidence moving forward.",
+      "outcome": "You leave with a wallet setup plan, stronger security habits, and more confidence moving forward with your Bitcoin wallet help.",
       "bestFor": [
         "Beginners who want practical guidance",
         "People who already own some Bitcoin and want more clarity",
@@ -98,6 +98,30 @@
       "duration": "90 minutes",
       "price": "2 490 NOK",
       "cta": "Book Wallet & Security Setup"
+    }
+  ],
+  "bookingProcessTitle": "What happens after you book?",
+  "bookingProcessDescription": "Many people hesitate because the process feels unclear. Here's exactly how it works:",
+  "bookingSteps": [
+    {
+      "number": 1,
+      "title": "Book your session",
+      "description": "Choose the Bitcoin session that fits your needs — whether you're completely new or ready for practical wallet setup."
+    },
+    {
+      "number": 2,
+      "title": "Choose a time that suits you",
+      "description": "Select from available time slots in our calendar that work best for your schedule."
+    },
+    {
+      "number": 3,
+      "title": "Receive confirmation by email",
+      "description": "We'll send you a confirmation with session details, login link, and any preparation materials you might need."
+    },
+    {
+      "number": 4,
+      "title": "Join your online session",
+      "description": "At the scheduled time, join us for your one-on-one Bitcoin education session with clear guidance and practical support."
     }
   ]
 }
