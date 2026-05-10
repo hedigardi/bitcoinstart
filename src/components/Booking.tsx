@@ -12,7 +12,7 @@ const SESSIONS = [
 ] as const;
 
 export default function Booking() {
-  const { t: ts, i18n } = useTranslation("services");
+  const { t: ts } = useTranslation("services");
   const services = ts("services", { returnObjects: true }) as Array<{
     title: string;
     description: string[];
@@ -20,10 +20,6 @@ export default function Booking() {
     price: string;
     cta: string;
   }>;
-  const norwegianServices = ts("services", {
-    lng: "no",
-    returnObjects: true,
-  }) as typeof services;
 
   useEffect(() => {
     (async () => {
@@ -40,30 +36,6 @@ export default function Booking() {
     })();
   }, []);
 
-  function formatLocalizedPrice(priceLabel: string): string {
-    const PRICE_CONFIG: Record<
-      string,
-      { code: string; locale: string; rate: number; roundingStep: number }
-    > = {
-      no: { code: "NOK", locale: "nb-NO", rate: 1, roundingStep: 10 },
-      sv: { code: "SEK", locale: "sv-SE", rate: 0.95, roundingStep: 10 },
-      da: { code: "DKK", locale: "da-DK", rate: 0.64, roundingStep: 10 },
-      en: { code: "EUR", locale: "en-IE", rate: 0.086, roundingStep: 1 },
-    };
-    const lang = (i18n.resolvedLanguage || i18n.language)
-      .split("-")[0]
-      .toLowerCase();
-    const pricing = PRICE_CONFIG[lang] ?? PRICE_CONFIG["en"];
-    const match = priceLabel.match(/\d[\d\s]*/);
-    if (!match) return priceLabel;
-    const nok = Number(match[0].replace(/\s+/g, ""));
-    if (!Number.isFinite(nok)) return priceLabel;
-    const converted =
-      Math.round((nok * pricing.rate) / pricing.roundingStep) *
-      pricing.roundingStep;
-    return `${new Intl.NumberFormat(pricing.locale).format(converted)} ${pricing.code}`;
-  }
-
   return (
     <section
       id="booking"
@@ -72,8 +44,6 @@ export default function Booking() {
       <div className="mx-auto max-w-3xl px-6 py-20 lg:px-8">
         <div className="flex flex-col gap-5">
           {services.map((service, i) => {
-            const nokPrice = norwegianServices[i]?.price ?? service.price;
-            const localizedPrice = formatLocalizedPrice(nokPrice);
             return (
               <motion.div
                 key={service.title}
@@ -97,7 +67,7 @@ export default function Booking() {
                 </p>
                 <div className="flex items-center justify-between gap-4 pt-1">
                   <span className="text-base font-bold text-slate-900 dark:text-white">
-                    {localizedPrice}
+                    {service.price}
                   </span>
                   <button
                     data-cal-namespace={SESSIONS[i].namespace}
