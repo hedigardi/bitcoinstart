@@ -21,6 +21,15 @@
   "format": "Format",
   "duration": "Duration",
   "price": "Price",
+  "disclaimer": "Educational guidance only. No financial or investment advice.",
+  "notForYou": {
+    "title": "This is not for you if:",
+    "points": [
+      "You're looking for trading signals",
+      "You want short-term price predictions",
+      "You're seeking financial or investment advice"
+    ]
+  },
   "howToChoose": {
     "title": "Not sure which session is right for you?",
     "points": [
@@ -70,7 +79,7 @@
       "description": [
         "A 90-minute guided Bitcoin coaching session with practical help getting started with wallets and safer Bitcoin habits for beginners."
       ],
-      "outcome": "You leave with a wallet setup plan, stronger security habits, and more confidence moving forward with your Bitcoin wallet help.",
+      "outcome": "You leave with a wallet setup plan, stronger security habits, and more confidence managing your Bitcoin safely.",
       "bestFor": [
         "Beginners who want practical guidance",
         "People who already own some Bitcoin and want more clarity",

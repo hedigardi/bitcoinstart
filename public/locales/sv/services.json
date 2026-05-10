@@ -21,6 +21,15 @@
   "format": "Format",
   "duration": "Längd",
   "price": "Pris",
+  "disclaimer": "Endast utbildningsvägledning. Ingen finansiell eller investeringsrelaterad rådgivning.",
+  "notForYou": {
+    "title": "Detta är inte för dig om:",
+    "points": [
+      "Du letar efter handelssignaler",
+      "Du vill ha kortsiktiga prisprognoser",
+      "Du söker finansiell eller investeringsrelaterad rådgivning"
+    ]
+  },
   "howToChoose": {
     "title": "Osäker på vilken session som passar dig?",
     "points": [
@@ -70,7 +79,7 @@
       "description": [
         "En 90-minuters Bitcoin-coaching-session med praktisk hjälp att komma igång med plånbok och säkrare Bitcoin-vanor för nybörjare."
       ],
-      "outcome": "Du lämnar med en plånboksinställningsplan, starkare säkerhetsvanor och mer tilliten att gå vidare med din Bitcoin-hjälp.",
+      "outcome": "Du lämnar sessionen med en plan för att sätta upp en plånbok, bättre säkerhetsvanor och större trygghet i att hantera din Bitcoin på ett säkert sätt.",
       "bestFor": [
         "Nybörjare som vill ha praktisk vägledning",
         "Personer som redan äger viss Bitcoin och vill få mer klarhet",
@@ -85,8 +94,8 @@
       ],
       "whatYouLeaveWith": [
         "En plan för plånbokssetup",
-        "Starkare säkerhetsvanor",
-        "Större trygghet framåt"
+        "Bättre säkerhetsvanor",
+        "Större trygghet i att hantera din Bitcoin på ett säkert sätt"
       ],
       "includes": [
         "Frågeformulär före sessionen",

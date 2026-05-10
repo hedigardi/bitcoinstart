@@ -21,6 +21,15 @@
   "format": "Format",
   "duration": "Varighed",
   "price": "Pris",
+  "disclaimer": "Kun uddannelsesorienteret vejledning. Ingen finansiel eller investeringsmæssig rådgivning.",
+  "notForYou": {
+    "title": "Dette er ikke for dig, hvis:",
+    "points": [
+      "Du leder efter handelssignaler",
+      "Du ønsker kortsigtede prisprognoser",
+      "Du søger finansiel eller investeringsmæssig rådgivning"
+    ]
+  },
   "howToChoose": {
     "title": "Er du i tvivl om, hvilken session der passer bedst?",
     "points": [
@@ -70,7 +79,7 @@
       "description": [
         "En guidet 90-minutters session for personer, der ønsker praktisk hjælp til at komme i gang med wallets og sikrere Bitcoin-vaner."
       ],
-      "outcome": "Du går derfra med en plan for wallet-opsætning, stærkere sikkerhedsvaner og mere tryghed fremadrettet.",
+      "outcome": "Du afslutter sessionen med en plan for at opsætte en wallet, bedre sikkerhedsvaner og større tryghed ved at håndtere din Bitcoin på en sikker måde.",
       "bestFor": [
         "Begyndere, der ønsker praktisk vejledning",
         "Personer, der allerede ejer noget Bitcoin og ønsker mere klarhed",
@@ -85,8 +94,8 @@
       ],
       "whatYouLeaveWith": [
         "En plan for wallet-opsætning",
-        "Stærkere sikkerhedsvaner",
-        "Mere tryghed fremadrettet"
+        "Bedre sikkerhedsvaner",
+        "Større tryghed ved at håndtere din Bitcoin på en sikker måde"
       ],
       "includes": [
         "Spørgeskema før sessionen",

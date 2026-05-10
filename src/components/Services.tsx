@@ -338,6 +338,9 @@ export default function Services() {
                   >
                     {service.cta}
                   </button>
+                  <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-500">
+                    {t("disclaimer")}
+                  </p>
                 </div>
               </motion.div>
             );
@@ -386,6 +389,22 @@ export default function Services() {
         </div>
 
         <div className="mt-14 rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800">
+          <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
+            {t("notForYou.title")}
+          </h3>
+          <ul className="mt-5 space-y-3 text-slate-700 dark:text-slate-300">
+            {(t("notForYou.points", { returnObjects: true }) as string[]).map(
+              (point) => (
+                <li key={point} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600" />
+                  <span className="text-sm leading-7">{point}</span>
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
+
+        <div className="mt-6 rounded-3xl bg-white dark:bg-slate-950 p-8 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800">
           <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
             {t("howToChoose.title")}
           </h3>

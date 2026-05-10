@@ -21,6 +21,15 @@
   "format": "Format",
   "duration": "Varighet",
   "price": "Pris",
+  "disclaimer": "Kun opplæringsbasert veiledning. Ikke finansiell eller investeringsrettet rådgivning.",
+  "notForYou": {
+    "title": "Dette er ikke for deg hvis:",
+    "points": [
+      "Du leter etter handelssignaler",
+      "Du vil ha kortsiktige prispredikasjoner",
+      "Du søker finansiell eller investeringsrettet rådgivning"
+    ]
+  },
   "howToChoose": {
     "title": "Usikker på hvilken sesjon som passer deg?",
     "points": [
@@ -70,7 +79,7 @@
       "description": [
         "En 90-minutters Bitcoin-coaching-sesjon med praktisk hjelp til å komme i gang med lommebok og sikrere Bitcoin-vaner for nybegynnere."
       ],
-      "outcome": "Du sitter igjen med en plan for lommebokoppsett, bedre sikkerhetsvaner og mer trygghet videre.",
+      "outcome": "Du avslutter sesjonen med en plan for å sette opp en lommebok, bedre sikkerhetsvaner og større trygghet i å håndtere Bitcoin på en sikker måte.",
       "bestFor": [
         "Nybegynnere som ønsker praktisk veiledning",
         "Personer som allerede eier noe Bitcoin og vil ha mer klarhet",
@@ -86,7 +95,7 @@
       "whatYouLeaveWith": [
         "En plan for lommebokoppsett",
         "Bedre sikkerhetsvaner",
-        "Mer trygghet videre"
+        "Større trygghet i å håndtere Bitcoin på en sikker måte"
       ],
       "includes": [
         "Spørreskjema før sesjonen",
