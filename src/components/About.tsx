@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ImagePlaceholder from "./ImagePlaceholder";
 
@@ -41,6 +42,17 @@ export default function About() {
               {whyParagraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
+            </div>
+            <div className="mt-6">
+              <a
+                href="https://www.linkedin.com/in/hedigardi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-orange-100 dark:hover:bg-orange-900/30 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                aria-label="Connect with Hedi on LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
             </div>
           </motion.div>
 
