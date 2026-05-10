@@ -52,7 +52,7 @@ export default function Footer() {
                   (key) => (
                     <li key={key}>
                       <a
-                        href={`#${key}`}
+                        href={`#${key === "booking" ? "services" : key}`}
                         className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
                       >
                         {t(`footer.links.${key}`)}
