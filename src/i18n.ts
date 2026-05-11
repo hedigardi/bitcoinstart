@@ -26,8 +26,6 @@ i18n
       "services",
       "about",
       "faq",
-      "booking",
-      "freeguide",
       "contact",
       "data",
     ],

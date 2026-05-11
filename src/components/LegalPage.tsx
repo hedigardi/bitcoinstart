@@ -18,7 +18,7 @@ export default function LegalPage({ type }: LegalPageProps) {
       <div className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
         <a
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors mb-10"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors mb-10"
         >
           <ArrowLeft size={16} />
           {t("footer.links.backToHome", "Back to home")}

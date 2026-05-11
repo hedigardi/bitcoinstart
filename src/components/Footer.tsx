@@ -57,7 +57,7 @@ export default function Footer() {
                     <li key={key}>
                       <a
                         href={`#${key === "booking" ? "services" : key}`}
-                        className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                        className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
                       >
                         {t(`footer.links.${key}`)}
                       </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:contact@bitcoinstart.no"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
                   >
                     {t("footer.links.emailSupport")}
                   </a>
@@ -82,7 +82,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="/privacy-policy"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
                   >
                     {t("footer.links.privacy")}
                   </a>
@@ -90,7 +90,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="/terms-of-service"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
                   >
                     {t("footer.links.terms")}
                   </a>
@@ -107,7 +107,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <button
               onClick={scrollToTop}
-              className="cursor-pointer text-slate-500 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+              className="cursor-pointer text-slate-500 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
               aria-label="Scroll to top"
             >
               <ArrowUp size={20} />

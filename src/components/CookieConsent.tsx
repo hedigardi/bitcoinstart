@@ -100,7 +100,7 @@ export default function CookieConsent() {
             </p>
             <a
               href={privacyLink}
-              className="mt-2 inline-block text-sm font-semibold text-orange-700 transition-colors hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300"
+              className="mt-2 inline-block text-sm font-semibold text-orange-700 transition-colors hover:text-orange-800 dark:text-orange-700 dark:hover:text-orange-700"
             >
               {t("cookie.privacyLink")}
             </a>

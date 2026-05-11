@@ -32,7 +32,7 @@ export default function Contact() {
               {tags.map((tag) => (
                 <div
                   key={tag}
-                  className="rounded-2xl bg-orange-50 dark:bg-orange-900/20 px-4 py-2 text-sm font-medium text-orange-700 dark:text-orange-400 ring-1 ring-orange-200 dark:ring-orange-900/50"
+                  className="rounded-2xl bg-orange-50 dark:bg-orange-900/20 px-4 py-2 text-sm font-medium text-orange-700 dark:text-orange-700 ring-1 ring-orange-200 dark:ring-orange-900/50"
                 >
                   {tag}
                 </div>
@@ -53,7 +53,7 @@ export default function Contact() {
                 </div>
                 <a
                   href={`mailto:${details.email.value}`}
-                  className="mt-2 inline-block text-xl font-semibold text-slate-900 dark:text-white hover:text-orange-700 dark:hover:text-orange-400 transition-colors"
+                  className="mt-2 inline-block text-xl font-semibold text-slate-900 dark:text-white hover:text-orange-700 dark:hover:text-orange-200 transition-colors"
                 >
                   {details.email.value}
                 </a>

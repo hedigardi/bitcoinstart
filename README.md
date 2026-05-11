@@ -117,7 +117,7 @@ Defined in `.env.example`:
 ## Localization
 
 - Translation files live under `public/locales/{lang}/{namespace}.json`
-- Namespaces include: `common`, `seo`, `hero`, `services`, `about`, `faq`, `booking`, `freeguide`, `contact`, `data`
+- Namespaces include: `common`, `seo`, `hero`, `services`, `about`, `faq`, `contact`, `data`
 - Language detection behavior:
   - Returning users: language from localStorage
   - First-time users: country lookup via `ipapi.co` (NO/SE/DK mapping, fallback EN)

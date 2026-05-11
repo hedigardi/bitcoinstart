@@ -87,16 +87,18 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 rounded-3xl border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-8 py-8 text-orange-700 dark:text-orange-300"
+          className="mt-10 rounded-3xl border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-8 py-8 text-orange-700 dark:text-orange-700"
         >
-          <h3 className="text-xl font-bold">{t("bookingIntro.title")}</h3>
+          <h3 className="text-xl font-bold text-orange-700 dark:text-orange-700">
+            {t("bookingIntro.title")}
+          </h3>
           <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
             {t("bookingIntro.body")}
           </p>
           <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
             {t("bookingIntro.choose")}
           </p>
-          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-900/50 bg-white/70 dark:bg-orange-950/20 px-4 py-1.5 text-xs font-semibold tracking-wide text-orange-700 dark:text-orange-300">
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-900/50 bg-white/70 dark:bg-orange-950/20 px-4 py-1.5 text-xs font-semibold tracking-wide text-orange-700 dark:text-orange-700">
             {t("bookingIntro.tagline")}
           </p>
         </motion.div>
@@ -115,10 +117,10 @@ export default function Services() {
                 className="relative flex h-full flex-col rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-xl hover:ring-orange-200 dark:bg-slate-950 dark:ring-slate-800 dark:hover:shadow-orange-900/20 dark:hover:ring-orange-900/50"
               >
                 <div className="pointer-events-none absolute right-8 top-8 hidden 2xl:block">
-                  <div className="relative flex h-20 w-36 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 text-orange-700 ring-1 ring-orange-200 dark:from-orange-950/40 dark:to-slate-900 dark:text-orange-300 dark:ring-orange-900/50">
+                  <div className="relative flex h-20 w-36 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 text-orange-700 ring-1 ring-orange-200 dark:from-orange-950/40 dark:to-slate-900 dark:text-orange-200 dark:ring-orange-900/50">
                     <CornerIcon size={34} aria-hidden="true" />
                   </div>
-                  <div className="absolute -bottom-6 -left-6 flex h-16 w-16 items-center justify-center rounded-full bg-white text-orange-700 ring-4 ring-white dark:bg-slate-900 dark:text-orange-300 dark:ring-slate-950">
+                  <div className="absolute -bottom-6 -left-6 flex h-16 w-16 items-center justify-center rounded-full bg-white text-orange-700 ring-4 ring-white dark:bg-slate-900 dark:text-orange-200 dark:ring-slate-950">
                     <CornerIcon size={24} aria-hidden="true" />
                   </div>
                 </div>
@@ -127,7 +129,7 @@ export default function Services() {
                   <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-base font-semibold leading-7 text-orange-700 dark:text-orange-400">
+                  <p className="mt-3 text-base font-semibold leading-7 text-orange-700 dark:text-orange-700">
                     {service.subheadline}
                   </p>
                   <ImagePlaceholder
@@ -149,7 +151,7 @@ export default function Services() {
 
                 <div className="mt-8 grid gap-6 md:grid-cols-2">
                   <div>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-300">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-700">
                       <Users size={14} aria-hidden="true" />
                       {t("bestFor")}
                     </div>
@@ -164,7 +166,7 @@ export default function Services() {
                   </div>
 
                   <div>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-300">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-700">
                       <BookOpenText size={14} aria-hidden="true" />
                       {t("whatWeCover")}
                     </div>
@@ -179,7 +181,7 @@ export default function Services() {
                   </div>
 
                   <div>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-300">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-700">
                       <BadgeCheck size={14} aria-hidden="true" />
                       {t("whatYouLeaveWith")}
                     </div>
@@ -194,7 +196,7 @@ export default function Services() {
                   </div>
 
                   <div>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-300">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-800 dark:bg-orange-950/40 dark:text-orange-700">
                       <CheckSquare size={14} aria-hidden="true" />
                       {t("includes")}
                     </div>
@@ -210,7 +212,7 @@ export default function Services() {
                 </div>
 
                 <div className="mt-8 rounded-2xl bg-orange-50 px-5 py-4 ring-1 ring-orange-100 dark:bg-orange-950/20 dark:ring-orange-900/40">
-                  <div className="text-xs font-bold uppercase tracking-widest text-orange-700 dark:text-orange-300">
+                  <div className="text-xs font-bold uppercase tracking-widest text-orange-700 dark:text-orange-700">
                     {t("outcome")}
                   </div>
                   <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
@@ -336,7 +338,7 @@ export default function Services() {
           </ul>
           <a
             href="#contact"
-            className="mt-6 inline-flex items-center justify-center rounded-2xl bg-orange-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-800"
+            className="mt-6 inline-flex items-center justify-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
           >
             {t("howToChoose.cta")}
           </a>
