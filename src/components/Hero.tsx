@@ -5,11 +5,22 @@ export default function Hero() {
   const { t } = useTranslation("hero");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [hovered, setHovered] = useState(false);
 
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setMuted(videoRef.current.muted);
+    }
+  };
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
     }
   };
 
@@ -57,7 +68,11 @@ export default function Hero() {
 
         <div className="relative space-y-5">
           {/* Welcome video */}
-          <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 aspect-[4/3]">
+          <div
+            className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 aspect-[4/3]"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
             <video
               ref={videoRef}
               src="/assets/hero-video.mp4"
@@ -65,14 +80,17 @@ export default function Hero() {
               muted
               loop
               playsInline
-              onClick={toggleMute}
+              controls={hovered}
+              onClick={hovered ? undefined : togglePlay}
+              onContextMenu={(e) => e.preventDefault()}
               className="h-full w-full object-cover cursor-pointer"
             />
-            {/* Mute / unmute button */}
+            {/* Mute / unmute button — top-right, hidden when controls are visible */}
+
             <button
               onClick={toggleMute}
               aria-label={muted ? t("video.unmuteLabel") : t("video.muteLabel")}
-              className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white backdrop-blur-sm transition hover:bg-black/70 active:scale-95"
+              className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white backdrop-blur-sm transition hover:bg-black/70 active:scale-95"
             >
               {muted ? (
                 <>
