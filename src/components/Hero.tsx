@@ -1,8 +1,17 @@
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function Hero() {
   const { t } = useTranslation("hero");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
 
   const info = [
     { label: t("info.focus.label"), value: t("info.focus.value") },
@@ -47,13 +56,54 @@ export default function Hero() {
         </div>
 
         <div className="relative space-y-5">
-          <ImagePlaceholder
-            className="aspect-[4/3]"
-            title="Nordic beginner guidance scene"
-            hint="Use a calm, bright photo of a person getting 1:1 guidance at a desk with a laptop and phone wallet app visible."
-            src="/nordic-beginner-guidance-scene.png"
-            alt="1:1 Bitcoin guidance session for Nordic beginners"
-          />
+          {/* Welcome video */}
+          <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 aspect-[4/3]">
+            <video
+              ref={videoRef}
+              src="/assets/hero-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              onClick={toggleMute}
+              className="h-full w-full object-cover cursor-pointer"
+            />
+            {/* Mute / unmute button */}
+            <button
+              onClick={toggleMute}
+              aria-label={muted ? t("video.unmuteLabel") : t("video.muteLabel")}
+              className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-2 text-xs font-semibold text-white backdrop-blur-sm transition hover:bg-black/70 active:scale-95"
+            >
+              {muted ? (
+                <>
+                  {/* Speaker with X */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+                  </svg>
+                  <span>{t("video.muteLabel")}</span>
+                </>
+              ) : (
+                <>
+                  {/* Speaker with waves */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+                    <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                  <span>{t("video.unmuteLabel")}</span>
+                </>
+              )}
+            </button>
+          </div>
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-6 shadow-sm">
             <div className="grid gap-5 sm:grid-cols-2">
               {info.map((item, i) => (

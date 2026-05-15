@@ -5,6 +5,10 @@
   "cta": "Book your first session",
   "learnMore": "Explore services",
   "subtext": "Based in Norway. Serving clients across the Nordics. Sessions offered in English and Swedish.",
+  "video": {
+    "muteLabel": "Sound off",
+    "unmuteLabel": "Sound on"
+  },
   "info": {
     "focus": {
       "label": "Focus",

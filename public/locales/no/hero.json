@@ -5,6 +5,10 @@
   "cta": "Bestill din første sesjon",
   "learnMore": "Utforsk tjenester",
   "subtext": "Basert i Norge. Betjener kunder over hele Norden. Sesjonene tilbys på engelsk og svensk.",
+  "video": {
+    "muteLabel": "Lyd av",
+    "unmuteLabel": "Lyd på"
+  },
   "info": {
     "focus": {
       "label": "Fokus",

@@ -5,6 +5,10 @@
   "cta": "Boka din första session",
   "learnMore": "Utforska tjänster",
   "subtext": "Baserad i Norge. För kunder i hela Norden. Sessionerna erbjuds på engelska och svenska.",
+  "video": {
+    "muteLabel": "Ljud av",
+    "unmuteLabel": "Ljud på"
+  },
   "info": {
     "focus": {
       "label": "Fokus",
