@@ -1,4 +1,8 @@
 {
+  "video": {
+    "muteLabel": "Lyd av",
+    "unmuteLabel": "Lyd på"
+  },
   "whyTitle": "Om BitcoinStart Nordics",
   "whyParagraphs": [
     "Hei, jeg heter Hedi.",
