@@ -25,6 +25,7 @@ i18n
       "hero",
       "services",
       "about",
+      "testimonials",
       "faq",
       "contact",
       "data",
