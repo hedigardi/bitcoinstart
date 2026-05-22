@@ -1,27 +1,28 @@
 # BitcoinStart Nordics
 
-Modern, multilingual React landing page for Bitcoin onboarding services in the Nordics.
+Modern multilingual React landing page for Bitcoin onboarding services in the Nordics.
 
-The site focuses on beginner-friendly education, practical wallet/security guidance, and direct booking through Cal.com.
+The site focuses on beginner-friendly education, practical wallet and security guidance, and direct booking through Cal.com.
 
-## What Is In This Repo
+## Project Overview
 
 - Vite + React + TypeScript single-page app
-- Tailwind CSS v4 styling with light/dark theme support
+- Tailwind CSS v4 with light and dark theme support
 - i18n with English, Norwegian, Swedish, and Danish
-- Cal.com booking integration (popup booking from Services cards)
+- Cal.com booking integration (popup booking from service cards)
+- Testimonials section with live public review fetch through `/api/google-reviews`
+- Netlify function for production review fetch
 - SEO metadata updates per language
 - Cookie consent banner with localStorage persistence
-- Netlify SPA route support for legal pages
-- Image-ready content sections with reusable image wrapper component
+- Legal routes for privacy policy and terms of service
 
 ## Current Main Features
 
 - Sticky header with language selector and theme toggle
-- Hero, Problem/Solution, Services, About, FAQ, Contact, Footer
-- Service booking buttons open Cal.com popup for:
-  - Intro session (60 min)
-  - Wallet/Security session (90 min)
+- Hero section with autoplay video and sound controls
+- Problem and solution section
+- Services section with booking buttons (Cal.com)
+- About, Testimonials, FAQ, Contact, Footer
 - Localized content loaded from `public/locales/*`
 - Legal routes:
   - `/privacy-policy`
@@ -34,7 +35,7 @@ The site focuses on beginner-friendly education, practical wallet/security guida
 - Vite 6
 - Tailwind CSS 4
 - i18next + react-i18next + i18next-http-backend
-- Motion (animations)
+- Motion
 - Lucide icons
 - Cal.com Embed (`@calcom/embed-react`)
 
@@ -49,13 +50,16 @@ The site focuses on beginner-friendly education, practical wallet/security guida
 |  |  |- sv/
 |  |  |- da/
 |  |- _redirects
-|  |- *.png / *.webp assets
+|- netlify/
+|  |- functions/
+|     |- google-reviews.js
 |- src/
 |  |- components/
 |  |  |- Header.tsx
 |  |  |- Hero.tsx
 |  |  |- Services.tsx
 |  |  |- About.tsx
+|  |  |- Testimonials.tsx
 |  |  |- FAQ.tsx
 |  |  |- Contact.tsx
 |  |  |- CookieConsent.tsx
@@ -65,6 +69,7 @@ The site focuses on beginner-friendly education, practical wallet/security guida
 |  |- i18n.ts
 |  |- main.tsx
 |  |- index.css
+|- netlify.toml
 |- translate.js
 |- vite.config.ts
 |- package.json
@@ -78,8 +83,8 @@ From the project root:
 - `npm run build` - build production bundle
 - `npm run preview` - preview production build locally
 - `npm run lint` - TypeScript type-check (`tsc --noEmit`)
-- `npm run translate` - auto-translate locale JSON files from English to NO/SV/DA
-- `npm run clean` - remove `dist` folder (uses `rm -rf`, shell dependent)
+- `npm run translate` - auto-translate locale JSON files from EN to NO/SV/DA
+- `npm run clean` - remove `dist` folder (`rm -rf`, shell dependent)
 
 ## Getting Started
 
@@ -89,10 +94,12 @@ From the project root:
 npm install
 ```
 
-2. Create your environment file:
+2. Create `.env` in the project root with at least:
 
 ```bash
-cp .env.example .env
+GOOGLE_PLACE_ID=YOUR_GOOGLE_PLACE_ID
+GOOGLE_PLACES_API_KEY=YOUR_SERVER_API_KEY
+VITE_GOOGLE_BUSINESS_PROFILE_URL=https://your-review-url
 ```
 
 3. Start development:
@@ -109,15 +116,19 @@ npm run build
 
 ## Environment Variables
 
-Defined in `.env.example`:
+Commonly used environment variables:
 
-- `GEMINI_API_KEY` - used where Gemini API access is needed
-- `APP_URL` - app base URL for runtime/use-case integrations
+- `GOOGLE_PLACE_ID` - Google Place ID used for fetching public reviews
+- `GOOGLE_PLACES_API_KEY` - server-side API key for Places API (New)
+- `VITE_GOOGLE_BUSINESS_PROFILE_URL` - optional "See all reviews" link in the UI
+- `GOOGLE_BROWSER_API_KEY` - optional browser key (not required for current server-side flow)
+- `GEMINI_API_KEY` - optional, used by other tooling/scripts in this repo
+- `APP_URL` - optional app base URL
 
 ## Localization
 
 - Translation files live under `public/locales/{lang}/{namespace}.json`
-- Namespaces include: `common`, `seo`, `hero`, `services`, `about`, `faq`, `contact`, `data`
+- Active namespaces: `common`, `seo`, `hero`, `services`, `about`, `testimonials`, `faq`, `contact`, `data`
 - Language detection behavior:
   - Returning users: language from localStorage
   - First-time users: country lookup via `ipapi.co` (NO/SE/DK mapping, fallback EN)
@@ -127,20 +138,35 @@ Defined in `.env.example`:
 Services booking is powered by Cal.com popup embed (`cal.eu` origin):
 
 - Intro: `bitcoinstart/60min`
-- Wallet/Security: `bitcoinstart/90min`
+- Wallet and Security: `bitcoinstart/90min`
 
-Configured in `src/components/Services.tsx` with namespaced embeds.
+Configured in `src/components/Services.tsx`.
 
-## Deployment Notes
+## Reviews Integration
 
-This repo includes `public/_redirects` for Netlify SPA routing:
+- Frontend fetches: `/api/google-reviews?lang=<en|sv|no|da>`
+- Dev and preview: handled by Vite middleware in `vite.config.ts`
+- Production (Netlify): handled by `netlify/functions/google-reviews.js`
+- Netlify route mapping is defined in `public/_redirects`
 
+## Deployment Notes (Netlify)
+
+This repo uses:
+
+- `netlify.toml` for build and function directory config
+- `public/_redirects` for SPA and function routing
+
+Important routes:
+
+- `/api/google-reviews /.netlify/functions/google-reviews 200`
 - `/privacy-policy /index.html 200`
 - `/terms-of-service /index.html 200`
 - `/* /index.html 200`
 
+For production, set `GOOGLE_PLACE_ID` and `GOOGLE_PLACES_API_KEY` in Netlify environment variables.
+
 ## Design Notes
 
 - Orange color theme is customized in `src/index.css`
-- Content images are rendered via `ImagePlaceholder` (now supports real images with smooth hover transitions)
-- Most content sections are responsive and optimized for desktop + mobile layouts
+- Content images are rendered via `ImagePlaceholder`
+- Sections are responsive and optimized for desktop and mobile
