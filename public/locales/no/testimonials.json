@@ -1,0 +1,18 @@
+{
+  "tag": "Verifiserte kundeomtaler",
+  "title": "Dette sier kundene",
+  "description": "Offentlige omtaler fra personer som har bestilt en sesjon hos BitcoinStart Nordics.",
+  "countZero": "Ingen offentlige omtaler å vise ennå",
+  "countLabel": "Viser {{count}} siste omtale",
+  "countLabel_plural": "Viser {{count}} siste omtaler",
+  "ratingAria": "Vurdering {{rating}} av 5",
+  "carousel": {
+    "prev": "Forrige omtale",
+    "next": "Neste omtale",
+    "goTo": "Gå til omtale {{index}}"
+  },
+  "recently": "Nylig",
+  "error": "Vi kunne ikke laste omtaler akkurat nå. Prøv igjen om litt.",
+  "empty": "Det finnes ingen offentlige omtaler ennå.",
+  "cta": "Se alle omtaler"
+}

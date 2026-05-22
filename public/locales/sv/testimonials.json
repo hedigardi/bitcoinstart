@@ -1,0 +1,18 @@
+{
+  "tag": "Verifierade kundomdömen",
+  "title": "Det här säger kunderna",
+  "description": "Publika omdömen från personer som har bokat en session med BitcoinStart Nordics.",
+  "countZero": "Inga publika omdömen att visa ännu",
+  "countLabel": "Visar {{count}} senaste omdöme",
+  "countLabel_plural": "Visar {{count}} senaste omdömen",
+  "ratingAria": "Betyg {{rating}} av 5",
+  "carousel": {
+    "prev": "Föregående omdöme",
+    "next": "Nästa omdöme",
+    "goTo": "Gå till omdöme {{index}}"
+  },
+  "recently": "Nyligen",
+  "error": "Vi kunde inte ladda omdömena just nu. Försök igen om en stund.",
+  "empty": "Det finns inga publika omdömen ännu.",
+  "cta": "Se alla omdömen"
+}
