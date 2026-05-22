@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Star } from "lucide-react";
+import { MessageSquareQuote } from "lucide-react";
 
 interface GoogleReview {
   author_name: string;
@@ -27,6 +28,20 @@ function stars(rating: number): string {
 function formatRating(rating: number): string {
   const safe = Math.max(0, Math.min(5, rating));
   return Number.isInteger(safe) ? `${safe}` : safe.toFixed(1);
+}
+
+function maskReviewerName(fullName: string): string {
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+
+  if (parts.length === 0) {
+    return "";
+  }
+
+  const firstName = parts[0];
+  const lastName = parts.length > 1 ? parts[parts.length - 1] : "";
+  const lastInitial = lastName ? `${lastName.charAt(0).toUpperCase()}.` : "";
+
+  return lastInitial ? `${firstName} ${lastInitial}` : firstName;
 }
 
 export default function Testimonials() {
@@ -146,7 +161,7 @@ export default function Testimonials() {
 
         {!loading && reviews.length > 0 ? (
           <div className="mt-10">
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800">
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800 transition-all hover:shadow-xl hover:ring-orange-200 dark:hover:shadow-orange-900/20 dark:hover:ring-orange-900/50">
               <div
                 className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -158,7 +173,7 @@ export default function Testimonials() {
                   >
                     <div className="flex items-center justify-between gap-3">
                       <h3 className="text-base font-semibold text-slate-900 dark:text-white">
-                        {review.author_name}
+                        {maskReviewerName(review.author_name)}
                       </h3>
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-700">
                         {formatRating(review.rating)} / 5
@@ -177,9 +192,16 @@ export default function Testimonials() {
                       {stars(review.rating)}
                     </p>
 
-                    <p className="mt-4 text-sm leading-7 text-slate-700 dark:text-slate-300 sm:text-base">
-                      "{review.text}"
-                    </p>
+                    <blockquote className="mt-4 rounded-2xl border border-orange-100 dark:border-orange-900/40 bg-orange-50/60 dark:bg-orange-950/20 px-4 py-3">
+                      <p className="inline-flex items-start gap-2 text-sm leading-7 text-slate-700 dark:text-slate-300 sm:text-base italic">
+                        <MessageSquareQuote
+                          size={16}
+                          className="mt-1 flex-shrink-0 text-orange-700 dark:text-orange-700"
+                          aria-hidden="true"
+                        />
+                        <span>{review.text}</span>
+                      </p>
+                    </blockquote>
 
                     <p className="mt-5 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {review.relative_time_description ??
