@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Star } from "lucide-react";
 
 interface GoogleReview {
   author_name: string;
@@ -63,7 +64,13 @@ export default function Testimonials() {
             : [];
 
         const normalized = payload
-          .filter((item) => item?.author_name && item?.text)
+          .filter(
+            (item) =>
+              item?.author_name &&
+              item?.text &&
+              Number.isFinite(item?.rating) &&
+              item.rating > 4,
+          )
           .sort((a, b) => (b.time ?? 0) - (a.time ?? 0))
           .slice(0, MAX_REVIEWS);
 
@@ -110,7 +117,7 @@ export default function Testimonials() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-slate-900 dark:text-orange-200">
+          <p className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-slate-900 dark:text-orange-700">
             {t("tag")}
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">
@@ -153,13 +160,18 @@ export default function Testimonials() {
                       <h3 className="text-base font-semibold text-slate-900 dark:text-white">
                         {review.author_name}
                       </h3>
-                      <span className="text-sm font-semibold text-orange-700 dark:text-orange-300">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-700">
                         {formatRating(review.rating)} / 5
+                        <Star
+                          size={14}
+                          className="fill-current"
+                          aria-hidden="true"
+                        />
                       </span>
                     </div>
 
                     <p
-                      className="mt-2 text-sm leading-6 text-orange-700 dark:text-orange-300"
+                      className="mt-2 text-sm leading-6 text-orange-700 dark:text-orange-700"
                       aria-label={t("ratingAria", { rating: review.rating })}
                     >
                       {stars(review.rating)}
@@ -234,7 +246,7 @@ export default function Testimonials() {
             href={businessProfileUrl || "#contact"}
             target={businessProfileUrl ? "_blank" : undefined}
             rel={businessProfileUrl ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center justify-center rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold leading-none text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
+            className="rounded-xl bg-orange-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 dark:shadow-none transition hover:bg-orange-800 active:scale-95"
           >
             {t("cta")}
           </a>
