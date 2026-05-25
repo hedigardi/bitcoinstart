@@ -11,6 +11,8 @@
     "next": "Næste anmeldelse",
     "goTo": "Gå til anmeldelse {{index}}"
   },
+  "readAll": "Læs hele",
+  "readLess": "Vis mindre",
   "recently": "For nylig",
   "error": "Vi kunne ikke indlæse anmeldelser lige nu. Prøv igen om lidt.",
   "empty": "Der er endnu ingen offentlige anmeldelser.",

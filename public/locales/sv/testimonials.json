@@ -11,6 +11,8 @@
     "next": "Nästa omdöme",
     "goTo": "Gå till omdöme {{index}}"
   },
+  "readAll": "Läs hela",
+  "readLess": "Visa mindre",
   "recently": "Nyligen",
   "error": "Vi kunde inte ladda omdömena just nu. Försök igen om en stund.",
   "empty": "Det finns inga publika omdömen ännu.",

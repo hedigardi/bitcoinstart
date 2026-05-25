@@ -11,6 +11,8 @@
     "next": "Next review",
     "goTo": "Go to review {{index}}"
   },
+  "readAll": "Read all",
+  "readLess": "Show less",
   "recently": "Recently",
   "error": "We could not load reviews right now. Please try again shortly.",
   "empty": "There are no public reviews available yet.",

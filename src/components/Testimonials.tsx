@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Star } from "lucide-react";
 import { MessageSquareQuote } from "lucide-react";
 
 interface GoogleReview {
@@ -44,12 +43,37 @@ function maskReviewerName(fullName: string): string {
   return lastInitial ? `${firstName} ${lastInitial}` : firstName;
 }
 
+function getReviewExcerpt(text: string): {
+  excerpt: string;
+  isTruncated: boolean;
+} {
+  const normalized = text.trim();
+  const previewLength = Math.max(120, Math.floor(normalized.length / 2));
+
+  if (normalized.length <= previewLength) {
+    return { excerpt: normalized, isTruncated: false };
+  }
+
+  const excerpt = normalized
+    .slice(0, previewLength)
+    .replace(/\s+\S*$/, "")
+    .trimEnd();
+
+  return {
+    excerpt: excerpt || normalized.slice(0, previewLength).trimEnd(),
+    isTruncated: true,
+  };
+}
+
 export default function Testimonials() {
   const { t, i18n } = useTranslation("testimonials");
   const [reviews, setReviews] = useState<GoogleReview[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [expandedReviewIndex, setExpandedReviewIndex] = useState<number | null>(
+    null,
+  );
 
   const businessProfileUrl = import.meta.env
     .VITE_GOOGLE_BUSINESS_PROFILE_URL as string | undefined;
@@ -115,6 +139,10 @@ export default function Testimonials() {
     setActiveIndex(0);
   }, [reviews.length, i18n.language]);
 
+  useEffect(() => {
+    setExpandedReviewIndex(null);
+  }, [activeIndex, i18n.language]);
+
   const hasManyReviews = reviews.length > 1;
 
   const goPrev = () => {
@@ -125,13 +153,95 @@ export default function Testimonials() {
     setActiveIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
   };
 
+  const renderReviewCard = (
+    review: GoogleReview,
+    index: number,
+    isActive: boolean,
+  ) => {
+    const isExpanded = expandedReviewIndex === index;
+    const { excerpt, isTruncated } = getReviewExcerpt(review.text);
+
+    return (
+      <article
+        key={`${review.author_name}-${review.time ?? index}`}
+        className={`relative mx-auto w-full max-w-4xl overflow-hidden rounded-[2.5rem] border p-7 shadow-sm transition-all duration-500 sm:p-10 ${
+          isActive
+            ? "border-orange-100/80 bg-white/92 shadow-[0_36px_110px_-70px_rgba(234,88,12,0.45)] ring-1 ring-orange-100/70 dark:border-orange-900/40 dark:bg-slate-950/92 dark:shadow-[0_36px_110px_-70px_rgba(124,45,18,0.55)] dark:ring-orange-900/30"
+            : "border-slate-200/80 bg-white/80 opacity-60 scale-[0.98] shadow-[0_18px_45px_-40px_rgba(15,23,42,0.35)] dark:border-slate-800 dark:bg-slate-950/80 dark:shadow-[0_18px_45px_-40px_rgba(2,6,23,0.65)]"
+        }`}
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-300/80 to-transparent" />
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-orange-100/50 blur-3xl dark:bg-orange-950/20" />
+        <div className="absolute right-6 top-6 text-orange-200/80 dark:text-orange-900/40">
+          <MessageSquareQuote size={72} aria-hidden="true" />
+        </div>
+
+        <div className="relative flex flex-col gap-8 sm:gap-10">
+          <div className="pr-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-700/70 dark:text-orange-700/70">
+              {t("tag")}
+            </p>
+            <h3 className="mt-3 text-xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-2xl">
+              {maskReviewerName(review.author_name)}
+            </h3>
+
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <p
+                className="text-sm leading-6 text-orange-700 dark:text-orange-700"
+                aria-label={t("ratingAria", { rating: review.rating })}
+              >
+                {stars(review.rating)}
+              </p>
+
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-100 bg-white/90 px-3 py-1 text-sm font-semibold text-orange-700 ring-1 ring-orange-100/80 backdrop-blur dark:border-orange-900/40 dark:bg-orange-950/30 dark:text-orange-700 dark:ring-orange-900/40">
+                {formatRating(review.rating)} / 5
+              </span>
+            </div>
+          </div>
+
+          <blockquote className="border-l-2 border-orange-200 pl-4 sm:pl-6 dark:border-orange-900/50">
+            <p className="max-w-3xl text-xl leading-9 text-slate-700 dark:text-slate-300 sm:text-2xl sm:leading-10">
+              <span className="mr-1 text-2xl text-orange-700 dark:text-orange-700">
+                “
+              </span>
+              {isExpanded || !isTruncated ? review.text : excerpt}
+              {!isExpanded && isTruncated ? (
+                <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">
+                  …
+                </span>
+              ) : null}
+              <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">
+                ”
+              </span>
+            </p>
+
+            {isTruncated ? (
+              <button
+                type="button"
+                onClick={() =>
+                  setExpandedReviewIndex(isExpanded ? null : index)
+                }
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange-700 transition hover:text-orange-800 dark:text-orange-700 dark:hover:text-orange-600"
+              >
+                <span>({isExpanded ? t("readLess") : t("readAll")})</span>
+                <span aria-hidden="true" className="text-orange-300">
+                  {isExpanded ? "—" : "..."}
+                </span>
+              </button>
+            ) : null}
+          </blockquote>
+        </div>
+      </article>
+    );
+  };
+
   return (
     <section
       id="testimonials"
-      className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30 py-16"
+      className="border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-orange-50/20 py-24 dark:border-slate-800 dark:from-slate-900/30 dark:via-slate-900 dark:to-orange-950/10"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="mb-4 inline-flex rounded-full border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 text-sm font-medium text-slate-900 dark:text-orange-700">
             {t("tag")}
           </p>
@@ -160,59 +270,14 @@ export default function Testimonials() {
         ) : null}
 
         {!loading && reviews.length > 0 ? (
-          <div className="mt-10">
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm ring-1 ring-slate-100 dark:ring-slate-800 transition-all hover:shadow-xl hover:ring-orange-200 dark:hover:shadow-orange-900/20 dark:hover:ring-orange-900/50">
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-              >
-                {reviews.map((review, index) => (
-                  <article
-                    key={`${review.author_name}-${review.time ?? index}`}
-                    className="w-full shrink-0 p-6 sm:p-8"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-base font-semibold text-slate-900 dark:text-white">
-                        {maskReviewerName(review.author_name)}
-                      </h3>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-700">
-                        {formatRating(review.rating)} / 5
-                        <Star
-                          size={14}
-                          className="fill-current"
-                          aria-hidden="true"
-                        />
-                      </span>
-                    </div>
-
-                    <p
-                      className="mt-2 text-sm leading-6 text-orange-700 dark:text-orange-700"
-                      aria-label={t("ratingAria", { rating: review.rating })}
-                    >
-                      {stars(review.rating)}
-                    </p>
-
-                    <blockquote className="mt-4 rounded-2xl border border-orange-100 dark:border-orange-900/40 bg-orange-50/60 dark:bg-orange-950/20 px-4 py-3">
-                      <p className="inline-flex items-start gap-2 text-sm leading-7 text-slate-700 dark:text-slate-300 sm:text-base italic">
-                        <MessageSquareQuote
-                          size={16}
-                          className="mt-1 flex-shrink-0 text-orange-700 dark:text-orange-700"
-                          aria-hidden="true"
-                        />
-                        <span>{review.text}</span>
-                      </p>
-                    </blockquote>
-
-                    <p className="mt-5 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                      {review.relative_time_description ??
-                        (review.time
-                          ? new Date(review.time * 1000).toLocaleDateString(
-                              i18n.language,
-                            )
-                          : t("recently"))}
-                    </p>
-                  </article>
-                ))}
+          <div className="mt-14">
+            <div className="relative mx-auto max-w-5xl rounded-[2.75rem] border border-slate-200/70 bg-white/70 p-4 shadow-[0_35px_120px_-80px_rgba(15,23,42,0.45)] ring-1 ring-slate-100/80 backdrop-blur-xl transition-all hover:shadow-[0_38px_130px_-84px_rgba(234,88,12,0.42)] hover:ring-orange-200/70 dark:border-slate-800/70 dark:bg-slate-950/60 dark:ring-slate-800/80 dark:hover:shadow-[0_38px_130px_-84px_rgba(124,45,18,0.58)] dark:hover:ring-orange-900/40 sm:p-6 lg:p-8">
+              <div className="relative overflow-hidden rounded-[2.25rem] bg-transparent">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-white/0 dark:from-orange-950/15 dark:to-transparent" />
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-200 dark:from-orange-800 dark:via-orange-700 dark:to-orange-900" />
+                <div className="relative p-2 sm:p-4 lg:p-6">
+                  {renderReviewCard(reviews[activeIndex], activeIndex, true)}
+                </div>
               </div>
 
               {hasManyReviews ? (

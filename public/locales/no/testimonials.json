@@ -11,6 +11,8 @@
     "next": "Neste omtale",
     "goTo": "Gå til omtale {{index}}"
   },
+  "readAll": "Les hele",
+  "readLess": "Vis mindre",
   "recently": "Nylig",
   "error": "Vi kunne ikke laste omtaler akkurat nå. Prøv igjen om litt.",
   "empty": "Det finnes ingen offentlige omtaler ennå.",
