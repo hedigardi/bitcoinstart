@@ -165,10 +165,10 @@ export default function Testimonials() {
     return (
       <article
         key={`${review.author_name}-${review.time ?? index}`}
-        className={`relative mx-auto w-full max-w-4xl overflow-hidden rounded-[2.5rem] border p-7 shadow-sm transition-all duration-500 sm:p-10 ${
+        className={`relative mx-auto w-full max-w-5xl overflow-hidden rounded-[2.75rem] border border-slate-200/70 bg-white/70 p-4 shadow-[0_35px_120px_-80px_rgba(15,23,42,0.45)] ring-1 ring-slate-100/80 backdrop-blur-xl transition-all duration-500 hover:shadow-[0_38px_130px_-84px_rgba(234,88,12,0.42)] hover:ring-orange-200/70 dark:border-slate-800/70 dark:bg-slate-950/60 dark:ring-slate-800/80 dark:hover:shadow-[0_38px_130px_-84px_rgba(124,45,18,0.58)] dark:hover:ring-orange-900/40 sm:p-6 lg:p-8 ${
           isActive
-            ? "border-orange-100/80 bg-white/92 shadow-[0_36px_110px_-70px_rgba(234,88,12,0.45)] ring-1 ring-orange-100/70 dark:border-orange-900/40 dark:bg-slate-950/92 dark:shadow-[0_36px_110px_-70px_rgba(124,45,18,0.55)] dark:ring-orange-900/30"
-            : "border-slate-200/80 bg-white/80 opacity-60 scale-[0.98] shadow-[0_18px_45px_-40px_rgba(15,23,42,0.35)] dark:border-slate-800 dark:bg-slate-950/80 dark:shadow-[0_18px_45px_-40px_rgba(2,6,23,0.65)]"
+            ? "border-orange-100/80 bg-white/92 dark:border-orange-900/40 dark:bg-slate-950/92"
+            : "opacity-60 scale-[0.98]"
         }`}
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-300/80 to-transparent" />
@@ -201,7 +201,7 @@ export default function Testimonials() {
           </div>
 
           <blockquote className="border-l-2 border-orange-200 pl-4 sm:pl-6 dark:border-orange-900/50">
-            <p className="max-w-3xl text-xl leading-9 text-slate-700 dark:text-slate-300 sm:text-2xl sm:leading-10">
+            <p className="w-full text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl sm:leading-9">
               <span className="mr-1 text-2xl text-orange-700 dark:text-orange-700">
                 “
               </span>
@@ -272,15 +272,7 @@ export default function Testimonials() {
 
         {!loading && reviews.length > 0 ? (
           <div className="mt-14">
-            <div className="relative mx-auto max-w-5xl rounded-[2.75rem] border border-slate-200/70 bg-white/70 p-4 shadow-[0_35px_120px_-80px_rgba(15,23,42,0.45)] ring-1 ring-slate-100/80 backdrop-blur-xl transition-all hover:shadow-[0_38px_130px_-84px_rgba(234,88,12,0.42)] hover:ring-orange-200/70 dark:border-slate-800/70 dark:bg-slate-950/60 dark:ring-slate-800/80 dark:hover:shadow-[0_38px_130px_-84px_rgba(124,45,18,0.58)] dark:hover:ring-orange-900/40 sm:p-6 lg:p-8">
-              <div className="relative overflow-hidden rounded-[2.25rem] bg-transparent">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-white/0 dark:from-orange-950/15 dark:to-transparent" />
-                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-200 dark:from-orange-800 dark:via-orange-700 dark:to-orange-900" />
-                <div className="relative p-2 sm:p-4 lg:p-6">
-                  {renderReviewCard(reviews[activeIndex], activeIndex, true)}
-                </div>
-              </div>
-            </div>
+            {renderReviewCard(reviews[activeIndex], activeIndex, true)}
 
             {hasManyReviews ? (
               <div className="mt-5 flex items-center justify-center gap-2 px-2 sm:px-4 lg:px-6">
