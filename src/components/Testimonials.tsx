@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { MessageSquareQuote } from "lucide-react";
+import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react";
 
 interface GoogleReview {
   author_name: string;
@@ -18,6 +18,7 @@ interface ReviewsResponse {
 }
 
 const MAX_REVIEWS = 6;
+const REVIEW_PREVIEW_LENGTH = 180;
 
 function stars(rating: number): string {
   const safe = Math.max(0, Math.min(5, Math.round(rating)));
@@ -48,7 +49,7 @@ function getReviewExcerpt(text: string): {
   isTruncated: boolean;
 } {
   const normalized = text.trim();
-  const previewLength = Math.max(120, Math.floor(normalized.length / 2));
+  const previewLength = REVIEW_PREVIEW_LENGTH;
 
   if (normalized.length <= previewLength) {
     return { excerpt: normalized, isTruncated: false };
@@ -279,44 +280,47 @@ export default function Testimonials() {
                   {renderReviewCard(reviews[activeIndex], activeIndex, true)}
                 </div>
               </div>
-
-              {hasManyReviews ? (
-                <>
-                  <button
-                    type="button"
-                    onClick={goPrev}
-                    aria-label={t("carousel.prev")}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-3 py-2 text-white backdrop-blur-sm transition hover:bg-black/70"
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    type="button"
-                    onClick={goNext}
-                    aria-label={t("carousel.next")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-3 py-2 text-white backdrop-blur-sm transition hover:bg-black/70"
-                  >
-                    &gt;
-                  </button>
-                </>
-              ) : null}
             </div>
 
             {hasManyReviews ? (
-              <div className="mt-4 flex items-center justify-center gap-2">
-                {reviews.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => setActiveIndex(index)}
-                    aria-label={t("carousel.goTo", { index: index + 1 })}
-                    className={`h-2.5 rounded-full transition-all ${
-                      index === activeIndex
-                        ? "w-8 bg-orange-700"
-                        : "w-2.5 bg-slate-300 dark:bg-slate-700"
-                    }`}
+              <div className="mt-5 flex items-center justify-center gap-2 px-2 sm:px-4 lg:px-6">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label={t("carousel.prev")}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-200 hover:text-orange-700 hover:shadow-md dark:border-slate-800 dark:bg-slate-950/85 dark:text-slate-200 dark:hover:border-orange-900/40 dark:hover:text-orange-700"
+                >
+                  <ChevronLeft size={20} strokeWidth={2.2} aria-hidden="true" />
+                </button>
+
+                <div className="mx-1 flex items-center justify-center gap-2">
+                  {reviews.map((_, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setActiveIndex(index)}
+                      aria-label={t("carousel.goTo", { index: index + 1 })}
+                      className={`h-2.5 rounded-full transition-all ${
+                        index === activeIndex
+                          ? "w-8 bg-orange-700"
+                          : "w-2.5 bg-slate-300 dark:bg-slate-700"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label={t("carousel.next")}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-200 hover:text-orange-700 hover:shadow-md dark:border-slate-800 dark:bg-slate-950/85 dark:text-slate-200 dark:hover:border-orange-900/40 dark:hover:text-orange-700"
+                >
+                  <ChevronRight
+                    size={20}
+                    strokeWidth={2.2}
+                    aria-hidden="true"
                   />
-                ))}
+                </button>
               </div>
             ) : null}
           </div>
