@@ -332,7 +332,7 @@ export default function Testimonials() {
           </div>
         ) : null}
 
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <a
             href={businessProfileUrl || "#contact"}
             target={businessProfileUrl ? "_blank" : undefined}
