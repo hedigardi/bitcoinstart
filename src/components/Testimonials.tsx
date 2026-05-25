@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react";
 
@@ -179,7 +179,7 @@ export default function Testimonials() {
 
         <div className="relative flex flex-col gap-8 sm:gap-10">
           <div className="pr-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-700/70 dark:text-orange-700/70">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-orange-700/70 dark:text-orange-700/70">
               {t("tag")}
             </p>
             <h3 className="mt-3 text-xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-2xl">
@@ -202,34 +202,30 @@ export default function Testimonials() {
 
           <blockquote className="border-l-2 border-orange-200 pl-4 sm:pl-6 dark:border-orange-900/50">
             <p className="w-full text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl sm:leading-9">
-              <span className="mr-1 text-2xl text-orange-700 dark:text-orange-700">
-                “
-              </span>
+              <span className="mr-1 text-2xl text-orange-700 dark:text-orange-700">“</span>
               {isExpanded || !isTruncated ? review.text : excerpt}
-              {!isExpanded && isTruncated ? (
-                <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">
-                  …
-                </span>
-              ) : null}
-              <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">
-                ”
-              </span>
+              {isTruncated ? (
+                <>
+                  {!isExpanded ? (
+                    <span className="text-2xl text-orange-700 dark:text-orange-700"> …</span>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setExpandedReviewIndex(isExpanded ? null : index)
+                    }
+                    className="ml-2 inline-flex items-center text-sm font-semibold text-orange-700 transition hover:text-orange-800 dark:text-orange-700 dark:hover:text-orange-600"
+                  >
+                    ({isExpanded ? t("readLess") : t("readAll")})
+                  </button>
+                  {isExpanded ? (
+                    <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">”</span>
+                  ) : null}
+                </>
+              ) : (
+                <span className="ml-1 text-2xl text-orange-700 dark:text-orange-700">”</span>
+              )}
             </p>
-
-            {isTruncated ? (
-              <button
-                type="button"
-                onClick={() =>
-                  setExpandedReviewIndex(isExpanded ? null : index)
-                }
-                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange-700 transition hover:text-orange-800 dark:text-orange-700 dark:hover:text-orange-600"
-              >
-                <span>({isExpanded ? t("readLess") : t("readAll")})</span>
-                <span aria-hidden="true" className="text-orange-300">
-                  {isExpanded ? "—" : "..."}
-                </span>
-              </button>
-            ) : null}
           </blockquote>
         </div>
       </article>
