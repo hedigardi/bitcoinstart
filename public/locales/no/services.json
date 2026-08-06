@@ -7,12 +7,6 @@
     "choose": "Velg sesjonen som passer deg best, og bestill deretter tidspunkt direkte i kalenderen vår.",
     "tagline": "Begrenset tilgjengelighet i oppstartsfasen."
   },
-  "checkoutModal": {
-    "title": "Fortsett til sikker betaling",
-    "body": "Du er i ferd med å betale for {{session}} via Stripe Checkout. Etter betalingen blir du sendt videre for å velge ønsket tidspunkt i kalenderen.",
-    "cancel": "Avbryt",
-    "continue": "Fortsett til Stripe"
-  },
   "bestFor": "Passer best for",
   "whatWeCover": "Hva vi går gjennom",
   "whatYouLeaveWith": "Dette sitter du igjen med",
@@ -41,6 +35,7 @@
   "services": [
     {
       "title": "Bitcoin Introsesjon",
+      "id": "intro",
       "subheadline": "Fra null til din første tydelige Bitcoin-plan",
       "description": [
         "En 60-minutters sesjon laget for å hjelpe komplette nybegynnere med å forstå Bitcoin tydelig og ta tryggere første steg."
@@ -75,6 +70,7 @@
     },
     {
       "title": "Oppsett av lommebok og sikkerhet",
+      "id": "wallet",
       "subheadline": "Sett opp lommeboken riktig med veiledet støtte",
       "description": [
         "En 90-minutters Bitcoin-coaching-sesjon med praktisk hjelp til å komme i gang med lommebok og sikrere Bitcoin-vaner for nybegynnere."

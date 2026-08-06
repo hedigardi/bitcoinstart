@@ -11,7 +11,10 @@ import {
 import { useTranslation } from "react-i18next";
 import ImagePlaceholder from "./ImagePlaceholder";
 
+type ServiceId = "intro" | "wallet";
+
 type ServiceContent = {
+  id: ServiceId;
   title: string;
   subheadline: string;
   description: string[];
@@ -28,24 +31,28 @@ type ServiceContent = {
 
 const CAL_ORIGIN = "https://www.cal.eu";
 
-const SESSIONS = [
-  { calLink: "bitcoinstart/60min", namespace: "svc-intro" },
-  { calLink: "bitcoinstart/90min", namespace: "svc-wallet" },
-] as const;
+const SESSIONS: Partial<Record<ServiceId, { calLink: string; namespace: string }>> = {
+  intro: { calLink: "bitcoinstart/60min", namespace: "svc-intro" },
+  wallet: { calLink: "bitcoinstart/90min", namespace: "svc-wallet" },
+};
 
-const SERVICE_IMAGE_HINTS = [
-  "Use a bright, minimal desk photo with laptop and notebook to represent intro coaching.",
-  "Use a close-up of hardware wallet + backup sheet setup to represent practical security work.",
-] as const;
+const SERVICE_IMAGE_HINTS: Partial<Record<ServiceId, string>> = {
+  intro: "Use a bright, minimal desk photo with laptop and notebook to represent intro coaching.",
+  wallet: "Use a close-up of hardware wallet + backup sheet setup to represent practical security work.",
+};
 
-const SERVICE_IMAGE_SRCS = [
-  "/bitcoin-intro-session-image.png",
-  "/wallet-and-security-setup-image.png",
-] as const;
+const SERVICE_IMAGE_SRCS: Partial<Record<ServiceId, string>> = {
+  intro: "/bitcoin-intro-session-image.png",
+  wallet: "/wallet-and-security-setup-image.png",
+};
+
+const SERVICE_CORNER_ICONS: Partial<Record<ServiceId, typeof BookOpenText>> = {
+  intro: BookOpenText,
+  wallet: ShieldCheck,
+};
 
 export default function Services() {
   const { t } = useTranslation("services");
-  const serviceCornerIcons = [BookOpenText, ShieldCheck];
 
   useEffect(() => {
     (async () => {
@@ -105,7 +112,8 @@ export default function Services() {
 
         <div className="mt-12 grid gap-8 xl:grid-cols-2 xl:items-stretch">
           {services.map((service, index) => {
-            const CornerIcon = serviceCornerIcons[index] ?? BookOpenText;
+            const session = SESSIONS[service.id];
+            const CornerIcon = SERVICE_CORNER_ICONS[service.id] ?? BookOpenText;
 
             return (
               <motion.div
@@ -136,10 +144,10 @@ export default function Services() {
                     className="mt-5 aspect-[16/9]"
                     title={`${service.title} image`}
                     hint={
-                      SERVICE_IMAGE_HINTS[index] ??
+                      SERVICE_IMAGE_HINTS[service.id] ??
                       "Use a relevant, clean educational image for this service."
                     }
-                    src={SERVICE_IMAGE_SRCS[index]}
+                    src={SERVICE_IMAGE_SRCS[service.id]}
                     alt={service.title}
                   />
                   <div className="mt-5 max-w-3xl space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
@@ -248,16 +256,25 @@ export default function Services() {
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    data-cal-namespace={SESSIONS[index].namespace}
-                    data-cal-link={SESSIONS[index].calLink}
-                    data-cal-origin={CAL_ORIGIN}
-                    data-cal-config='{"layout":"month_view"}'
-                    className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
-                  >
-                    {service.cta}
-                  </button>
+                  {session ? (
+                    <button
+                      type="button"
+                      data-cal-namespace={session.namespace}
+                      data-cal-link={session.calLink}
+                      data-cal-origin={CAL_ORIGIN}
+                      data-cal-config='{"layout":"month_view"}'
+                      className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
+                    >
+                      {service.cta}
+                    </button>
+                  ) : (
+                    <a
+                      href="#contact"
+                      className="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-slate-950 dark:bg-white px-5 py-3 text-sm font-medium text-white dark:text-slate-950 transition hover:bg-orange-800 dark:hover:bg-orange-700 dark:hover:text-white"
+                    >
+                      {t("howToChoose.cta")}
+                    </a>
+                  )}
                   <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-500">
                     {t("disclaimer")}
                   </p>

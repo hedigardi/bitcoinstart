@@ -1,36 +1,21 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-ZKRH1JH2H0"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-ZKRH1JH2H0");
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-K3FSMT5C");
-    </script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the
+      // wrong theme (FOUC). Mirrors the default in App.tsx ("dark").
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme") || "dark";
+          var root = document.documentElement;
+          if (theme === "dark") root.classList.add("dark");
+          root.style.backgroundColor =
+            theme === "dark" ? "#020617" : "#ffffff";
+        } catch (e) {}
+      })();
+    </script>
     <title>
       BitcoinStart Nordics | Beginner-Friendly Bitcoin Guidance for the Nordics
     </title>
@@ -76,7 +61,7 @@
       content="https://bitcoinstart.no/logo-optimized.webp"
     />
 
-    <meta name="theme-color" content="#f97316" />
+    <meta name="theme-color" content="#e18110" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -95,17 +80,6 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-K3FSMT5C"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      >
-      </iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <noscript>
       <main>

@@ -7,12 +7,6 @@
     "choose": "Välj den session som passar dig bäst, och boka sedan din tid direkt i vår kalender.",
     "tagline": "Begränsat antal platser i lanseringsfasen."
   },
-  "checkoutModal": {
-    "title": "Fortsätt till säker betalning",
-    "body": "Du är på väg att betala för {{session}} via Stripe Checkout. Efter betalningen skickas du vidare för att välja önskad tid i kalendern.",
-    "cancel": "Avbryt",
-    "continue": "Fortsätt till Stripe"
-  },
   "bestFor": "Passar bäst för",
   "whatWeCover": "Detta går vi igenom",
   "whatYouLeaveWith": "Detta tar du med dig",
@@ -41,6 +35,7 @@
   "services": [
     {
       "title": "Introduktion till Bitcoin",
+      "id": "intro",
       "subheadline": "Från noll till din första tydliga Bitcoin-plan",
       "description": [
         "En 60-minuters session utformad för att hjälpa kompletta nybörjare att förstå Bitcoin på ett tydligt sätt och ta säkrare första steg."
@@ -75,6 +70,7 @@
     },
     {
       "title": "Plånbok och säkerhetssetup",
+      "id": "wallet",
       "subheadline": "Sätt upp din plånbok på rätt sätt med guidad support",
       "description": [
         "En 90-minuters Bitcoin-coaching-session med praktisk hjälp att komma igång med plånbok och säkrare Bitcoin-vanor för nybörjare."

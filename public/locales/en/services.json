@@ -7,12 +7,6 @@
     "choose": "Choose the session that fits you best, and then book your time directly in our calendar.",
     "tagline": "Limited availability as we launch."
   },
-  "checkoutModal": {
-    "title": "Continue to secure payment",
-    "body": "You are about to pay for {{session}} via Stripe Checkout. After payment, you will be redirected to choose your preferred time in the calendar.",
-    "cancel": "Cancel",
-    "continue": "Continue to Stripe"
-  },
   "bestFor": "Best for",
   "whatWeCover": "What we cover",
   "whatYouLeaveWith": "What you leave with",
@@ -41,6 +35,7 @@
   "services": [
     {
       "title": "Bitcoin Intro Session",
+      "id": "intro",
       "subheadline": "From zero to your first clear Bitcoin plan",
       "description": [
         "A 60-minute session designed to help complete beginners understand Bitcoin clearly and take safer first steps."
@@ -75,6 +70,7 @@
     },
     {
       "title": "Wallet & Security Setup",
+      "id": "wallet",
       "subheadline": "Set up your wallet the right way with guided support",
       "description": [
         "A 90-minute guided Bitcoin coaching session with practical help getting started with wallets and safer Bitcoin habits for beginners."

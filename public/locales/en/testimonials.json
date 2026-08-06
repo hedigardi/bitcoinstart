@@ -2,9 +2,6 @@
   "tag": "Verified Client Reviews",
   "title": "What Clients Say",
   "description": "Public reviews from people who have booked a session with BitcoinStart Nordics.",
-  "countZero": "No public reviews to show yet",
-  "countLabel": "Showing {{count}} recent review",
-  "countLabel_plural": "Showing {{count}} recent reviews",
   "ratingAria": "Rating {{rating}} out of 5",
   "carousel": {
     "prev": "Previous review",
@@ -13,7 +10,6 @@
   },
   "readAll": "Read all",
   "readLess": "Show less",
-  "recently": "Recently",
   "error": "We could not load reviews right now. Please try again shortly.",
   "empty": "There are no public reviews available yet.",
   "cta": "See all reviews"

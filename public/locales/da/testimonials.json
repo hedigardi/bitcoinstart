@@ -2,9 +2,6 @@
   "tag": "Verificerede kundeanmeldelser",
   "title": "Det siger kunderne",
   "description": "Offentlige anmeldelser fra personer, der har booket en session hos BitcoinStart Nordics.",
-  "countZero": "Ingen offentlige anmeldelser at vise endnu",
-  "countLabel": "Viser {{count}} seneste anmeldelse",
-  "countLabel_plural": "Viser {{count}} seneste anmeldelser",
   "ratingAria": "Bedømmelse {{rating}} af 5",
   "carousel": {
     "prev": "Forrige anmeldelse",
@@ -13,7 +10,6 @@
   },
   "readAll": "Læs hele",
   "readLess": "Vis mindre",
-  "recently": "For nylig",
   "error": "Vi kunne ikke indlæse anmeldelser lige nu. Prøv igen om lidt.",
   "empty": "Der er endnu ingen offentlige anmeldelser.",
   "cta": "Se alle anmeldelser"

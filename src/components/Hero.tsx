@@ -66,7 +66,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative space-y-5">
+        <div className="relative isolate space-y-5">
           {/* Welcome video */}
           <div
             className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 aspect-[4/3]"
