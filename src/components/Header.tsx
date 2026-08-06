@@ -82,7 +82,6 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
 
           <button
             onClick={toggleTheme}
-            aria-expanded="false"
             className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-orange-700 dark:hover:text-orange-200 transition-all border border-slate-200 dark:border-slate-800"
             aria-label={t("aria.toggleTheme")}
           >

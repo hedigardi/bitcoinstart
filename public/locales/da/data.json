@@ -28,29 +28,5 @@
       "title": "Uddannelse uden hype",
       "text": "Vi presser ikke beslutninger igennem. Vi hjælper dig først med at forstå Bitcoin tydeligere."
     }
-  ],
-  "bookingProcessTitle": "Hvad sker der efter du booker?",
-  "bookingProcessDescription": "Mange tøver, fordi processen føles uigennemskuelig. Her er præcis hvordan det fungerer:",
-  "bookingSteps": [
-    {
-      "number": 1,
-      "title": "Book din session",
-      "description": "Vælg Bitcoin-sessionen, der passer dine behov — uanset om du er helt ny eller klar til praktisk wallet-opsætning."
-    },
-    {
-      "number": 2,
-      "title": "Vælg et tidspunkt, der passer dig",
-      "description": "Vælg fra tilgængelige tidsslots i vores kalender, der passer bedst til dit skema."
-    },
-    {
-      "number": 3,
-      "title": "Modtag bekræftelse via e-mail",
-      "description": "Vi sender dig en bekræftelse med sessiondetaljer, loginlink og eventuelle forberedelsesmaterialer, du måske har behov for."
-    },
-    {
-      "number": 4,
-      "title": "Delta i din online-session",
-      "description": "Til det planlagte tidspunkt deltager du i en en-til-en Bitcoin-uddannelsessession med klar vejledning og praktisk support."
-    }
   ]
 }

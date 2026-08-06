@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { initAnalytics } from "../analytics";
 
 type ConsentLevel = "essential" | "all";
 
@@ -62,6 +63,12 @@ export default function CookieConsent() {
 
     setAllowAnalytics(existingConsent.analytics);
     setIsVisible(false);
+
+    // Returning visitors who previously accepted analytics cookies get them
+    // loaded again on this visit.
+    if (existingConsent.analytics) {
+      initAnalytics();
+    }
   }, []);
 
   const privacyLink = useMemo(() => "/privacy-policy", []);
@@ -76,11 +83,15 @@ export default function CookieConsent() {
     writeConsent("all", true);
     setAllowAnalytics(true);
     setIsVisible(false);
+    initAnalytics();
   };
 
   const saveSettings = () => {
     writeConsent(allowAnalytics ? "all" : "essential", allowAnalytics);
     setIsVisible(false);
+    if (allowAnalytics) {
+      initAnalytics();
+    }
   };
 
   if (!isVisible) {
